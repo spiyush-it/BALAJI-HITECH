@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Infrastructure Section</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+
+<!-- ============================================================
+  INFRASTRUCTURE SECTION — COPY-PASTE INTEGRATION GUIDE
+  ─────────────────────────────────────────────────────────────
+  STEP 1 → Paste the CSS block into your <style> or .css file
+  STEP 2 → Paste the HTML block wherever you want the section
+  STEP 3 → Paste the JS block just before your </body> tag
+  ─────────────────────────────────────────────────────────────
+  To use a real image: inside .infra-left replace the
+  <div class="img-ph">…</div> with:
+  <img src="your-photo.jpg" alt="Workshop"/>
+============================================================ -->
+
+
+<!-- ════════════════ 1. CSS ════════════════
+  Paste inside your <style> tag or external CSS file
+════════════════════════════════════════════ -->
+<style>
+
+/* ── Reset (scope to infra only to avoid conflicts) ── */
+.infra-section,.infra-section *,.infra-section *::before,.infra-section *::after{
+  box-sizing:border-box;margin:0;padding:0;
+}
+
+/* ── Section wrapper ── */
+.infra-section{
+  background:#fff;
+  padding:80px 24px;
+  font-family:'Inter',sans-serif;
+}
+.infra-inner{
+  max-width:1160px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+@media(max-width:860px){
+  .infra-inner{grid-template-columns:1fr;gap:40px;}
+  .infra-left{position:static!important;}
+}
+
+/* ── Left column ── */
+.infra-left{
+  position:sticky;
+  top:28px;
+}
+
+.infra-heading{
+  font-size:clamp(22px,3vw,34px);
+  font-weight:800;
+  color:#0f3f6b;
+  line-height:1.22;
+  margin-bottom:26px;
+}
+.infra-heading .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .42s ease, transform .42s ease;
+  margin-right:7px;
+}
+.infra-heading.in .word{ opacity:1; transform:translateY(0); }
+
+.infra-img-box{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .65s ease .14s, transform .65s ease .14s;
+}
+.infra-img-box.in{ opacity:1; transform:translateY(0); }
+.infra-img-box img{ display:block; width:100%; height:100%; object-fit:cover; }
+
+/* ── Image placeholder ── */
+.img-ph{
+  width:100%;
+  aspect-ratio:16/12;
+  background:#f0f8ff;
+  border:2px dashed #90caf9;
+  border-radius:16px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:12px; color:#64b5f6;
+  font-size:13px; font-weight:500; text-align:center; line-height:1.55;
+}
+.img-ph svg{ opacity:.35; }
+
+/* ── Right column ── */
+.infra-right{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* ── Card ── */
+.infra-card{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:18px 20px;
+  background:#fff;
+  border:1.5px solid #daedf8;
+  border-radius:12px;
+  position:relative;
+  cursor:default;
+  opacity:0;
+  transform:translateY(22px);
+  transition: opacity .4s ease, transform .4s ease,
+              border-color .25s ease, box-shadow .25s ease;
+}
+.infra-card.in{ opacity:1; transform:translateY(0); }
+
+.infra-card:hover{
+  border-color:#90caf9;
+  box-shadow:0 6px 28px rgba(11,122,191,.13);
+}
+.infra-card:hover .ic-wrap{
+  background:#daedf8;
+  border-color:#90caf9;
+  transform:scale(1.08) rotate(-5deg);
+}
+
+/* Corner-line draw on hover */
+.infra-card::before,
+.infra-card::after{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:12px;
+  pointer-events:none;
+  transition:clip-path .42s cubic-bezier(.4,0,.2,1);
+}
+.infra-card::before{
+  border-top:2.5px solid #0b7abf;
+  border-left:2.5px solid #0b7abf;
+  border-bottom:2.5px solid transparent;
+  border-right:2.5px solid transparent;
+  clip-path:inset(0 100% 100% 0);
+}
+.infra-card::after{
+  border-bottom:2.5px solid #0b7abf;
+  border-right:2.5px solid #0b7abf;
+  border-top:2.5px solid transparent;
+  border-left:2.5px solid transparent;
+  clip-path:inset(100% 0 0 100%);
+}
+.infra-card:hover::before{ clip-path:inset(0 0 0 0); }
+.infra-card:hover::after{  clip-path:inset(0 0 0 0); }
+
+/* ── Icon wrap ── */
+.ic-wrap{
+  flex-shrink:0;
+  width:46px; height:46px;
+  display:flex; align-items:center; justify-content:center;
+  background:#f0f8ff;
+  border:1.5px solid #daedf8;
+  border-radius:10px;
+  transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+/* ── Card text ── */
+.ic-title{
+  font-size:14.5px; font-weight:600;
+  color:#0d1f2d; line-height:1.35; margin-bottom:2px;
+}
+.ic-sub{
+  font-size:12.5px; color:#2b5f8f; line-height:1.5;
+}
+
+/* ── Counter number highlight ── */
+.ic-num{
+  color:#0f4f82;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-0.5px;
+}
+
+</style>
+<!-- ════════════════ END CSS ════════════════ -->
+
+
+<!-- ════════════════ 2. HTML ═══════════════
+  Paste this block wherever you want the section to appear
+════════════════════════════════════════════ -->
+<div class="infra-section">
+  <div class="infra-inner">
+
+    <!-- LEFT: sticky heading + image -->
+    <div class="infra-left">
+      <h2 class="infra-heading js-infra-heading">
+        <span class="word">Built</span><span class="word">for</span><span class="word">Scale.</span>
+        <br>
+        <span class="word">Equipped</span><span class="word">for</span><span class="word">Precision.</span>
+      </h2>
+      <div class="infra-img-box js-infra-reveal">
+        <!-- Replace this placeholder with your real image:
+             <img src="workshop.jpg" alt="Balaji Workshop"/> -->
+        <div class="img-ph">
+          <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+            <rect x="4" y="10" width="46" height="34" rx="4" stroke="#0b7abf" stroke-width="2" fill="none"/>
+            <circle cx="18" cy="22" r="6" stroke="#0b7abf" stroke-width="2" fill="none"/>
+            <path d="M4 36 L15 25 L24 34 L33 24 L50 36"
+              stroke="#0b7abf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span>Your facility / workshop<br>photo goes here</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: 8 feature cards with counter animation -->
+    <!--
+      data-count  = the final number the counter animates to
+      data-prefix = text before the number  (optional)
+      data-suffix = text after  the number  (optional)
+      data-dec    = decimal places to show  (optional, default 0)
+    -->
+    <div class="infra-right" id="js-infra-card-col">
+
+      <!-- Card 1 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="2" y="14" width="5" height="10" rx="1" fill="#0b7abf"/>
+            <rect x="10" y="9" width="5" height="15" rx="1" fill="#0b7abf"/>
+            <rect x="18" y="12" width="5" height="12" rx="1" fill="#42a5f5"/>
+            <path d="M2 13 L13 5 L24 12" stroke="#0b7abf" stroke-width="1.9"
+              stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">
+            <span class="ic-num" data-count="5000" data-suffix=" MT">0</span>
+            annual steel processing capacity
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="3" y="13" width="20" height="11" rx="1.5" fill="#e3f2fd" stroke="#0b7abf" stroke-width="1.6"/>
+            <polygon points="13,3 2,13 24,13" fill="#0b7abf"/>
+            <rect x="10" y="17" width="6" height="7" rx="1" fill="#0b7abf"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">
+            <span class="ic-num" data-count="145000" data-suffix=" ft²">0</span>
+            workshop
+          </p>
+          <p class="ic-sub">Including
+            <span class="ic-num" data-count="42000" data-suffix=" ft²">0</span>
+            covered area
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="9" stroke="#0b7abf" stroke-width="1.7" fill="none"/>
+            <circle cx="13" cy="13" r="3.5" fill="#0b7abf"/>
+            <line x1="13" y1="2"  x2="13" y2="6"  stroke="#0b7abf" stroke-width="1.7" stroke-linecap="round"/>
+            <line x1="13" y1="20" x2="13" y2="24" stroke="#0b7abf" stroke-width="1.7" stroke-linecap="round"/>
+            <line x1="2"  y1="13" x2="6"  y2="13" stroke="#0b7abf" stroke-width="1.7" stroke-linecap="round"/>
+            <line x1="20" y1="13" x2="24" y2="13" stroke="#0b7abf" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">CNC plasma and CNC laser cutting machines</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="3"  y="4"  width="4" height="18" rx="1" fill="#0b7abf"/>
+            <rect x="19" y="4"  width="4" height="18" rx="1" fill="#0b7abf"/>
+            <rect x="3"  y="11" width="20" height="4" rx="1" fill="#42a5f5"/>
+            <rect x="2"  y="22" width="22" height="2" rx="1" fill="#0b7abf" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">Automatic 'H' beam production line</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="2"  y="5" width="22" height="3" rx="1.5" fill="#0b7abf"/>
+            <rect x="6"  y="2" width="14" height="3" rx="1.5" fill="#42a5f5"/>
+            <line x1="13" y1="8" x2="13" y2="17" stroke="#0b7abf" stroke-width="1.6" stroke-dasharray="2 2"/>
+            <rect x="9"  y="17" width="8" height="5" rx="1.2" fill="#0b7abf"/>
+            <circle cx="5"  cy="6.5" r="1.8" fill="#fff" stroke="#0b7abf" stroke-width="1.2"/>
+            <circle cx="21" cy="6.5" r="1.8" fill="#fff" stroke="#0b7abf" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">
+            <span class="ic-num" data-count="3" data-suffix=" ×">0</span>
+            <span class="ic-num" data-count="15" data-suffix=" MT"> 0</span>
+            EOT cranes
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="3"  y="12" width="20" height="12" rx="1.5" fill="#e3f2fd" stroke="#0b7abf" stroke-width="1.5"/>
+            <rect x="6"  y="9"  width="14" height="3"  rx="1" fill="#0b7abf"/>
+            <rect x="9"  y="6"  width="8"  height="3"  rx="1" fill="#42a5f5"/>
+            <rect x="10" y="17" width="6"  height="7"  rx="0.5" fill="#0b7abf" opacity=".45"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">Dedicated stockyard</p>
+          <p class="ic-sub">For raw material &amp; finished goods</p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="10" stroke="#42a5f5" stroke-width="1.4" fill="none" stroke-dasharray="3 3"/>
+            <polygon points="14,2 8,13 13,13 12,24 19,11 13,11" fill="#0b7abf"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">
+            <span class="ic-num" data-count="500" data-suffix=" kVA">0</span>
+            power connection with backup
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="infra-card js-infra-card">
+        <div class="ic-wrap">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="9"  cy="8" r="4" stroke="#0b7abf" stroke-width="1.6" fill="none"/>
+            <circle cx="19" cy="8" r="3" stroke="#42a5f5" stroke-width="1.4" fill="none"/>
+            <path d="M1 23 C1 17 4 14 9 14 C14 14 17 17 17 23"
+              stroke="#0b7abf" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M19 13 C22 13 25 15.5 25 20"
+              stroke="#42a5f5" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <p class="ic-title">
+            <span class="ic-num" data-count="35">0</span>
+            engineers &amp;
+            <span class="ic-num" data-count="250" data-suffix="+">0</span>
+            skilled manpower
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /infra-right -->
+  </div><!-- /infra-inner -->
+</div><!-- /infra-section -->
+<!-- ════════════════ END HTML ════════════════ -->
+
+
+<!-- ════════════════ 3. JS ══════════════════
+  Paste just before your closing </body> tag
+════════════════════════════════════════════ -->
+<script>
+(function(){
+
+  /* ── Helper: easeOutQuart easing ── */
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+
+  /* ── Helper: format large numbers with commas ── */
+  function fmt(n){ return n.toLocaleString('en-IN'); }
+
+  /* ── Counter animation ──────────────────────────
+     Reads data attributes on each .ic-num element:
+       data-count  = target number  (required)
+       data-prefix = text before    (optional)
+       data-suffix = text after     (optional)
+       data-dec    = decimal places (optional, default 0)
+  ─────────────────────────────────────────────── */
+  function animateCounter(el){
+    var target  = parseFloat(el.dataset.count)  || 0;
+    var prefix  = el.dataset.prefix || '';
+    var suffix  = el.dataset.suffix || '';
+    var dec     = parseInt(el.dataset.dec, 10)  || 0;
+    var duration = 1000; /* ms */
+    var start;
+
+    function step(ts){
+      if(!start) start = ts;
+      var elapsed  = ts - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var value    = target * easeOut(progress);
+      el.textContent = prefix + fmt(parseFloat(value.toFixed(dec))) + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + fmt(target) + suffix; /* snap to exact */
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ── 1. HEADING: word-by-word fade on scroll into view ── */
+  var heading = document.querySelector('.js-infra-heading');
+  var words   = heading ? heading.querySelectorAll('.word') : [];
+
+  var headObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      heading.classList.add('in');
+      words.forEach(function(w, i){
+        w.style.transitionDelay = (i * 0.09) + 's';
+      });
+      headObs.unobserve(e.target);
+    });
+  }, { threshold: 0.3 });
+  if(heading) headObs.observe(heading);
+
+  /* ── 2. IMAGE: fade + slide on scroll into view ── */
+  var imgBox = document.querySelector('.js-infra-reveal');
+  var imgObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      imgObs.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+  if(imgBox) imgObs.observe(imgBox);
+
+  /* ── 3. CARDS: cascade slide-in + trigger counters ── */
+  var cards   = document.querySelectorAll('.js-infra-card');
+  var cardCol = document.getElementById('js-infra-card-col');
+  var fired   = false;
+
+  var cardObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting || fired) return;
+      fired = true;
+
+      cards.forEach(function(card, i){
+        setTimeout(function(){
+          card.classList.add('in');
+          /* Start counters inside this card once it appears */
+          card.querySelectorAll('.ic-num[data-count]').forEach(animateCounter);
+        }, i * 100);
+      });
+
+      cardObs.disconnect();
+    });
+  }, { threshold: 0.05 });
+
+  if(cardCol) cardObs.observe(cardCol);
+
+})();
+</script>
+<!-- ════════════════ END JS ════════════════ -->
+
+
+</body>
+</html>

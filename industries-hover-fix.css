@@ -1,0 +1,25 @@
+.industries-list li {
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  color: var(--text);
+}
+
+.industries-list li:hover {
+  background: var(--primary);
+  color: white !important;
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px rgba(47,123,255,0.2);
+}
+
+.sectors-list li, .project-list li, .advantages-list li, .machining-list li {
+  transition: all 0.3s ease !important;
+}
+
+.sectors-list li:hover, .project-list li:hover, .advantages-list li:hover, .machining-list li:hover {
+  background: var(--primary) !important;
+  color: white !important;
+}
