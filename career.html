@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career | Balaji Hitech Pvt. Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Footer CSS from main index.html -->
+    <style>
+    :root {
+      --footer-bg-1: #021224;
+      --footer-bg-2: #031a31;
+      --footer-line: rgba(126, 176, 216, 0.22);
+      --footer-text: #e8f3ff;
+      --footer-muted: #a2bed8;
+      --footer-accent: #2ea8ea;
+      --footer-container: 1520px;
+    }
+
+    .footer-shell,
+    .footer-shell * { box-sizing: border-box; }
+
+    .footer-shell {
+      max-width: var(--footer-container);
+      margin: 0 auto;
+      font-family: "Manrope", sans-serif;
+      color: var(--footer-text);
+      border: 1px solid rgba(64, 117, 159, 0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% -20%, rgba(35, 120, 187, 0.22), transparent 45%),
+        radial-gradient(circle at 90% 8%, rgba(32, 106, 165, 0.18), transparent 42%),
+        linear-gradient(180deg, var(--footer-bg-2) 0%, var(--footer-bg-1) 100%);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .footer-wrap {
+      padding: 24px clamp(16px, 2.6vw, 38px) 16px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 170px 1fr 170px;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--footer-line);
+    }
+
+    .logo-placeholder {
+      width: 170px;
+      height: 68px;
+      border-radius: 10px;
+      border: 1.5px dashed rgba(132, 187, 230, 0.65);
+      background: rgba(8, 35, 61, 0.56);
+      color: #8ec0e6;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+    }
+
+    .footer-nav {
+      display: grid;
+      grid-template-columns: 1.25fr 1.35fr 1fr 1fr 1.15fr;
+      gap: clamp(16px, 2vw, 34px);
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--footer-line);
+      align-items: start;
+    }
+
+    .footer-col h4,
+    .footer-col .heading-link {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      color: #f6fbff;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      margin: 0;
+      color: var(--footer-muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .footer-col a:hover,
+    .footer-col .heading-link:hover {
+      color: #ecf7ff;
+    }
+
+    .stack-links {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .stack-links .heading-link {
+      margin: 0;
+    }
+
+    .placeholder-lines {
+      display: grid;
+      gap: 6px;
+      margin: 0 0 8px;
+    }
+
+    .placeholder-lines span {
+      display: block;
+      width: 100%;
+      max-width: 150px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(78, 138, 183, 0.45) 0%, rgba(78, 138, 183, 0.14) 100%);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .contact-row svg { color: var(--footer-accent); margin-top: 2px; }
+
+    .footer-bottom { padding-top: 14px; }
+
+    .copyright {
+      margin: 0;
+      color: #9ebedd;
+      font-size: 0.95rem;
+    }
+
+    .copyright strong { color: #3bb4f3; }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-top .socials {
+      justify-content: center;
+    }
+
+    .footer-top-spacer {
+      width: 170px;
+      height: 1px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      color: #05233c;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 0.25s ease, background 0.35s ease, color 0.35s ease;
+    }
+
+    .social-btn::before {
+      content: "";
+      position: absolute;
+      left: -35%;
+      top: 120%;
+      width: 170%;
+      height: 170%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.75) 38%, rgba(255, 255, 255, 0) 70%);
+      transition: top 0.55s cubic-bezier(0.22, 0.68, 0, 1.2), transform 0.55s cubic-bezier(0.22, 0.68, 0, 1.2);
+      z-index: 0;
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+
+    .social-btn svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background: #0f4f82;
+      color: #ffffff;
+    }
+
+    .social-btn:hover::before {
+      top: -32%;
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 1180px) {
+      .footer-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 860px) {
+      .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+      .footer-top .socials { justify-content: flex-start; }
+      .footer-top-spacer { display: none; }
+      .footer-nav { grid-template-columns: 1fr; }
+    }
+
+    main {
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 24%),
+        linear-gradient(180deg, #d9dee3 0%, #d4d9de 100%) !important;
+    }
+
+    .contact-section,
+    .career-intro {
+      background: linear-gradient(180deg, #d4d9de 0%, #d9dee3 100%) !important;
+    }
+    </style>
+</head>
+<body>
+      <header class="site-header">
+      <div class="container header-container">
+        <a class="brand brand-title visible" href="./index.html" style="opacity: 1 !important; transform: none !important;">Balaji Hitech Pvt. Ltd.</a>
+        <div class="robot-scene" aria-hidden="true">
+          <div class="robot">
+            <div class="track left"></div>
+            <div class="track right"></div>
+            <div class="chassis">
+              <div class="eye"></div>
+              <div class="neck"></div>
+              <div class="arm">
+                <div class="upper"></div>
+                <div class="lower"></div>
+                <div class="claw"></div>
+              </div>
+            </div>
+          </div>
+          <div class="plant-container">
+            <div class="seed"></div>
+            <div class="stem"></div>
+            <div class="leaf left"></div>
+            <div class="leaf right"></div>
+            <div class="ground"></div>
+          </div>
+        </div>
+        <nav id="site-nav" class="site-nav">
+          <div class="nav-dropdown">
+              <a class="dropdown-btn" href="about.html" aria-haspopup="true">About Us</a>
+            <ul class="dropdown-menu" aria-label="About Us submenu">
+              <!-- <li><a href="about.html#about-overview">Overview</a></li> -->
+              <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+              <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+              <li><a href="#core-principals">Core Values</a></li>
+              <!-- <li><a href="about.html#about-leadership">Leadership Message</a></li> -->
+              <li><a href="about.html#about-management">Management Team</a></li>
+              <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+              <li><a href="about.html#about-certificates">Certificates</a></li>
+            </ul>
+          </div>
+          <div class="nav-dropdown">
+            <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Business Verticals</button>
+            <ul class="dropdown-menu" aria-label="Business Verticals submenu">
+              <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+              <li><a href="process-e.html">Process Equipments</a></li>
+              <li><a href="structures.html">Technological & General Structure</a></li>
+              <li><a href="#product-piping">Piping & Ducting Systems</a></li>
+              <!-- <li><a href="machining.html">Machining Products</a></li> -->
+              <li><a href="agri-equipments.html">Agri Equipments</a></li>
+              <li><a href="erection-commissioning.html">Erection & Commissioning</a></li>
+            </ul>
+          </div>
+          <div class="nav-dropdown">
+            <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Projects</button>
+            <ul class="dropdown-menu" aria-label="Verticals & Applications submenu">
+              <!-- <li><a href="#vertical-sugar">Sugar</a></li>
+              <li><a href="#vertical-water">Water</a></li>
+              <li><a href="#vertical-jaggery">Jaggery</a></li>
+              <li><a href="#vertical-biofuel">Biofuel</a></li>
+              <li><a href="#vertical-product-concentration">Product Concentration</a></li> -->
+            </ul>
+          </div>
+          <a href="#services">Services</a>
+          <a href="#resources">Resources</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="career.html">Careers</a>
+        </nav>
+        <button class="btn btn-primary header-cta" data-open-modal>Get Quote
+        <button id="mobile-menu-button" class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div id="mobile-nav" class="mobile-nav hidden">
+        <a href="about.html#about-overview">About Us</a>
+        <div class="mobile-submenu">
+          <a href="about.html#about-overview">Overview</a>
+          <a href="about.html#about-why-balaji">Why Balaji</a>
+          <a href="about.html#about-philosophy">Corporate Philosophy</a>
+          <a href="about.html#about-values">Core Values</a>
+          <a href="about.html#about-leadership">Leadership Message</a>
+          <a href="about.html#about-management">Management Team</a>
+          <a href="about.html#about-infrastructure">Infrastructure</a>
+          <a href="about.html#about-certificates">Certificates</a>
+        </div>
+        <a href="#verticals">Verticals & Applications</a>
+        <div class="mobile-submenu">
+          <a href="#vertical-sugar">Sugar</a>
+          <a href="#vertical-water">Water</a>
+          <a href="#vertical-jaggery">Jaggery</a>
+          <a href="#vertical-biofuel">Biofuel</a>
+          <a href="#vertical-product-concentration">Product Concentration</a>
+        </div>
+        <a href="#products">Products</a>
+        <div class="mobile-submenu">
+          <a href="machining.html">Machining Products</a>
+          <a href="#product-custom">Custom Fabricated Components</a>
+          <a href="process-e.html">Process Equipments</a>
+          <a href="structures.html">Technological & General Structures</a>
+          <a href="#product-piping">Piping & Ducting Systems</a>
+        </div>
+        <a href="#services">Services</a>
+        <a href="#resources">Resources</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="career.html">Careers</a>
+      </div>
+    </header>
+
+
+<main style="background: #f2f2f7; margin-top: -3rem !important;">
+
+      <!-- Hero section customized for contact -->
+   <section class="contact-hero" style="background-image: url('images/career/career-M.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; height: 70vh; position: relative;">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+        <div class="hero-grid" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2;">
+          <div class="hero-content hero-content-narrow slide-left">
+            <h1 class="fade-up fade-up-1 slide-left" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.7); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; margin-bottom: 1rem;">Career</h1>
+            <p class="fade-up fade-up-2 slide-left" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.7); font-size: 1.3rem; font-weight: 400; letter-spacing: 0.05em; margin: 0 auto 20px; max-width: 600px;">Let’s Build Something Strong Together</p>
+
+            <div style="width: 200px; height: 4px; background: linear-gradient(90deg, #ffffff22, #ffffff88, #ffffffee, #ffffff88, #ffffff22); border-radius: 3px; box-shadow: 0 2px 12px rgba(255,255,255,0.6); margin: 0 auto;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact content -->
+      <section class="contact-section" style="padding: 2rem 0 5rem 0; background: linear-gradient(135deg, #f8fbff 0%, #f4f9fe 100%);">
+
+        <div class="container">
+          <!-- <h2 style="text-align: center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem; color: #0f3f6b;">Contact</h2> -->
+          <section class="contact-content">
+    
+   
+
+<div class="career-intro">
+        <div class="container">
+<!-- <h3 class="career-title fade-up fade-up-1 pulse-effect">Career</h3> -->
+          <p class="career-text fade-up fade-up-2"><strong> We believe progress is powered by people. We’re always looking for skilled, motivated, and forward-thinking individuals, whether experienced professionals or fresh graduates. Our workplace encourages teamwork, new ideas, and continuous learning.</strong></p>
+          <p class="career-text fade-up fade-up-3"><strong>Join us to work on impactful industrial projects, where your contribution matters and your development stays a priority.</strong></p>
+          </div>
+
+          <span>  </span>
+      </div>
+<style>
+.career-intro {
+  background: linear-gradient(135deg, #f8fbff 0%, #f4f9fe 100%);
+  padding: 0.5rem 0;
+  width: 100%;
+}
+.career-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: #0f3f6b;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  display: inline-block;
+  width: 100%;
+  animation: pulseEffect 2s ease-in-out infinite;
+}
+.career-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #2b5f8f;
+  text-align: center;
+  max-width: none;
+  margin: 0 auto 1.5rem;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .career-text { font-size: 1.15rem; padding: 0 1.5rem; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 0px rgba(24,95,165,0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    text-shadow: 0 0 10px rgba(24,95,165,0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 0px rgba(24,95,165,0.4);
+  }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+.fade-up-4 { animation-delay: 0.55s; }
+.fade-up-5 { animation-delay: 0.7s; }
+.fade-up-6 { animation-delay: 0.85s; }
+</style>
+    <section class="presence-section" style="max-width: 800px; margin: 0 auto;">
+
+    <!-- <p class="presence-label" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center;">🌍 Our Presence</p>
+
+    <p class="section-subtitle" style="font-size: 1.2rem; margin-bottom: 3rem; text-align: center;">
+        Operating across India and international locations, delivering excellence in:
+    </p> -->
+<!-- 
+<div class="presence-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
+
+      <div class="presence-item"><span class="icon">⚙️</span> Process Equipment Manufacturing</div>
+      <div class="presence-item"><span class="icon">🏢</span> Technological Steel Structures</div>
+      <div class="presence-item"><span class="icon">🛠️</span> Stainless Steel & Mild Steel Ducting</div>
+      <div class="presence-item"><span class="icon">🚧</span> Site Services (Erection, Installation & Commissioning)</div>
+      <div class="presence-item"><span class="icon">🌾</span> Agro Machinery</div>
+</div> -->
+
+</section>
+
+ <h2 class="fade-up fade-up-1 fade-heading" style="text-align: center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem; color: #0f3f6b;">Get In Touch</h2>
+          <!-- <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 900px; margin: -1.25rem auto 3rem; color: #2b5f8f; font-size: 1.1rem; text-align: center;">
+            <div style="flex: 1; min-width: 220px;">
+              <strong style="color:#185FA5;">Phone:</strong>
+              +91- 9650474041
+            </div>
+            <div style="flex: 1; min-width: 220px;">
+              <strong style="color:#185FA5;">Email:</strong>
+              <a href="mailto:hr@balajihitech.in" style="text-decoration: underline; color: #0f3f6b;">hr@balajihitech.in</a>
+            </div>
+          </div> -->
+          
+          <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto 3rem;">
+            <div class="contact-info" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; padding: 2.5rem; background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(24,95,165,0.15); text-align: center;">
+                <div style="text-align: left; margin-bottom: 2rem;">
+                  
+                  <img src="images/career/Career-6.png" alt="Office Location Map" class="contact-image" style="width: 100%; height: 500px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; display: block;">
+
+
+                  <!-- <h3 class="fade-heading" style="color: #185FA5; margin-bottom: 1rem;">Corporate Office</h3>
+                  <p style="line-height: 1.7; margin-bottom: 1.5rem;">B-47, Sector 63, Noida 201301, U.P., India</p>
+                  <h3 class="fade-heading" style="color: #185FA5; margin-bottom: 1rem;">Works</h3>
+                  <p style="line-height: 1.7; margin-bottom: 1.5rem;">Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha - 244 235, U.P., India</p>
+                  <h2 style="color: #185FA5; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">📞 Get in Touch</h2>
+                  <h3 style="color: #185FA5; margin-bottom: 1rem;">Phone</h3>
+                  <p style="line-height: 1.7; margin-bottom: 1rem;">+91-9780803254 / 9650474041</p>
+                  <h3 style="color: #185FA5; margin-bottom: 1rem;">Email</h3>
+                  <p style="line-height: 1.7;">info@balajihitech.in / marketing@balajihitech.in</p>
+                  <h3 style="color: #185FA5; margin-bottom: 1rem;">🛠️ Careers & Site Hiring</h3>
+                  <p style="line-height: 1.7;">For job opportunities, site roles, and recruitment:<br><a href="mailto:hr@balajihitech.in">hr@balajihitech.in</a></p> -->
+                </div>
+                <!-- <p style="line-height: 1.7; margin-bottom: 1.5rem;">B-47, Sector 63, Noida 201301, U.P., India</p>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Works</h3>
+                <p style="line-height: 1.7; margin-bottom: 1.5rem;">Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha - 244 235, U.P., India</p>
+                <h2 style="color: #185FA5; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">📞 Get in Touch</h2>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Phone</h3>
+                <p style="line-height: 1.7; margin-bottom: 1rem;">+91-9780803254 / 9650474041</p>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Email</h3>
+                <p style="line-height: 1.7;">info@balajihitech.in / marketing@balajihitech.in</p> -->
+              </div>
+              <div class="contact-form" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(24,95,165,0.15);">
+              <form id="contactForm">
+                <input type="text" placeholder="Your Name *" required style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e1e8f0; border-radius: 8px;">
+                <input type="email" placeholder="Your Email *" required style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e1e8f0; border-radius: 8px;">
+                <input type="tel" placeholder="Your Phone" style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e1e8f0; border-radius: 8px;">
+                <input type="text" placeholder="Opening" style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e1e8f0; border-radius: 8px;">
+                <textarea placeholder="Tell us about your self..." rows="6" required style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e1e8f0; border-radius: 8px; flex-grow: 1;"></textarea>
+                <button type="submit" style="background: #185FA5; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">SUBMIT</button>
+
+              </form>
+            </div>
+            </div>
+            
+          </div>
+
+          <!-- <div class="location-container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.566684228!2d77.37564831521702!3d28.61297208234668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a47%3A0x47b3b3b3b3b3b3b3!2s47%2C+B+Block+Road%2C+B+Block%2C+Sector+63%2C+Noida%2C+Uttar+Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div> -->
+        </div>
+      </section>
+    </main>
+
+    <!-- COMPLETE FOOTER FROM MAIN index.html -->
+<footer class="footer-shell">
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <div class="logo-placeholder">Company Logo Placeholder</div>
+        <div class="socials">
+        <a href="https://facebook.com/balajiassociates" class="social-btn fb" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+          </a>
+            <a href="https://in.linkedin.com/in/balaji-hitech-private-limited-74a299376" class="social-btn li" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1zM5.5 9.75h2.86V19H5.5V9.75zM10.25 9.75h2.74v1.26h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V19h-2.86v-4.52c0-1.08-.02-2.46-1.5-2.46-1.5 0-1.73 1.18-1.73 2.39V19h-2.81V9.75z"/></svg>
+          </a>
+
+        </div>
+        <div class="footer-top-spacer" aria-hidden="true"></div>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <a href="about.html" class="heading-link footer-heading-animate">About Us</a>
+          <ul>
+     <li><a href="about.html#about-overview">Overview</a></li>
+              <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+              <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+               <li><a href="about.html#about-values">Core Values</a></li>
+              <li><a href="about.html#about-leadership">Leadership Message</a></li>
+              <li><a href="about.html#about-management">Management Team</a></li>
+              <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+              <li><a href="about.html#about-certificates">Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <a href="#business-areas" class="heading-link footer-heading-animate">Business Verticals</a>
+          <ul>
+            <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+            <li><a href="process-e.html">Process Equipments</a></li>
+            <li><a href="structures.html">Technological & General Structure</a></li>
+            <li><a href="#product-piping">Piping & Ducting Systems</a></li>
+            <li><a href="machining.html">Machining Products</a></li>
+            <li><a href="agri-equipments.html">Agri Equipments</a></li>
+            <li><a href="erection-commissioning.html">Erection & Commissioning</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col stack-links">
+          <a href="#" class="heading-link footer-heading-animate">Projects</a>
+          <div class="placeholder-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+          <a href="#" class="heading-link footer-heading-animate">Safety &amp; Quality Policy</a>
+          <a href="career.html" class="heading-link footer-heading-animate">Careers</a>
+        </div>
+
+        <div class="footer-col stack-links">
+          <a href="#" class="heading-link footer-heading-animate">Downloads</a>
+          <div class="placeholder-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+          <a href="#clients-section" class="heading-link footer-heading-animate">Our Partners</a>
+        </div>
+
+        <div class="footer-col">
+          <a href="contact.html" class="heading-link footer-heading-animate">Contact Us</a>
+          <div class="contact-list">
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+<p>Corporate Office: B-47, Sector 63, Noida 201301, U.P., India<br><br>Works: Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha - 244 235, U.P., India<br><br>Phone: +91-9780803254 / 9650474041<br><br>Email: info@balajihitech.in / marketing@balajihitech.in</p>
+            </div>
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:sales@balajiprojects.co.in">sales@balajiprojects.co.in</a>
+            </div>
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+              <a href="tel:+919780803254">+91 9780803254</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+&copy; 2026 <strong>Balaji Hitech Pvt. Ltd.</strong>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var headings = document.querySelectorAll('.footer-heading-animate');
+
+      headings.forEach(function (heading) {
+        if (heading.dataset.wordsPrepared === 'true') return;
+        var words = heading.textContent.trim().split(/\s+/);
+        heading.innerHTML = words.map(function (word) { return '<span>' + word + '</span>'; }).join(' ');
+        heading.querySelectorAll('span').forEach(function (span) {
+          span.style.opacity = '0';
+          span.style.transform = 'translateY(10px)';
+          span.style.display = 'inline-block';
+          span.style.transition = 'opacity 0.58s ease, transform 0.58s ease';
+        });
+        heading.dataset.wordsPrepared = 'true';
+      });
+
+      var headingObserver = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var spans = entry.target.querySelectorAll('span');
+          spans.forEach(function (span, idx) {
+            setTimeout(function () {
+              span.style.opacity = '1';
+              span.style.transform = 'translateY(0)';
+            }, idx * 165);
+          });
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.35 });
+
+      headings.forEach(function (heading) { headingObserver.observe(heading); });
+    })();
+  </script>
+
+    <a href="#" class="floating-quote-btn" data-open-modal> Get Quote</a>
+
+    <!-- Get Quote Modal -->
+  <div id="quote-modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="modal-title">Get Quote</h2>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="quote-form">
+        <div class="form-group">
+          <label for="full-name">Full Name *</label>
+          <input type="text" id="full-name" name="fullName" required>
+        </div>
+        <div class="form-group">
+          <label for="company-name">Company Name</label>
+          <input type="text" id="company-name" name="companyName">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="requirement">Requirement / Message *</label>
+          <textarea id="requirement" name="requirement" rows="4" required placeholder="Describe your requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+      </form>
+      <div id="quote-success" class="quote-success-message" aria-live="polite">
+        <div class="success-check">✓</div>
+        <p>Query Submitted, Thank you !!</p>
+      </div>
+    </div>
+  </div>
+
+    <script src="scripts.js"></script>
+    <script src="product-navigation-fixed.js"></script>
+  </body>
+</html>
