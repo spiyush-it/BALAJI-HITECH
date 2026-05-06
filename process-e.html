@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Process Equipment Division | Balaji Hitech Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+
+<!-- ═══════════════════ Gallery container design CSS start ═══════════════════ -->
+<style>
+/* ── Gallery section wrapper ── */
+.gallery-section { padding: 64px 0; background: var(--page-bg); }
+.gallery-section .sec-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* ── Grid layout ── */
+.pe-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.pe-row-1 { display: grid; grid-template-columns: 1fr;      gap: 24px; }
+.pe-row-2 { display: grid; grid-template-columns: 1fr 1fr;  gap: 24px; }
+.pe-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.pe-row-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.pe-row-w { display: grid; grid-template-columns: 2fr 1fr;  gap: 24px; } /* wide-left */
+
+/* ── Card (same as erection .pm-card) ── */
+.pe-card {
+  background: #dde3ec;
+  border: 1px solid rgba(13,35,64,.1);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  /* scroll-in start state */
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity    .45s ease,
+    transform  .45s cubic-bezier(.22,.68,0,1.2),
+    box-shadow .35s ease,
+    border-color .3s ease;
+}
+.pe-card.pe-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(13,35,64,.15);
+  border-color: rgba(24,95,165,.28);
+}
+/* Blue top-bar accent (same as erection) */
+.pe-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #185fa5, #2980d4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+  border-radius: 16px 16px 0 0;
+  z-index: 1;
+}
+.pe-card:hover::before { transform: scaleX(1); }
+
+/* ── Image wrapper ── */
+.pe-img-wrap {
+  width: 100%;
+  height: 360px;           /* default */
+  overflow: hidden;
+  background: #c8d0db;
+  flex-shrink: 0;
+}
+/* Tall variants */
+.pe-row-1 .pe-img-wrap  { height: 500px; }
+.pe-row-fw .pe-img-wrap { height: 460px; }
+/* Shorter variants */
+.pe-row-3 .pe-img-wrap  { height: 300px; }
+.pe-row-4 .pe-img-wrap  { height: 260px; }
+.pe-row-w .pe-img-wrap  { height: 360px; }
+
+.pe-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.pe-card:hover .pe-img-wrap img { transform: scale(1.05); }
+
+/* Factory pulse (same as erection) */
+.pe-img-wrap.factory-img img {
+  animation: factoryPulse 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+.pe-img-wrap.factory-img:hover img { animation-play-state: paused; }
+
+/* Gold glow on hover (same as erection) */
+.pe-img-wrap:hover {
+  box-shadow:
+    0 0 0 2px rgba(200,146,42,.55),
+    0 0 28px rgba(200,146,42,.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pe-row-3, .pe-row-4, .pe-row-w { grid-template-columns: 1fr 1fr; }
+  .pe-row-3 .pe-img-wrap,
+  .pe-row-4 .pe-img-wrap,
+  .pe-row-w .pe-img-wrap { height: 240px; }
+}
+@media (max-width: 540px) {
+  .pe-row-2, .pe-row-3, .pe-row-4, .pe-row-w { grid-template-columns: 1fr; }
+  .pe-row-1 .pe-img-wrap { height: 300px; }
+}
+</style>
+<!-- ═══════════════════ Gallery container design CSS end ═══════════════════ -->
+
+ <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Design tokens ── */
+    :root {
+      --bh__bg: #f8fafd;
+      --bh__text: #0f172a;
+      --bh__muted: #5f6f8f;
+      --bh__surface: #ffffff;
+      --bh__primary: #2f7bff;
+      --bh__primary-hover: #1f67f0;
+      --bh__border: #e1e9f5;
+      --bh__shadow: 0 12px 25px rgba(40,72,130,0.12);
+      --bh__radius: 18px;
+      /* footer */
+      --bh__footer-bg-1: #021224;
+      --bh__footer-bg-2: #031a31;
+      --bh__footer-line: rgba(126,176,216,0.22);
+      --bh__footer-text: #e8f3ff;
+      --bh__footer-muted: #a2bed8;
+      --bh__footer-accent: #2ea8ea;
+      --bh__footer-social: #e8b84b;
+      --bh__footer-container: 1520px;
+    }
+
+    /* ══════════════════════════════════
+       SITE HEADER
+    ══════════════════════════════════ */
+    .bh__site-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: linear-gradient(90deg,rgba(255,255,255,0.97),rgba(248,250,255,0.97));
+      border-bottom: 1px solid var(--bh__border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: visible;
+    }
+
+    .bh__header-container {
+      width: 100%;
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 0.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /* ── Brand (logo + name) ── */
+    .bh__brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    /* Logo image – slides in from left */
+    .bh__brand-logo {
+      height: 42px;
+      width: auto;
+      display: block;
+      opacity: 0;
+      transform: translateX(-28px) scale(0.88);
+      transition: opacity 0.55s cubic-bezier(.22,.68,0,1.2),
+                  transform 0.55s cubic-bezier(.22,.68,0,1.2);
+    }
+    .bh__brand-logo.bh__logo-in {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+
+    /* Company name – each word fades up after logo */
+    .bh__brand-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      letter-spacing: 0.02em;
+      color: #1a3c8f;
+      line-height: 1.1;
+      display: inline-block;
+    }
+    .bh__brand-name span {
+      opacity: 0;
+      transform: translateY(12px);
+      display: inline-block;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .bh__brand-name.bh__name-in span { opacity: 1; transform: translateY(0); }
+
+    /* ── Desktop nav ── */
+    .bh__site-nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .bh__site-nav > a {
+      position: relative;
+      font-weight: 500;
+      font-size: 1.02rem;
+      color: var(--bh__muted);
+      padding-bottom: 3px;
+      transition: color 0.23s;
+    }
+    .bh__site-nav > a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: #e11d48;
+      transition: width 0.28s ease;
+    }
+    .bh__site-nav > a:hover { color: #db2777; }
+    .bh__site-nav > a:hover::after { width: 100%; }
+
+    /* ── Dropdown ── */
+    .bh__nav-dropdown { position: relative; display: flex; align-items: center; }
+
+    .bh__dropdown-btn {
+      color: var(--bh__muted);
+      background: none;
+      border: none;
+      font: inherit;
+      font-size: 1.02rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.2rem 0; margin: 0;
+      position: relative;
+      transition: color 0.24s;
+    }
+    .bh__dropdown-btn::after {
+      content: '▾';
+      font-size: 0.72rem;
+      margin-left: 0.25rem;
+      color: #e11d48;
+      display: inline-block;
+      transition: transform 0.24s ease;
+    }
+    .bh__nav-dropdown.bh__open .bh__dropdown-btn,
+    .bh__nav-dropdown:hover .bh__dropdown-btn { color: #db2777; }
+    .bh__nav-dropdown.bh__open .bh__dropdown-btn::after { transform: rotate(180deg); }
+
+    .bh__dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.85rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: #ffffff;
+      border: 1px solid rgba(47,123,255,0.15);
+      border-radius: 14px;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.14), 0 4px 12px rgba(47,123,255,0.1);
+      list-style: none;
+      padding: 0.6rem 0.5rem;
+      margin: 0;
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      z-index: 9999;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.22s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.22s cubic-bezier(0.4,0,0.2,1),
+                  visibility 0.22s;
+    }
+    .bh__dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px; left: 50%;
+      width: 12px; height: 12px;
+      background: #ffffff;
+      border-left: 1px solid rgba(47,123,255,0.15);
+      border-top: 1px solid rgba(47,123,255,0.15);
+      border-radius: 2px 0 0 0;
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .bh__nav-dropdown.bh__open .bh__dropdown-menu,
+    .bh__nav-dropdown:hover .bh__dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .bh__dropdown-menu li a {
+      display: block;
+      position: relative;
+      padding: 0.72rem 1.1rem;
+      font-size: 0.97rem;
+      color: #334155;
+      font-weight: 500;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: color 0.2s;
+    }
+    /* red underline grows left-to-right on hover */
+    .bh__dropdown-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 6px; left: 1.1rem;
+      width: 0; height: 2px;
+      background: #e11d48;
+      border-radius: 999px;
+      transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .bh__dropdown-menu li a:hover { color: #e11d48; background: #fff5f7; }
+    .bh__dropdown-menu li a:hover::after { width: calc(100% - 2.2rem); }
+
+    /* ── Header CTA button ── */
+    .bh__header-cta {
+      display: inline-flex;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      font: 600 0.9rem 'Inter', sans-serif;
+      cursor: pointer;
+      color: #fff;
+      background: var(--bh__primary);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .bh__header-cta:hover { background: var(--bh__primary-hover); }
+
+    /* ── Hamburger ── */
+    .bh__mobile-menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      width: 2rem;
+      height: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+    }
+    .bh__mobile-menu-btn span {
+      display: block;
+      height: 3px;
+      border-radius: 999px;
+      width: 100%;
+      background: var(--bh__text);
+    }
+
+    /* ── Mobile nav ── */
+    .bh__mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--bh__surface);
+      border-top: 1px solid var(--bh__border);
+      font-family: 'Inter', sans-serif;
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+    .bh__mobile-nav > a,
+    .bh__mobile-nav-item > .bh__mobile-nav-parent {
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid var(--bh__border);
+      color: var(--bh__text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .bh__mobile-nav > a:hover,
+    .bh__mobile-nav-item > .bh__mobile-nav-parent:hover { color: var(--bh__primary); background: #f5f8ff; }
+
+    .bh__mobile-nav-item { border-bottom: 1px solid var(--bh__border); }
+    .bh__mobile-nav-item > .bh__mobile-nav-parent { border-bottom: none; color: var(--bh__text); background: none; border: none; width: 100%; text-align: left; font: 600 0.95rem 'Inter', sans-serif; }
+    .bh__mobile-nav-item > .bh__mobile-nav-parent:hover { color: var(--bh__primary); background: #f5f8ff; }
+    .bh__mobile-nav-chevron {
+      display: inline-block;
+      transition: transform 0.25s ease;
+      font-size: 0.75rem;
+      color: var(--bh__muted);
+    }
+    .bh__mobile-nav-item.bh__open .bh__mobile-nav-chevron { transform: rotate(180deg); }
+
+    .bh__mobile-submenu {
+      padding: 0;
+      background: #f8faff;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .bh__mobile-nav-item.bh__open .bh__mobile-submenu { max-height: 600px; }
+    .bh__mobile-submenu a {
+      display: block;
+      padding: 0.65rem 1.5rem 0.65rem 2.2rem;
+      font-size: 0.88rem;
+      color: #4b5e82;
+      font-weight: 500;
+      border-bottom: 1px solid #e8eef8;
+    }
+    .bh__mobile-submenu a:last-child { border-bottom: none; }
+    .bh__mobile-submenu a:hover { color: var(--bh__primary); background: #edf2ff; }
+    .bh__mobile-nav.bh__hidden { display: none !important; }
+
+    /* ══════════════════════════════════
+       MAIN PAGE HERO
+       Self-contained so this snippet does not depend on styles.css.
+    ══════════════════════════════════ */
+    .hero {
+      --hero-navy: #0d1b2a;
+      --hero-white: #ffffff;
+      background-image: url('images/main_page/Landing_page_pic.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: clamp(560px, 82vh, 820px);
+      padding: clamp(96px, 13vh, 150px) 0 clamp(96px, 14vh, 150px);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(7,16,28,0.64), rgba(7,16,28,0.46)),
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(200,146,42,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 10% 80%, rgba(27,58,92,0.46) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(200,146,42,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,146,42,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.86) 58%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative;
+      width: 100%;
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 3vw, 48px);
+    }
+    .hero-content {
+      width: min(100%, 1120px);
+    }
+    .hero-content-narrow {
+      width: min(100%, 1040px);
+    }
+    .hero h1 {
+      margin: 0;
+      font-family: "Manrope", 'Inter', sans-serif;
+      font-size: clamp(46px, 7vw, 92px);
+      font-weight: 900;
+      color: var(--hero-white);
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .hero h1 span {
+      color: var(--hero-white);
+      display: block;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(112px, 1fr));
+      gap: clamp(14px, 1.6vw, 24px);
+      margin-top: clamp(42px, 7vh, 64px);
+      padding-top: clamp(28px, 5vh, 42px);
+      max-width: 1180px;
+      border-top: 1px solid rgba(255,255,255,0.24);
+    }
+    .hero-stat {
+      min-width: 0;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: bhHeroStatIn 0.7s ease forwards;
+    }
+    .hero-stat .num {
+      font-family: "Manrope", 'Inter', sans-serif;
+      font-size: clamp(24px, 2.7vw, 38px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
+    }
+    .hero-stat .label {
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.35;
+    }
+    .hero-stats-fixed .hero-stat:nth-child(1) { animation-delay: 0.36s; }
+    .hero-stats-fixed .hero-stat:nth-child(2) { animation-delay: 0.46s; }
+    .hero-stats-fixed .hero-stat:nth-child(3) { animation-delay: 0.56s; }
+    .hero-stats-fixed .hero-stat:nth-child(4) { animation-delay: 0.66s; }
+    .hero-stats-fixed .hero-stat:nth-child(5) { animation-delay: 0.76s; }
+    .hero-stats-fixed .hero-stat:nth-child(6) { animation-delay: 0.86s; }
+    .fade-up,
+    .slide-left {
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+    .fade-up { animation: bhHeroFadeUp 0.72s ease forwards; }
+    .slide-left { animation-name: bhHeroSlideLeft; animation-duration: 0.82s; animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94); }
+    .fade-up-1 { animation-delay: 0.12s; }
+    .fade-up-2 { animation-delay: 0.22s; }
+    .fade-up-3 { animation-delay: 0.32s; }
+    @keyframes bhHeroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bhHeroSlideLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes bhHeroStatIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 1180px) {
+      .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      .hero { min-height: auto; padding: 86px 0 70px; }
+      .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-stat .label { font-size: 0.68rem; }
+    }
+    @media (max-width: 430px) {
+      .hero-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ── Floating Get Quote ── */
+    .bh__floating-quote-btn {
+      position: fixed;
+      right: 16px;
+      bottom: 28px;
+      z-index: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      background: var(--bh__primary);
+      color: #fff;
+      font: 700 0.9rem 'Inter', sans-serif;
+      border: none;
+      box-shadow: 0 12px 24px rgba(47,123,255,0.3);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .bh__floating-quote-btn:hover { background: var(--bh__primary-hover); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════
+       GET QUOTE MODAL
+    ══════════════════════════════════ */
+    .bh__modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+      z-index: 1000;
+    }
+    .bh__modal-overlay.bh__open { opacity: 1; visibility: visible; }
+
+    .bh__modal-container {
+      background: var(--bh__surface);
+      border-radius: var(--bh__radius);
+      box-shadow: var(--bh__shadow), 0 0 0 1px var(--bh__border);
+      max-width: min(500px, 90vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(-20px) scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+      width: 100%;
+    }
+    .bh__modal-overlay.bh__open .bh__modal-container { transform: translateY(0) scale(1); }
+
+    .bh__modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--bh__border);
+    }
+    .bh__modal-header h2 { margin: 0; font-size: 1.4rem; font-weight: 700; font-family: 'Inter', sans-serif; }
+
+    .bh__modal-close {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: var(--bh__muted);
+      padding: 0.25rem;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .bh__modal-close:hover { background: var(--bh__border); color: var(--bh__text); }
+
+    #bh__quote-form { padding: 1.5rem; font-family: 'Inter', sans-serif; }
+    .bh__form-group { margin-bottom: 1.2rem; }
+    .bh__form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--bh__text);
+    }
+    .bh__form-group input,
+    .bh__form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--bh__border);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bh__bg);
+      color: var(--bh__text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .bh__form-group input:focus,
+    .bh__form-group textarea:focus {
+      outline: none;
+      border-color: var(--bh__primary);
+      box-shadow: 0 0 0 3px rgba(47,123,255,0.1);
+    }
+    #bh__requirement { resize: vertical; min-height: 100px; }
+    .bh__btn-primary {
+      display: inline-flex;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      font: 600 1rem 'Inter', sans-serif;
+      cursor: pointer;
+      color: #fff;
+      background: var(--bh__primary);
+      transition: background 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .bh__btn-primary:hover { background: var(--bh__primary-hover); }
+    .bh__btn-primary:disabled {
+      cursor: wait;
+      opacity: 0.72;
+    }
+    .bh__form-status {
+      min-height: 1.25rem;
+      margin: 0 1.5rem 1.2rem;
+      font: 600 0.88rem 'Inter', sans-serif;
+      color: #b91c1c;
+    }
+    .bh__form-status.bh__ok { color: #166534; }
+    .bh__quote-success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .bh__quote-success-message.bh__visible { display: block; }
+    .bh__success-check {
+      font-size: 3rem;
+      color: #166534;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .bh__footer-shell,
+    .bh__footer-shell * { box-sizing: border-box; }
+
+    .bh__footer-shell {
+      max-width: var(--bh__footer-container);
+      margin: 32px auto 0;
+      font-family: "Manrope", 'Inter', sans-serif;
+      color: var(--bh__footer-text);
+      border: 1px solid rgba(64,117,159,0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #021224;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    }
+
+    .bh__footer-wrap {
+      padding: 24px clamp(16px,2.6vw,38px) 16px;
+    }
+
+    /* ── Footer top row: logo | socials | spacer ── */
+    .bh__footer-top {
+      display: grid;
+      grid-template-columns: 190px 1fr 190px;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--bh__footer-line);
+    }
+
+    /* Company logo in footer */
+    .bh__footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .bh__footer-brand-logo {
+      height: 48px;
+      width: auto;
+      display: block;
+      filter: brightness(1.05);
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .bh__footer-brand-logo.bh__fb-in { opacity: 1; transform: translateX(0); }
+    .bh__footer-brand-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #c8e4ff;
+      line-height: 1.2;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.55s ease 0.15s, transform 0.55s ease 0.15s;
+    }
+    .bh__footer-brand-name.bh__fb-in { opacity: 1; transform: translateX(0); }
+
+    /* Socials */
+    .bh__footer-shell .bh__socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .bh__footer-shell.bh__animate-footer .bh__socials {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bh__footer-shell .bh__social-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(232,184,75,0.45);
+      color: var(--bh__footer-social);
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22,0.68,0,1.25),
+                  background 0.35s, border-color 0.35s, box-shadow 0.35s;
+    }
+    .bh__footer-shell .bh__social-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg,rgba(232,184,75,0.3),transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .bh__footer-shell .bh__social-btn svg {
+      width: 22px; height: 22px;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
+    .bh__footer-shell .bh__social-btn:hover {
+      transform: translateY(-4px) scale(1.08);
+      background: rgba(2,18,36,0.95);
+      border-color: var(--bh__footer-social);
+      box-shadow: 0 16px 40px rgba(200,146,42,0.3), 0 0 20px rgba(232,184,75,0.4);
+    }
+    .bh__footer-shell .bh__social-btn:hover::before { opacity: 1; }
+
+    .bh__footer-top-spacer { width: 190px; }
+
+    /* ── Footer nav columns ── */
+    .bh__footer-nav {
+      display: grid;
+      grid-template-columns: 1.25fr 1.35fr 1fr 1fr 1.15fr;
+      gap: clamp(16px,2vw,34px);
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--bh__footer-line);
+      align-items: start;
+    }
+
+    .bh__footer-col { }
+    .bh__footer-col .bh__heading-link {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      color: #f6fbff;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Heading animation – each word fades up on scroll into view */
+    .bh__footer-heading-animate span {
+      opacity: 0;
+      transform: translateY(10px);
+      display: inline-block;
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .bh__footer-heading-animate.bh__fh-in span { opacity: 1; transform: translateY(0); }
+
+    .bh__footer-col ul {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .bh__footer-col a:hover,
+    .bh__footer-col .bh__heading-link:hover { color: #ecf7ff; }
+
+    .bh__stack-links { display: grid; gap: 12px; align-content: start; }
+    .bh__stack-links .bh__heading-link { margin: 0; }
+
+    .bh__placeholder-lines { display: grid; gap: 6px; margin: 0 0 8px; }
+    .bh__placeholder-lines span {
+      display: block;
+      width: 100%; max-width: 150px; height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,rgba(78,138,183,0.45),rgba(78,138,183,0.14));
+    }
+
+    /* ── Contact column ── */
+    .bh__contact-list { display: grid; gap: 10px; }
+    .bh__contact-row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .bh__contact-row svg { color: var(--bh__footer-accent); margin-top: 2px; }
+
+    /* Map link in contact */
+    .bh__map-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .bh__map-link:hover { color: #ecf7ff; }
+    .bh__map-icon-red { color: #e53e3e !important; flex-shrink: 0; }
+
+    /* ── Footer bottom bar ── */
+    .bh__footer-bottom { padding-top: 14px; color: #9ebedd; font-size: 0.92rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .bh__footer-bottom strong { color: #3bb4f3; }
+
+    /* ── Footer link underline: grows left-to-right on hover (same as dropdown) ── */
+    .bh__footer-col a,
+    .bh__footer-col p {
+      margin: 0;
+      color: var(--bh__footer-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+    .bh__footer-col ul a,
+    .bh__footer-col .bh__heading-link { display: inline-block; }
+    .bh__footer-col ul a::after,
+    .bh__footer-col.bh__stack-links > a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0; height: 2px;
+      background: #e11d48;
+      border-radius: 999px;
+      transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .bh__footer-col ul a:hover::after,
+    .bh__footer-col.bh__stack-links > a:hover::after { width: 100%; }
+    .bh__footer-col a:hover,
+    .bh__footer-col .bh__heading-link:hover { color: #ecf7ff; }
+    .bh__footer-copyright {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .bh__footer-copyright.bh__cb-in { opacity: 1; transform: translateY(0); }
+    /* Built by badge */
+    .bh__built-by {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      color: #4a6278;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+    }
+    .bh__built-by.bh__cb-in { opacity: 1; transform: translateY(0); }
+    .bh__built-by-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      background: rgba(74,98,120,0.35);
+      color: #7baac8;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .bh__built-by-link:hover { background: #0a66c2; color: #fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1180px) {
+      .bh__footer-nav { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 1024px) {
+      .bh__header-container { padding: 0.75rem 1.5rem; }
+      .bh__site-nav { gap: 1.25rem; }
+      .bh__site-nav > a, .bh__dropdown-btn { font-size: 0.88rem; }
+    }
+    @media (max-width: 992px) {
+      .bh__site-nav { display: none; }
+      .bh__mobile-menu-btn { display: flex; }
+      .bh__header-cta { display: inline-flex; }
+      .bh__mobile-nav { display: flex; }
+      /* show mobile get quote inside nav */
+      .bh__mobile-nav-cta {
+        padding: 1rem 1.5rem;
+        display: block;
+      }
+      .bh__mobile-nav-cta .bh__header-cta {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 860px) {
+      .bh__footer-nav { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .bh__header-cta { display: none; }
+    }
+    @media (max-width: 640px) {
+      .bh__footer-top {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+      .bh__footer-top-spacer { display: none; }
+      .bh__footer-nav { grid-template-columns: 1fr; }
+      .bh__footer-shell .bh__socials { gap: 12px; }
+      .bh__footer-shell .bh__social-btn { width: 42px; height: 42px; }
+      .bh__footer-shell .bh__social-btn svg { width: 20px; height: 20px; }
+    }
+    @media (max-width: 480px) {
+      .bh__header-container { padding: 0.65rem 1rem; }
+      .bh__brand-name { font-size: 0.82rem; }
+      .bh__brand-logo { height: 32px; }
+    }
+  </style>
+<style>
+:root{
+  --navy:#0D1B2A;--steel:#1B3A5C;--accent:#C8922A;--gold:#E8B84B;
+  --blue-mid:#185FA5;--blue-deep:#0d3f72;--blue-bright:#2980d4;
+  --blue-light:#e6f1fb;--text-primary:#1a2636;--text-muted:#5a6a7e;
+  --page-bg:#e8edf3;--card-bg:#ffffff;--border:rgba(24,95,165,0.12);
+  --radius:14px;--white:#ffffff;
+  --surface:#f8fafc;--primary:#185FA5;--shadow:0 4px 12px rgba(13,35,64,0.08);--text:#1a2636;
+  --footer-bg-1:#021224;--footer-bg-2:#031a31;--footer-line:rgba(126,176,216,0.22);
+  --footer-text:#e8f3ff;--footer-muted:#a2bed8;--footer-accent:#2ea8ea;
+  --footer-social:#e8b84b;--footer-container:1520px;
+}
+
+.panel-list {
+  list-style: none;
+}
+
+.panel-list li {
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  color: var(--text);
+}
+
+.panel-list li:hover {
+  background: var(--primary);
+  color: white !important;
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px rgba(47,123,255,0.2);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--page-bg);color:var(--text-primary);}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+.site-header{height:64px;min-height:64px;background:#fff;box-shadow:0 2px 12px rgba(13,35,64,.1);position:sticky;top:0;z-index:999;display:flex;align-items:center;}
+.header-container{height:64px;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+.brand{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue-deep);text-decoration:none;letter-spacing:-.01em;}
+.site-nav{display:flex;align-items:center;gap:4px;}
+.site-nav a,.dropdown-btn{font-size:13.5px;font-weight:600;color:var(--text-primary);text-decoration:none;padding:6px 12px;border-radius:8px;border:none;background:none;cursor:pointer;transition:color .2s,background .2s;font-family:'Inter',sans-serif;}
+.site-nav a:hover,.dropdown-btn:hover{color:var(--blue-mid);background:var(--blue-light);}
+.nav-dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 0;min-width:240px;box-shadow:0 12px 36px rgba(13,35,64,.15);z-index:9999;list-style:none;}
+.nav-dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu li a{display:block;padding:9px 18px;font-size:13.5px;color:var(--text-primary);text-decoration:none;transition:background .15s,color .15s;}
+.dropdown-menu li a:hover{background:var(--blue-light);color:var(--blue-mid);}
+.btn.header-cta{background:var(--blue-mid);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-weight:700;font-size:13.5px;cursor:pointer;transition:background .2s;text-decoration:none;}
+.btn.header-cta:hover{background:var(--blue-deep);}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;}
+@media(max-width:900px){.site-nav{display:none;}.mobile-menu-btn{display:flex;}}
+
+/* HERO */
+.hero{background-image:url('images/process-e/main_banner.png');background-size:cover;background-position:center;position:relative;padding:140px 0 160px;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,16,28,0.72),rgba(7,16,28,0.55)),radial-gradient(ellipse 60% 60% at 75% 40%,rgba(200,100,30,0.14) 0%,transparent 70%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,146,42,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,42,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;width:100%;padding:0 48px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,6.5vw,74px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-1px;margin-bottom:16px;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero-sub{font-size:16px;color:#fff !important;max-width:580px;line-height:1.75;font-weight:400;margin-top:10px;}
+.hero-tagline{margin-top:28px;font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;color:#fff !important;font-weight:700;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.7s ease both;}
+.fade-up-1{animation-delay:.1s;}.fade-up-2{animation-delay:.22s;}.fade-up-3{animation-delay:.36s;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.08s;}.reveal-d2{transition-delay:.16s;}.reveal-d3{transition-delay:.24s;}
+
+/* SECTION BASE */
+.sec-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-light);padding:4px 14px;border-radius:100px;margin-bottom:14px;}
+.sec-title{font-family:'Inter',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:800;color:#0f3f6b;letter-spacing:-.01em;line-height:1.12;margin-bottom:12px;}
+.sec-sub{font-size:15px;color:var(--text-muted);line-height:1.75;}
+.section-wrap{padding:80px 0;background:var(--page-bg);}
+.section-wrap.white{background:#fff;}
+
+/* ── ABOUT SECTION: 2-col text + image ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1200px;margin:0 auto;padding:80px 24px;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:32px;padding:60px 20px;}}
+.about-text p{font-size:15.5px;color:var(--text-muted);line-height:1.85;margin-bottom:18px;}
+.about-tagline{font-size:17px;font-weight:700;color:var(--blue-mid);font-style:italic;margin-top:8px;}
+.about-img-wrap{border-radius:18px;overflow:hidden;box-shadow:0 16px 48px rgba(13,35,64,0.15);position:relative;}
+.about-img-wrap img{width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s ease;}
+.about-img-wrap:hover img{transform:scale(1.04);}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,63,114,0.1) 0%,transparent 60%);pointer-events:none;}
+
+/* PEB-style ph-row container */
+.philosophy-section{background:var(--page-bg);padding:0 24px 80px;}
+.philosophy-section .container{position:relative;}
+.philosophy-grid{border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(13,35,64,0.10);}
+.ph-row{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:380px;}
+.ph-row+.ph-row{border-top:1.5px solid rgba(24,95,165,0.10);}
+.ph-img-col{position:relative;overflow:hidden;min-height:380px;height:100%;}
+.ph-img-col img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-img-col img{transform:scale(1.04);}
+.ph-img-ph{width:100%;height:100%;min-height:380px;background:linear-gradient(135deg,#daedf8 0%,#c5e0f5 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#5b9bc7;}
+.ph-img-col::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,63,114,0.12) 0%,transparent 60%);pointer-events:none;transition:opacity 0.4s ease;}
+.ph-row:hover .ph-img-col::after{opacity:0;}
+.ph-text-col{padding:56px 52px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;position:relative;}
+.ph-row.row-bottom .ph-text-col{background:#f7fafd;}
+.ph-text-col::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:3px;background:linear-gradient(180deg,#185FA5 0%,#2980d4 100%);border-radius:0 3px 3px 0;opacity:0;transform:scaleY(0);transform-origin:top;transition:opacity 0.4s ease,transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-text-col::before{opacity:1;transform:scaleY(1);}
+.ph-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#185FA5;background:#e6f1fb;border-radius:100px;padding:5px 16px;margin-bottom:14px;width:fit-content;border:1px solid rgba(24,95,165,0.15);}
+.ph-title-row{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.ph-title-icon{width:42px;height:42px;border-radius:14px;flex:0 0 auto;display:grid;place-items:center;background:linear-gradient(135deg,rgba(24,95,165,0.12),rgba(73,160,233,0.08));border:1px solid rgba(24,95,165,0.12);color:#185FA5;}
+.ph-title-icon svg{width:22px;height:22px;}
+.ph-text-col h3{font-size:clamp(22px,2.5vw,32px);font-weight:800;color:#0d1f2d;margin:0;line-height:1.15;letter-spacing:-.3px;}
+.ph-text-col h3::after{content:'';display:block;width:40px;height:3px;background:linear-gradient(90deg,#185FA5,#2980d4);border-radius:2px;margin-top:12px;transition:width 0.4s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-text-col h3::after{width:80px;}
+.ph-text-col p{font-size:15.5px;color:#4a5e72;line-height:1.82;margin-bottom:14px;}
+.ph-text-col p:last-of-type{margin-bottom:0;}
+.ph-text-col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+.ph-text-col ul li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#4a5e72;line-height:1.65;}
+.ph-text-col ul li::before{content:'';width:7px;height:7px;border-radius:50%;background:#185FA5;flex-shrink:0;margin-top:8px;transition:transform .25s ease,background .25s ease;}
+.ph-text-col ul li:hover::before{transform:scale(1.5);background:#2980d4;}
+.ph-row{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.ph-row.ph-visible{opacity:1;transform:translateY(0);}
+.ph-row.row-bottom{transition-delay:.12s;}
+.ph-img-col{opacity:0;transition:opacity .8s ease .15s,transform .8s cubic-bezier(.25,.46,.45,.94) .15s;}
+.row-top .ph-img-col{transform:translateX(-30px);}
+.row-bottom .ph-img-col{transform:translateX(30px);}
+.ph-row.ph-visible .ph-img-col{opacity:1;transform:translateX(0);}
+.ph-text-col{opacity:0;transition:opacity .8s ease .25s,transform .8s cubic-bezier(.25,.46,.45,.94) .25s;}
+.row-top .ph-text-col{transform:translateX(30px);}
+.row-bottom .ph-text-col{transform:translateX(-30px);}
+.ph-row.ph-visible .ph-text-col{opacity:1;transform:translateX(0);}
+@media(max-width:780px){
+  .philosophy-section{padding:0 20px 60px;}
+  .ph-row{grid-template-columns:1fr;min-height:auto;}
+  .ph-img-col{min-height:260px;order:0!important;}
+  .ph-text-col{padding:36px 28px;order:1!important;}
+  .row-top .ph-img-col,.row-bottom .ph-img-col{transform:translateY(-20px);}
+  .row-top .ph-text-col,.row-bottom .ph-text-col{transform:translateY(20px);}
+}
+
+/* ── TWO-PANEL SECTION: Industries + Equipment ── */
+.two-panel{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:0 24px 80px;}
+@media(max-width:700px){.two-panel{grid-template-columns:1fr;}}
+.panel-card{background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(13,35,64,.08);border:1px solid var(--border);position:relative;overflow:hidden;}
+.panel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0;}
+.panel-card.blue-accent::before{background:linear-gradient(90deg,var(--blue-mid),var(--blue-bright));}
+.panel-card.gold-accent::before{background:linear-gradient(90deg,var(--accent),var(--gold));}
+.panel-card h3{font-size:16px;font-weight:800;color:#0f3f6b;letter-spacing:.04em;text-transform:uppercase;margin-bottom:22px;}
+.panel-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.panel-list li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--text-primary);line-height:1.5;font-weight:500;}
+.panel-list li::before{content:'';width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.panel-card.blue-accent .panel-list li::before{background:var(--blue-mid);}
+.panel-card.gold-accent .panel-list li::before{background:var(--accent);}
+
+/* ── PORTFOLIO BANNER ── */
+.portfolio-banner{position:relative;overflow:hidden;min-height:380px;display:flex;align-items:center;background:#0d1f36;}
+.portfolio-banner-bg{position:absolute;inset:0;background-image:url('images/pe/pe-portfolio-banner.png');background-size:cover;background-position:center;}
+.portfolio-banner-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,0.86) 0%,rgba(13,35,64,0.70) 100%);}
+.portfolio-banner-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,146,42,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,42,0.05) 1px,transparent 1px);background-size:60px 60px;}
+@keyframes scanLine{0%{top:-10%;}100%{top:110%;}}
+.portfolio-banner::before{content:'';position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,146,42,.5),transparent);animation:scanLine 4s linear infinite;z-index:3;}
+.portfolio-banner-inner{position:relative;z-index:2;padding:72px 48px;max-width:1200px;margin:0 auto;width:100%;text-align:center;}
+.portfolio-banner-inner h2{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,64px);font-weight:900;color:#fff;letter-spacing:-1px;margin:14px 0 12px;}
+.portfolio-banner-inner h2 span{color:var(--gold);}
+.portfolio-banner-inner p{font-size:16px;color:rgba(255,255,255,.72);line-height:1.7;max-width:560px;margin:0 auto;}
+
+/* ── PHOTO GALLERY GRID ── */
+.gallery-section{padding:64px 0;background:var(--page-bg);}
+.gallery-grid{display:grid;gap:6px;}
+/* Row 1: 1 full-width tall */
+.gallery-row-1{display:grid;grid-template-columns:1fr;margin-bottom:6px;}
+.gallery-row-1 .gal-img{height:520px;}
+/* Row 2: 3 equal */
+.gallery-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px;}
+.gallery-row-3 .gal-img{height:300px;}
+/* Row 3: 2 equal */
+.gallery-row-2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px;}
+.gallery-row-2 .gal-img{height:380px;}
+/* Row 4: 1+2 (wide left) */
+.gallery-row-wide{display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:6px;}
+.gallery-row-wide .gal-img{height:360px;}
+/* Row 5: 3 equal */
+.gallery-row-5{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px;}
+.gallery-row-5 .gal-img{height:280px;}
+/* Row 6: 2 equal tall */
+.gallery-row-6{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px;}
+.gallery-row-6 .gal-img{height:400px;}
+/* Row 7: 1 full-width */
+.gallery-row-fw{display:grid;grid-template-columns:1fr;margin-bottom:6px;}
+.gallery-row-fw .gal-img{height:460px;}
+/* Row 8: 4 equal */
+.gallery-row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;}
+.gallery-row-4 .gal-img{height:260px;}
+/* Row 9: 3 equal */
+.gallery-row-9{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.gallery-row-9 .gal-img{height:300px;}
+
+.gal-img{overflow:hidden;background:linear-gradient(135deg,#1b3a5c,#0d2340);position:relative;}
+.gal-img img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .4s ease;}
+.gal-img:hover img{filter:brightness(1.08);}
+.gal-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(7,16,28,0.3) 100%);pointer-events:none;opacity:0;transition:opacity .4s;}
+.gal-img:hover::after{opacity:1;}
+/* ── FACTORY PULSE + GLOW (gallery images) ── */
+.factory-img img{animation:factoryPulse 4s ease-in-out infinite;transform-origin:center center;}
+@keyframes factoryPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+.factory-img:hover img{animation-play-state:paused;}
+/* Edge glow on hover — uses ::before pseudo so it doesn't touch the img animation */
+.gal-img{--glow:0;}
+.gal-img:hover{--glow:1;box-shadow:0 0 0 2px rgba(200,146,42,.6),0 0 28px rgba(200,146,42,.35),0 0 60px rgba(24,95,165,.25);}
+
+
+@media(max-width:900px){
+  .gallery-row-3,.gallery-row-wide,.gallery-row-5,.gallery-row-4{grid-template-columns:1fr 1fr;}
+  .gallery-row-3 .gal-img,.gallery-row-wide .gal-img,.gallery-row-5 .gal-img,.gallery-row-4 .gal-img{height:240px;}
+  .gallery-row-9{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:540px){
+  .gallery-row-3,.gallery-row-2,.gallery-row-wide,.gallery-row-4,.gallery-row-5,.gallery-row-6,.gallery-row-9{grid-template-columns:1fr;}
+  .gallery-row-1 .gal-img,.gallery-row-fw .gal-img{height:300px;}
+}
+
+/* FOOTER */
+:root{--footer-social:#e8b84b;--footer-container:1520px;}
+.footer-shell,.footer-shell *{box-sizing:border-box;}
+.footer-shell{width:100%;max-width:none;margin:0;font-family:'Inter',sans-serif;color:var(--footer-text);border:0;border-radius:0;overflow:hidden;background:#021224;box-shadow:0 -14px 42px rgba(0,0,0,.22);}
+.footer-wrap{width:100%;max-width:var(--footer-container);margin:0 auto;padding:24px clamp(16px,2.6vw,38px) 16px;}
+.footer-top{display:grid;grid-template-columns:170px 1fr 170px;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--footer-line);}
+.logo-placeholder{width:170px;height:68px;border-radius:10px;border:1.5px dashed rgba(132,187,230,.65);background:rgba(8,35,61,.56);color:#8ec0e6;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;}
+.footer-nav{display:grid;grid-template-columns:1.25fr 1.35fr 1fr 1fr 1.15fr;gap:clamp(16px,2vw,34px);padding:24px 0 20px;border-bottom:1px solid var(--footer-line);align-items:start;}
+.footer-col h4,.footer-col .heading-link{margin:0 0 12px;font-size:1.18rem;line-height:1.2;color:#f6fbff;font-weight:800;text-decoration:none;display:inline-block;}
+.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.footer-col a,.footer-col p{margin:0;color:var(--footer-muted);text-decoration:none;font-size:.94rem;line-height:1.45;font-weight:500;}
+.footer-col a:hover,.footer-col .heading-link:hover{color:#ecf7ff;}
+.stack-links{display:grid;gap:12px;align-content:start;}
+.stack-links .heading-link{margin:0;}
+.placeholder-lines{display:grid;gap:6px;margin:0 0 8px;}
+.placeholder-lines span{display:block;width:100%;max-width:150px;height:8px;border-radius:999px;background:linear-gradient(90deg,rgba(78,138,183,.45) 0%,rgba(78,138,183,.14) 100%);}
+.contact-list{display:grid;gap:10px;}
+.contact-row{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;}
+.contact-row svg{color:var(--footer-accent);margin-top:2px;}
+.footer-bottom{padding-top:14px;color:#9ebedd;font-size:.95rem;}
+.footer-bottom strong{color:#3bb4f3;}
+.footer-shell .socials{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;opacity:0;transform:translateY(30px);}
+.footer-shell .socials.animate-in,.footer-shell.animate-footer .socials{opacity:1;transform:translateY(0);animation:footerSocialFadeIn .8s cubic-bezier(.25,.46,.45,.94) both;}
+@keyframes footerSocialFadeIn{from{opacity:0;transform:translateY(30px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+.footer-top-spacer{width:170px;height:1px;}
+.footer-shell .social-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1.5px solid rgba(232,184,75,.45);color:var(--footer-social);text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.4);position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.22,.68,0,1.25),background .35s ease,border-color .35s ease;}
+.footer-shell .social-btn svg{width:22px;height:22px;position:relative;z-index:1;}
+.footer-shell .social-btn:hover{transform:translateY(-4px) scale(1.08);background:rgba(2,18,36,.95);border-color:var(--footer-social);box-shadow:0 16px 40px rgba(200,146,42,.3);}
+@media(max-width:1180px){.footer-nav{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:860px){.footer-nav{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:640px){.footer-top{grid-template-columns:1fr;justify-items:start;}.footer-shell .socials{justify-content:flex-start;}.footer-top-spacer{display:none;}.footer-nav{grid-template-columns:1fr;}}
+
+/* FLOATING & MODAL */
+.floating-quote-btn{position:fixed;bottom:28px;right:28px;z-index:9000;background:var(--blue-mid);color:#fff;font-size:13.5px;font-weight:700;padding:12px 22px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(24,95,165,.4);transition:transform .2s,box-shadow .2s;}
+.floating-quote-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(24,95,165,.5);}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-container{background:#fff;border-radius:20px;padding:36px;width:min(520px,calc(100vw - 32px));max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 28px 70px rgba(0,0,0,.3);}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.modal-header h2{font-size:1.4rem;font-weight:800;color:#0f3f6b;}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);padding:4px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:6px;}
+.form-group input,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text-primary);background:#fafafa;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--blue-mid);}
+.btn.btn-primary{background:var(--blue-mid);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;width:100%;transition:background .2s;}
+.btn.btn-primary:hover{background:var(--blue-deep);}
+.quote-success-message{display:none;text-align:center;padding:32px;}
+.success-check{font-size:48px;color:#22c55e;margin-bottom:12px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+ <header class="bh__site-header">
+    <div class="bh__header-container">
+
+      <!-- Brand: logo + company name -->
+      <a class="bh__brand-wrap" href="./index.html" aria-label="Balaji Hitech Pvt. Ltd. – Home">
+        <img
+          class="bh__brand-logo"
+          id="bh__brand-logo"
+          src="images/b-logo.png"
+          alt="Balaji Hitech logo"
+          width="42"
+          height="42"
+        />
+        <span class="bh__brand-name" id="bh__brand-name">Balaji Hitech Pvt. Ltd.</span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav id="bh__site-nav" class="bh__site-nav" aria-label="Main navigation">
+
+        <div class="bh__nav-dropdown">
+          <a class="bh__dropdown-btn" href="about.html" aria-haspopup="true">About Us</a>
+          <ul class="bh__dropdown-menu" aria-label="About Us submenu">
+            <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+            <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+            <li><a href="about.html#core-principals">Core Values</a></li>
+            <li><a href="about.html#about-management">Management Team</a></li>
+            <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+            <li><a href="about.html#about-certificates">Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Business Verticals</button>
+          <ul class="bh__dropdown-menu" aria-label="Business Verticals submenu">
+            <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+            <li><a href="process-e.html">Process Equipments</a></li>
+            <li><a href="structures.html">Technological &amp; General Structure</a></li>
+            <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+            <li><a href="agri-equipments.html">Agri Equipments</a></li>
+            <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Projects</button>
+          <ul class="bh__dropdown-menu" aria-label="Projects submenu"></ul>
+        </div>
+
+        <a href="contact.html">Contact Us</a>
+        <a href="career.html">Careers</a>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Download</button>
+          <ul class="bh__dropdown-menu" aria-label="Download submenu">
+            <li><a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a></li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <button class="bh__header-cta" data-open-modal>Get Quote</button>
+
+      <button id="bh__mobile-menu-button" class="bh__mobile-menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile navigation panel -->
+    <nav id="bh__mobile-nav" class="bh__mobile-nav bh__hidden" aria-label="Mobile navigation">
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          About Us <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="about.html">About Us (Overview)</a>
+          <a href="about.html#about-why-balaji">Why Balaji</a>
+          <a href="about.html#about-philosophy">Corporate Philosophy</a>
+          <a href="about.html#core-principals">Core Values</a>
+          <a href="about.html#about-management">Management Team</a>
+          <a href="about.html#about-infrastructure">Infrastructure</a>
+          <a href="about.html#about-certificates">Certificates</a>
+        </div>
+      </div>
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          Business Verticals <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="peb.html">Pre-Engineered Buildings (PEB)</a>
+          <a href="process-e.html">Process Equipments</a>
+          <a href="structures.html">Technological &amp; General Structure</a>
+          <a href="ducting.html">Piping &amp; Ducting Systems</a>
+          <a href="agri-equipments.html">Agri Equipments</a>
+          <a href="erection.html">Erection &amp; Commissioning</a>
+        </div>
+      </div>
+
+      <a href="#">Projects</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="career.html">Careers</a>
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          Download <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a>
+        </div>
+      </div>
+
+      <div class="bh__mobile-nav-cta">
+        <button class="bh__header-cta" data-open-modal>Get Quote</button>
+      </div>
+
+    </nav>
+  </header>
+
+<!-- HERO BANNER -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;opacity:.9;">Business Verticals · Balaji Hitech</span>
+      <h1 class="fade-up fade-up-1">Process Equipment<br><em>Division</em></h1>
+      <p class="hero-sub fade-up fade-up-2">Trusted manufacturer and supplier of high-quality process equipment — with strong specialization in Distillery, Ethanol, and ENA plants.</p>
+      <p class="hero-tagline fade-up fade-up-3">Performance-Driven Solutions for Modern Process Industries</p>
+    </div>
+  </div>
+</header>
+
+<main style="background:#e8edf3;">
+
+<!-- ABOUT SECTION -->
+<div class="about-grid reveal">
+  <div class="about-text">
+    <span class="sec-eyebrow">About the Division</span>
+    <h2 class="sec-title">Trusted Process Equipment Partner — Distillery, Ethanol &amp; ENA</h2>
+    <p>Balaji is a trusted manufacturer and supplier of <strong>high-quality process equipment</strong>, with a strong specialization in <strong>Distillery, Ethanol, and ENA plants</strong>. Backed by deep industry expertise and years of hands-on experience, we deliver reliable, performance-driven solutions that meet the evolving demands of modern process industries.</p>
+    <p>Our comprehensive product portfolio is thoughtfully engineered to support <strong>every stage of production</strong>, offering customized equipment designed to meet the specific requirements of Distillery, Ethanol, and ENA operations. With a commitment to precision, quality, and long-term reliability, Balaji Associates stands as a dependable partner for process excellence.</p>
+    <p>In addition, we excel in manufacturing process equipment for a wide range of industries — every solution engineered with precision and built to align seamlessly with client-specific requirements, drawings, and standards.</p>
+    <p class="about-tagline">A dependable partner for process excellence.</p>
+  </div>
+  <div class="about-img-wrap">
+    <img src="images/process-e/portfolio/pe-40A.jpg" alt="Process Equipment — Distillery and Ethanol plants"
+         onerror="this.parentNode.style.background='linear-gradient(135deg,#1b3a5c,#185fa5)';this.style.display='none'"/>
+  </div>
+</div>
+<!-- peb container goes here-->
+
+<!-- INDUSTRIES + CORE SPECIALIZATION -->
+<div class="two-panel">
+  <div class="panel-card blue-accent reveal">
+    <h3>Industries We Serve</h3>
+    <ul class="panel-list">
+      <li>Distilleries and Alcohol plants</li>
+      <li>Sugar Factories</li>
+      <li>Food Processing</li>
+      <li>Cement</li>
+      <li>Power &amp; Energy</li>
+      <li>Chemical &amp; Process Plants</li>
+      <li>Pharmaceuticals</li>
+      <li>Paper &amp; Fertilizer</li>
+      <li>Steel</li>
+      <li>ZLD (Zero Liquid Discharge) Systems</li>
+    </ul>
+  </div>
+  <div class="panel-card gold-accent reveal reveal-d1">
+    <h3>EQUIPMENT WE MAKE</h3>
+    <ul class="panel-list">
+      <li>Heat Exchangers</li>
+      <li>Reactors &amp; Columns</li>
+      <li>Ducting Systems</li>
+      <li>Tanks &amp; Vessels</li>
+      <li>Fabricated Pipelines</li>
+      <li>Technological &amp; other Structure</li>
+      <li>Other Fabricated Equipment</li>
+      <li>Foundation Bolts, Sag Rods</li>
+      <li>Flanges &amp; Manholes</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PORTFOLIO BANNER (Page 4 of PDF) -->
+<section class="portfolio-banner" id="portfolio">
+  <div class="portfolio-banner-bg"></div>
+  <div class="portfolio-banner-grid"></div>
+  <div class="portfolio-banner-inner reveal">
+    <span class="sec-eyebrow" style="background:rgba(255,255,255,.1);color:var(--gold);">Engineering Capabilities &amp; Deliverables</span>
+    <h2><span>Portfolio</span></h2>
+    <p>A showcase of precision-fabricated process equipment delivered across industries — from large-scale pressure vessels to intricate heat exchangers and custom structural components.</p>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY (Pages 5–33 of PDF) -->
+<section class="gallery-section">
+
+  <!-- Section heading — same as before -->
+  <div class="sec-header">
+    <span class="sec-eyebrow reveal">Work Delivered</span>
+    <h2 class="sec-title reveal">Our Fabrication Portfolio</h2>
+    <p class="sec-sub reveal" style="max-width:700px;">Every image represents a project completed — from precision heat exchangers and large pressure vessels to on-site assembly and dispatch-ready equipment.</p>
+  </div>
+
+  <div class="pe-grid">
+
+    <!-- Row 1 : 1 full-width tall -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-01.png" alt="Heat exchangers being loaded by crane" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 2 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:460px;"><img src="images/process-e/portfolio/pe-02.png" alt="Long column vessel on transport truck" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 3 : 2 side-by-side -->
+    <div class="pe-row-2">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-03a.png" alt="Large cylindrical tank being fabricated" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-03b.png" alt="Vertical storage tank" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 4 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:460px;"><img src="images/process-e/portfolio/pe-05.png" alt="Pressure vessels in fabrication yard" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 5 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:440px;"><img src="images/process-e/portfolio/pe-42L.png" alt="Equipment loaded on truck at factory" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 6 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:440px;"><img src="images/process-e/portfolio/pe-05a.png" alt="Equipment loaded on truck at factory" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 7 : 3 col -->
+    <div class="pe-row-3">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-06.png" alt="Heat exchanger on transport truck at night" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-07.png" alt="Two tanks on transport truck" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/process-e/portfolio/pe-07a.png" alt="Multiple vessels in yard" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 8 : 4 col -->
+    <!-- <div class="pe-row-4">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-09a.png" alt="Vessel fabrication" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-09b.png" alt="Large vessel opening" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-09c.png" alt="Horizontal vessel on support" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-09d.png" alt="Vessel with roller" onerror="this.style.display='none'" /></div>
+      </div>
+    </div> -->
+
+    <!-- Row 9 : 3 col -->
+    <div class="pe-row-3">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:340px;"><img src="images/process-e/portfolio/pe-08.png" alt="Large spherical vessel in fabrication" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:340px;"><img src="images/process-e/portfolio/pe-07b.png" alt="Vessel head fabrication" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:340px;"><img src="images/pe/pe-11b.png" alt="Conical vessel" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 10 : 2 col -->
+    <div class="pe-row-2">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:340px;"><img src="images/pe/pe-12a.png" alt="Small heat exchangers on supports" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:340px;"><img src="images/pe/pe-12b.png" alt="Cone-shaped vessel" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 11 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:460px;"><img src="images/pe/pe-13.png" alt="Two large jacketed vessels on transport" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 12 : 3 col -->
+    <div class="pe-row-3">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:360px;"><img src="images/pe/pe-14.png" alt="Conical bottom fermenters in factory" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:360px;"><img src="images/pe/pe-15.png" alt="Stainless steel storage tanks" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:360px;"><img src="images/pe/pe-16.png" alt="Large column under fabrication" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 13 : 2 col -->
+    <div class="pe-row-2">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:380px;"><img src="images/pe/pe-17.png" alt="Heat exchangers in workshop" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:380px;"><img src="images/pe/pe-18a.png" alt="Galvanized heat exchangers lined up" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 14 : 3 col -->
+    <div class="pe-row-3">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-19.png" alt="Vessels wrapped in green tarp on truck" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-20.png" alt="Single large vessel wrapped on truck night" onerror="this.style.display='none'" /></div>
+      </div>
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img"><img src="images/pe/pe-21.png" alt="Single large vessel wrapped day" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- Row 15 : 1 full-width -->
+    <div class="pe-row-1">
+      <div class="pe-card">
+        <div class="pe-img-wrap factory-img" style="height:460px;"><img src="images/pe/pe-22.png" alt="Row of horizontal storage tanks" onerror="this.style.display='none'" /></div>
+      </div>
+    </div>
+
+    <!-- ── Add more rows here following the same pattern ── -->
+
+  </div><!-- /pe-grid -->
+</section>
+
+
+<!-- ═══════════════════ STEP 3: JS — paste inside your DOMContentLoaded block ═══════════════════
+     (Sirf tab add karein agar already .pm-card stagger JS nahi hai process-e.html mein)
+-->
+<script>
+// pe-card scroll-in stagger (same logic as erection pm-card)
+(function () {
+  var peCards = document.querySelectorAll('.pe-card');
+  if (!peCards.length) return;
+
+  var peObs = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var card  = entry.target;
+      var cards = Array.from(card.closest('.pe-row-1, .pe-row-2, .pe-row-3, .pe-row-4, .pe-row-w')
+                    ? card.parentElement.querySelectorAll('.pe-card')
+                    : [card]);
+      var idx = cards.indexOf(card);
+      setTimeout(function () { card.classList.add('pe-in'); }, idx * 90);
+      obs.unobserve(card);
+    });
+  }, { threshold: 0.15 });
+
+  peCards.forEach(function (c) { peObs.observe(c); });
+})();
+</script>
+
+</main>
+
+<!-- FOOTER (exact from peb.html) -->
+ <footer class="bh__footer-shell" id="bh__footer-shell">
+    <div class="bh__footer-wrap">
+
+      <!-- Top bar: brand | socials | spacer -->
+      <div class="bh__footer-top">
+
+        <a class="bh__footer-brand" href="./index.html" aria-label="Balaji Hitech home">
+          <img class="bh__footer-brand-logo" id="bh__footer-brand-logo" src="images/b-logo.png" alt="Balaji Hitech logo" width="48" height="48" />
+          <span class="bh__footer-brand-name" id="bh__footer-brand-name">Balaji Hitech Pvt. Ltd.</span>
+        </a>
+
+        <div class="bh__socials" id="bh__footer-socials">
+          <a href="https://facebook.com/balajiassociates" class="bh__social-btn fb" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+          </a>
+          <a href="https://in.linkedin.com/in/balaji-hitech-private-limited-74a299376" class="bh__social-btn li" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1zM5.5 9.75h2.86V19H5.5V9.75zM10.25 9.75h2.74v1.26h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V19h-2.86v-4.52c0-1.08-.02-2.46-1.5-2.46-1.5 0-1.73 1.18-1.73 2.39V19h-2.81V9.75z"/></svg>
+          </a>
+        </div>
+
+        <div class="bh__footer-top-spacer" aria-hidden="true"></div>
+      </div>
+
+      <!-- Navigation columns -->
+      <div class="bh__footer-nav">
+
+        <div class="bh__footer-col">
+          <a href="about.html" class="bh__heading-link bh__footer-heading-animate">About Us</a>
+          <ul>
+            <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+            <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+            <li><a href="about.html#core-principals">Core Values</a></li>
+            <li><a href="about.html#about-management">Management Team</a></li>
+            <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+            <li><a href="about.html#about-certificates">Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__footer-col">
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Business Verticals</a>
+          <ul>
+            <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+            <li><a href="process-e.html">Process Equipments</a></li>
+            <li><a href="structures.html">Technological &amp; General Structure</a></li>
+            <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+            <li><a href="agri-equipments.html">Agri Equipments</a></li>
+            <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__footer-col bh__stack-links">
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Projects</a>
+          <div class="bh__placeholder-lines" aria-hidden="true">
+            <span></span><span></span>
+          </div>
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Safety &amp; Quality</a>
+          <a href="career.html" class="bh__heading-link bh__footer-heading-animate">Careers</a>
+        </div>
+
+        <div class="bh__footer-col bh__stack-links">
+          <a href="#" class="bh__heading-link bh__footer-heading-animate">Download</a>
+          <ul>
+            <li>
+              <a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a>
+            </li>
+          </ul>
+          <a href="index.html#clients-section" class="bh__heading-link bh__footer-heading-animate">Our Partners</a>
+        </div>
+
+        <div class="bh__footer-col">
+          <a href="contact.html" class="bh__heading-link bh__footer-heading-animate">Contact Us</a>
+          <div class="bh__contact-list">
+
+            <!-- Corporate Office -->
+            <div class="bh__contact-row">
+              <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+              </svg>
+              <p>
+                <a class="bh__map-link" href="https://maps.app.goo.gl/VXeDtB8HF6Yr9fx58" target="_blank" rel="noopener noreferrer">
+                  Corporate Office: B-47, Sector 63, Noida 201301, U.P., India
+                </a>
+              </p>
+            </div>
+
+            <!-- Works Address -->
+            <div class="bh__contact-row">
+              <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+              </svg>
+              <p>Works: Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha – 244 235, U.P., India</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+              <a href="tel:+919780803254">+91-9780803254 / 9650474041</a>
+            </div>
+
+            <!-- Email 1 -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+              <span>
+                <a href="mailto:info@balajihitech.in">info@balajihitech.in</a><br/>
+                <a href="mailto:marketing@balajihitech.in">marketing@balajihitech.in</a>
+              </span>
+            </div>
+
+            <!-- Sales email -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:sales@balajiprojects.co.in">sales@balajiprojects.co.in</a>
+            </div>
+
+            <!-- Sales phone -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+              <a href="tel:+919780803254">+91 9780803254</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /footer-nav -->
+
+      <div class="bh__footer-bottom">
+        <span class="bh__footer-copyright" id="bh__footer-copyright">
+          &copy; 2026 <strong>Balaji Hitech Pvt. Ltd.</strong> All rights reserved.
+        </span>
+        <span class="bh__built-by" id="bh__built-by">
+          Built by
+          <a class="bh__built-by-link" href="https://www.linkedin.com/in/piyush-sharma-836447124/" target="_blank" rel="noopener noreferrer" aria-label="Piyush Sharma on LinkedIn">P</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="bh__floating-quote-btn" data-open-modal>Get Quote</a>
+
+  <!-- Get Quote Modal -->
+  <div id="bh__quote-modal" class="bh__modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="bh__modal-title">
+    <div class="bh__modal-container">
+      <div class="bh__modal-header">
+        <h2 id="bh__modal-title">Get Quote</h2>
+        <button class="bh__modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="bh__quote-form" novalidate>
+        <div class="bh__form-group">
+          <label for="bh__full-name">Full Name *</label>
+          <input type="text" id="bh__full-name" name="fullName" required />
+        </div>
+        <div class="bh__form-group">
+          <label for="bh__company-name">Company Name</label>
+          <input type="text" id="bh__company-name" name="companyName" />
+        </div>
+        <div class="bh__form-group">
+          <label for="bh__phone">Phone Number *</label>
+          <input type="tel" id="bh__phone" name="phone" required />
+        </div>
+        <div class="bh__form-group">
+          <label for="bh__email">Email Address *</label>
+          <input type="email" id="bh__email" name="email" required />
+        </div>
+        <div class="bh__form-group">
+          <label for="bh__requirement">Requirement / Message *</label>
+          <textarea id="bh__requirement" name="requirement" rows="4" required placeholder="Describe your requirements…"></textarea>
+        </div>
+        <button type="submit" class="bh__btn-primary">Send Inquiry</button>
+      </form>
+      <div id="bh__quote-status" class="bh__form-status" aria-live="polite"></div>
+      <div id="bh__quote-success" class="bh__quote-success-message" aria-live="polite">
+        <div class="bh__success-check">✓</div>
+        <p>Query submitted — thank you!</p>
+      </div>
+    </div>
+  </div>
+ <script>
+  (function () {
+    'use strict';
+
+    /* ── 1. HEADER: logo slides in, then company name words fade up ── */
+    function initHeaderAnimation() {
+      var logo   = document.getElementById('bh__brand-logo');
+      var nameEl = document.getElementById('bh__brand-name');
+      if (!logo || !nameEl) return;
+
+      /* Wrap each word of company name in a <span> */
+      var words = nameEl.textContent.trim().split(/\s+/);
+      nameEl.innerHTML = words.map(function (w) {
+        return '<span>' + w + '</span>';
+      }).join(' ');
+
+      /* Stagger delays for name spans */
+      nameEl.querySelectorAll('span').forEach(function (s, i) {
+        s.style.transitionDelay = (0.38 + i * 0.14) + 's'; /* starts after logo */
+      });
+
+      /* Trigger on next frame so CSS transitions fire */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          logo.classList.add('bh__logo-in');        /* logo: slide-in from left  */
+          nameEl.classList.add('bh__name-in');      /* name: words fade up       */
+        });
+      });
+    }
+
+    /* ── 2. FOOTER headings: re-animate every time they enter the viewport ── */
+    function initFooterHeadings() {
+      var headings = document.querySelectorAll('.bh__footer-heading-animate');
+
+      /* Prepare word spans */
+      headings.forEach(function (h) {
+        if (h.dataset.bhFhPrepared) return;
+        var words = h.textContent.trim().split(/\s+/);
+        h.innerHTML = words.map(function (w) {
+          return '<span>' + w + '</span>';
+        }).join(' ');
+        h.querySelectorAll('span').forEach(function (s) {
+          s.style.opacity   = '0';
+          s.style.transform = 'translateY(10px)';
+          s.style.display   = 'inline-block';
+          s.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        });
+        h.dataset.bhFhPrepared = 'true';
+      });
+
+      /* Observer – fires every time heading enters viewport */
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var spans = entry.target.querySelectorAll('span');
+          if (entry.isIntersecting) {
+            spans.forEach(function (s, i) {
+              setTimeout(function () {
+                s.style.opacity   = '1';
+                s.style.transform = 'translateY(0)';
+              }, i * 130);
+            });
+            entry.target.classList.add('bh__fh-in');
+          } else {
+            spans.forEach(function (s) {
+              s.style.opacity   = '0';
+              s.style.transform = 'translateY(10px)';
+            });
+            entry.target.classList.remove('bh__fh-in');
+          }
+        });
+      }, { threshold: 0.35 });
+
+      headings.forEach(function (h) { obs.observe(h); });
+
+      /* ── Footer brand logo + name: slide-in from left on each scroll-in ── */
+      var brandEls = document.querySelectorAll('#bh__footer-brand-logo, #bh__footer-brand-name');
+      var brandObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('bh__fb-in');
+          } else {
+            entry.target.classList.remove('bh__fb-in');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px' });
+      brandEls.forEach(function (el) { brandObs.observe(el); });
+
+      /* ── Footer bottom copyright + built-by: re-animate on each scroll-in ── */
+      var cbEls = document.querySelectorAll('#bh__footer-copyright, #bh__built-by');
+      var cbObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('bh__cb-in');
+          } else {
+            entry.target.classList.remove('bh__cb-in');
+          }
+        });
+      }, { threshold: 0 });
+      cbEls.forEach(function (el) { cbObs.observe(el); });
+    }
+
+    /* ── 3. FOOTER socials: fade-up animation via IntersectionObserver ── */
+    function initFooterSocials() {
+      var shell = document.getElementById('bh__footer-shell');
+      if (!shell) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            shell.classList.add('bh__animate-footer');
+            obs.unobserve(shell);
+          }
+        });
+      }, { threshold: 0.1 });
+      obs.observe(shell);
+    }
+
+    /* ── 3b. MAIN HERO: count-up stats ── */
+    function initHeroCounters() {
+      var heroStats = document.querySelector('.hero-stats');
+      if (!heroStats) return;
+
+      function getSuffix(text) {
+        var raw = String(text || '');
+        var match = raw.match(/^[\d,.\s]+(.*)$/);
+        return match ? match[1] : raw;
+      }
+
+      function animateCounters() {
+        var counters = document.querySelectorAll('.hero-stat .num[data-target]');
+        counters.forEach(function (counter) {
+          if (counter.dataset.bhAnimated === 'true') return;
+          var target = parseInt(counter.dataset.target, 10);
+          if (!Number.isFinite(target)) return;
+
+          var suffix = getSuffix(counter.textContent);
+          var current = 0;
+          var duration = 1800;
+          var increment = Math.max(1, target / (duration / 16));
+          counter.dataset.bhAnimated = 'true';
+
+          var timer = setInterval(function () {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = target.toLocaleString('en-US') + suffix;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current).toLocaleString('en-IN') + suffix;
+            }
+          }, 16);
+        });
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        animateCounters();
+        return;
+      }
+
+      var obs = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          setTimeout(animateCounters, 700);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.25 });
+
+      obs.observe(heroStats);
+    }
+
+    /* ── 4. MOBILE MENU toggle ── */
+    function initMobileMenu() {
+      var btn = document.getElementById('bh__mobile-menu-button');
+      var nav = document.getElementById('bh__mobile-nav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function () {
+        nav.classList.toggle('bh__hidden');
+      });
+    }
+
+    /* ── 5. DESKTOP DROPDOWN hover/click ── */
+    function initDropdowns() {
+      var wrappers = document.querySelectorAll('.bh__nav-dropdown');
+      var hoverTimer;
+
+      wrappers.forEach(function (wrapper) {
+        var menu = wrapper.querySelector('.bh__dropdown-menu');
+        var btn  = wrapper.querySelector('.bh__dropdown-btn');
+        if (!menu || !btn) return;
+
+        function closeOthers() {
+          wrappers.forEach(function (w) {
+            if (w === wrapper) return;
+            var b = w.querySelector('.bh__dropdown-btn');
+            w.classList.remove('bh__open');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+        }
+        function show() {
+          clearTimeout(hoverTimer);
+          closeOthers();
+          wrapper.classList.add('bh__open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        function hide() {
+          hoverTimer = setTimeout(function () {
+            wrapper.classList.remove('bh__open');
+            btn.setAttribute('aria-expanded', 'false');
+          }, 200);
+        }
+
+        wrapper.addEventListener('mouseenter', show);
+        wrapper.addEventListener('mouseleave', hide);
+        menu.addEventListener('mouseenter', function () { clearTimeout(hoverTimer); });
+        menu.addEventListener('mouseleave', hide);
+
+        btn.addEventListener('click', function (e) {
+          if (btn.tagName === 'A') return;
+          e.preventDefault();
+          wrapper.classList.contains('bh__open') ? hide() : show();
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.bh__nav-dropdown')) {
+          wrappers.forEach(function(w) {
+            w.classList.remove('bh__open');
+            var b = w.querySelector('.bh__dropdown-btn');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    }
+
+    /* ── 5b. MOBILE ACCORDION ── */
+    function initMobileAccordion() {
+      var toggleBtns = document.querySelectorAll('[data-mobile-toggle]');
+      toggleBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.bh__mobile-nav-item');
+          if (!item) return;
+          var isOpen = item.classList.contains('bh__open');
+          // close all
+          document.querySelectorAll('.bh__mobile-nav-item.bh__open').forEach(function(el) {
+            el.classList.remove('bh__open');
+          });
+          if (!isOpen) item.classList.add('bh__open');
+        });
+      });
+    }
+
+    /* ── 6. GET QUOTE MODAL ── */
+    function initModal() {
+      var modal       = document.getElementById('bh__quote-modal');
+      var form        = document.getElementById('bh__quote-form');
+      var successBox  = document.getElementById('bh__quote-success');
+      var statusBox   = document.getElementById('bh__quote-status');
+      var openBtns    = document.querySelectorAll('[data-open-modal]');
+      var closeBtn    = modal && modal.querySelector('.bh__modal-close');
+      var submitBtn   = form && form.querySelector('button[type="submit"]');
+      var overlay     = modal;
+
+      if (!modal) return;
+
+      function setStatus(message, ok) {
+        if (!statusBox) return;
+        statusBox.textContent = message || '';
+        statusBox.classList.toggle('bh__ok', !!ok);
+      }
+
+      function openModal() {
+        modal.classList.add('bh__open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setStatus('');
+        var first = modal.querySelector('input, textarea');
+        if (first) first.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('bh__open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (form) form.reset();
+        if (successBox) successBox.classList.remove('bh__visible');
+        if (form) form.style.display = '';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Inquiry';
+        }
+        setStatus('');
+      }
+
+      openBtns.forEach(function (b) {
+        if (b.dataset.bhModalReady === 'true') return;
+        b.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+        b.dataset.bhModalReady = 'true';
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('bh__open')) closeModal();
+      });
+
+      if (form) {
+        if (form.dataset.bhQuoteReady === 'true') return;
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var fd = new FormData(form);
+          var email = (fd.get('email') || '').trim();
+          var phone = (fd.get('phone') || '').trim();
+          var fullName = (fd.get('fullName') || '').trim();
+          var requirement = (fd.get('requirement') || '').trim();
+
+          if (!fullName || !phone || !email || !requirement) {
+            setStatus('Please fill in all required fields.');
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            setStatus('Please enter a valid email address.');
+            return;
+          }
+          if (phone.replace(/\D/g, '').length < 8) {
+            setStatus('Please enter a valid phone number.');
+            return;
+          }
+
+          var payload = {
+            fullName:    fullName,
+            companyName: (fd.get('companyName') || '').trim(),
+            phone:       phone,
+            email:       email,
+            requirement: requirement
+          };
+
+          try {
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Sending...';
+            }
+            setStatus('');
+            var endpoint = form.getAttribute('data-endpoint') ||
+              window.BALAJI_QUOTE_ENDPOINT ||
+              'http://localhost:5000/api/quotes';
+            var res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            var result = {};
+            try { result = await res.json(); } catch (jsonErr) {}
+            if (!res.ok || !result.success) throw new Error(result.message || 'Failed');
+            form.style.display = 'none';
+            setStatus('Quote submitted successfully.', true);
+            if (successBox) successBox.classList.add('bh__visible');
+            setTimeout(closeModal, 2200);
+          } catch (err) {
+            console.error(err);
+            setStatus('Quote submit failed. Please try again or email sales@balajiprojects.co.in.');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send Inquiry';
+            }
+          }
+        });
+        form.dataset.bhQuoteReady = 'true';
+      }
+    }
+
+    /* ── Init all ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      initHeaderAnimation();
+      initFooterHeadings();
+      initFooterSocials();
+      initHeroCounters();
+      initMobileMenu();
+      initDropdowns();
+      initMobileAccordion();
+      initModal();
+    });
+
+  })();
+  </script>
+<script>
+(function(){
+  document.querySelectorAll('h2').forEach(function(h){
+    h.classList.add('reveal');
+  });
+  var revealEls = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.10 });
+  revealEls.forEach(function(el){ obs.observe(el); });
+})();
+
+(function(){
+  var headings = document.querySelectorAll('.footer-heading-animate');
+  headings.forEach(function(h){
+    if(h.dataset.wordsPrepared==='true') return;
+    var words = h.textContent.trim().split(/\s+/);
+    h.innerHTML = words.map(function(w){ return '<span>'+w+'</span>'; }).join(' ');
+    h.querySelectorAll('span').forEach(function(s){ s.style.opacity='0'; s.style.transform='translateY(10px)'; s.style.display='inline-block'; s.style.transition='opacity 0.58s ease, transform 0.58s ease'; });
+    h.dataset.wordsPrepared='true';
+  });
+  var hObs = new IntersectionObserver(function(entries, ob){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      entry.target.querySelectorAll('span').forEach(function(s,i){ setTimeout(function(){ s.style.opacity='1'; s.style.transform='translateY(0)'; }, i*165); });
+      ob.unobserve(entry.target);
+    });
+  }, { threshold: 0.35 });
+  headings.forEach(function(h){ hObs.observe(h); });
+  var footer = document.querySelector('.footer-shell');
+  if(footer){ var fo = new IntersectionObserver(function(e){ if(e[0].isIntersecting){ footer.querySelector('.socials')?.classList.add('animate-in'); fo.disconnect(); } }, { threshold: 0.1 }); fo.observe(footer); }
+})();
+
+(function(){
+  var modals = document.querySelectorAll('[data-open-modal]');
+  var modal = document.getElementById('quote-modal');
+  var closeBtn = modal.querySelector('.modal-close');
+  modals.forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }); });
+  closeBtn.addEventListener('click', function(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+  modal.addEventListener('click', function(e){ if(e.target===modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+  document.getElementById('quote-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('quote-form').style.display='none';
+    document.getElementById('quote-success').style.display='block';
+  });
+})();
+</script>
+<script src="scripts.js"></script>
+<script src="product-navigation-fixed.js"></script>
+<script src="industry-list-animation.js"></script>
+<script src="h2-reveal-animation.js"></script>
+
+
+
+</html>

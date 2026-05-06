@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Balaji Hitech Pvt. Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+
+
+    <!--header footer CSS from main index.html -->
+ <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Design tokens ── */
+    :root {
+      --bh__bg: #f8fafd;
+      --bh__text: #0f172a;
+      --bh__muted: #5f6f8f;
+      --bh__surface: #ffffff;
+      --bh__primary: #2f7bff;
+      --bh__primary-hover: #1f67f0;
+      --bh__border: #e1e9f5;
+      --bh__shadow: 0 12px 25px rgba(40,72,130,0.12);
+      --bh__radius: 18px;
+      /* footer */
+      --bh__footer-bg-1: #021224;
+      --bh__footer-bg-2: #031a31;
+      --bh__footer-line: rgba(126,176,216,0.22);
+      --bh__footer-text: #e8f3ff;
+      --bh__footer-muted: #a2bed8;
+      --bh__footer-accent: #2ea8ea;
+      --bh__footer-social: #e8b84b;
+      --bh__footer-container: 1520px;
+    }
+
+    /* ══════════════════════════════════
+       SITE HEADER
+    ══════════════════════════════════ */
+    .bh__site-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: linear-gradient(90deg,rgba(255,255,255,0.97),rgba(248,250,255,0.97));
+      border-bottom: 1px solid var(--bh__border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: visible;
+    }
+
+    .bh__header-container {
+      width: 100%;
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 0.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /* ── Brand (logo + name) ── */
+    .bh__brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    /* Logo image – slides in from left */
+    .bh__brand-logo {
+      height: 42px;
+      width: auto;
+      display: block;
+      opacity: 0;
+      transform: translateX(-28px) scale(0.88);
+      transition: opacity 0.55s cubic-bezier(.22,.68,0,1.2),
+                  transform 0.55s cubic-bezier(.22,.68,0,1.2);
+    }
+    .bh__brand-logo.bh__logo-in {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+
+    /* Company name – each word fades up after logo */
+    .bh__brand-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      letter-spacing: 0.02em;
+      color: #1a3c8f;
+      line-height: 1.1;
+      display: inline-block;
+    }
+    .bh__brand-name span {
+      opacity: 0;
+      transform: translateY(12px);
+      display: inline-block;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .bh__brand-name.bh__name-in span { opacity: 1; transform: translateY(0); }
+
+    /* ── Desktop nav ── */
+    .bh__site-nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .bh__site-nav > a {
+      position: relative;
+      font-weight: 500;
+      font-size: 1.02rem;
+      color: var(--bh__muted);
+      padding-bottom: 3px;
+      transition: color 0.23s;
+    }
+    .bh__site-nav > a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: #e11d48;
+      transition: width 0.28s ease;
+    }
+    .bh__site-nav > a:hover { color: #db2777; }
+    .bh__site-nav > a:hover::after { width: 100%; }
+
+    /* ── Dropdown ── */
+    .bh__nav-dropdown { position: relative; display: flex; align-items: center; }
+
+    .bh__dropdown-btn {
+      color: var(--bh__muted);
+      background: none;
+      border: none;
+      font: inherit;
+      font-size: 1.02rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.2rem 0; margin: 0;
+      position: relative;
+      transition: color 0.24s;
+    }
+    .bh__dropdown-btn::after {
+      content: '▾';
+      font-size: 0.72rem;
+      margin-left: 0.25rem;
+      color: #e11d48;
+      display: inline-block;
+      transition: transform 0.24s ease;
+    }
+    .bh__nav-dropdown.bh__open .bh__dropdown-btn,
+    .bh__nav-dropdown:hover .bh__dropdown-btn { color: #db2777; }
+    .bh__nav-dropdown.bh__open .bh__dropdown-btn::after { transform: rotate(180deg); }
+
+    .bh__dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.85rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: #ffffff;
+      border: 1px solid rgba(47,123,255,0.15);
+      border-radius: 14px;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.14), 0 4px 12px rgba(47,123,255,0.1);
+      list-style: none;
+      padding: 0.6rem 0.5rem;
+      margin: 0;
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      z-index: 9999;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.22s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.22s cubic-bezier(0.4,0,0.2,1),
+                  visibility 0.22s;
+    }
+    .bh__dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px; left: 50%;
+      width: 12px; height: 12px;
+      background: #ffffff;
+      border-left: 1px solid rgba(47,123,255,0.15);
+      border-top: 1px solid rgba(47,123,255,0.15);
+      border-radius: 2px 0 0 0;
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .bh__nav-dropdown.bh__open .bh__dropdown-menu,
+    .bh__nav-dropdown:hover .bh__dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .bh__dropdown-menu li a {
+      display: block;
+      position: relative;
+      padding: 0.72rem 1.1rem;
+      font-size: 0.97rem;
+      color: #334155;
+      font-weight: 500;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: color 0.2s;
+    }
+    /* red underline grows left-to-right on hover */
+    .bh__dropdown-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 6px; left: 1.1rem;
+      width: 0; height: 2px;
+      background: #e11d48;
+      border-radius: 999px;
+      transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .bh__dropdown-menu li a:hover { color: #e11d48; background: #fff5f7; }
+    .bh__dropdown-menu li a:hover::after { width: calc(100% - 2.2rem); }
+
+    /* ── Header CTA button ── */
+    .bh__header-cta {
+      display: inline-flex;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      font: 600 0.9rem 'Inter', sans-serif;
+      cursor: pointer;
+      color: #fff;
+      background: var(--bh__primary);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .bh__header-cta:hover { background: var(--bh__primary-hover); }
+
+    /* ── Hamburger ── */
+    .bh__mobile-menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      width: 2rem;
+      height: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+    }
+    .bh__mobile-menu-btn span {
+      display: block;
+      height: 3px;
+      border-radius: 999px;
+      width: 100%;
+      background: var(--bh__text);
+    }
+
+    /* ── Mobile nav ── */
+    .bh__mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--bh__surface);
+      border-top: 1px solid var(--bh__border);
+      font-family: 'Inter', sans-serif;
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+    .bh__mobile-nav > a,
+    .bh__mobile-nav-item > .bh__mobile-nav-parent {
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid var(--bh__border);
+      color: var(--bh__text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .bh__mobile-nav > a:hover,
+    .bh__mobile-nav-item > .bh__mobile-nav-parent:hover { color: var(--bh__primary); background: #f5f8ff; }
+
+    .bh__mobile-nav-item { border-bottom: 1px solid var(--bh__border); }
+    .bh__mobile-nav-item > .bh__mobile-nav-parent { border-bottom: none; color: var(--bh__text); background: none; border: none; width: 100%; text-align: left; font: 600 0.95rem 'Inter', sans-serif; }
+    .bh__mobile-nav-item > .bh__mobile-nav-parent:hover { color: var(--bh__primary); background: #f5f8ff; }
+    .bh__mobile-nav-chevron {
+      display: inline-block;
+      transition: transform 0.25s ease;
+      font-size: 0.75rem;
+      color: var(--bh__muted);
+    }
+    .bh__mobile-nav-item.bh__open .bh__mobile-nav-chevron { transform: rotate(180deg); }
+
+    .bh__mobile-submenu {
+      padding: 0;
+      background: #f8faff;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .bh__mobile-nav-item.bh__open .bh__mobile-submenu { max-height: 600px; }
+    .bh__mobile-submenu a {
+      display: block;
+      padding: 0.65rem 1.5rem 0.65rem 2.2rem;
+      font-size: 0.88rem;
+      color: #4b5e82;
+      font-weight: 500;
+      border-bottom: 1px solid #e8eef8;
+    }
+    .bh__mobile-submenu a:last-child { border-bottom: none; }
+    .bh__mobile-submenu a:hover { color: var(--bh__primary); background: #edf2ff; }
+    .bh__mobile-nav.bh__hidden { display: none !important; }
+
+    /* ══════════════════════════════════
+       MAIN PAGE HERO
+       Self-contained so this snippet does not depend on styles.css.
+    ══════════════════════════════════ */
+    .hero {
+      --hero-navy: #0d1b2a;
+      --hero-white: #ffffff;
+      background-image: url('images/main_page/Landing_page_pic.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: clamp(560px, 82vh, 820px);
+      padding: clamp(96px, 13vh, 150px) 0 clamp(96px, 14vh, 150px);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(7,16,28,0.64), rgba(7,16,28,0.46)),
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(200,146,42,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 10% 80%, rgba(27,58,92,0.46) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(200,146,42,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,146,42,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.86) 58%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative;
+      width: 100%;
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 3vw, 48px);
+    }
+    .hero-content {
+      width: min(100%, 1120px);
+    }
+    .hero-content-narrow {
+      width: min(100%, 1040px);
+    }
+    .hero h1 {
+      margin: 0;
+      font-family: "Manrope", 'Inter', sans-serif;
+      font-size: clamp(46px, 7vw, 92px);
+      font-weight: 900;
+      color: var(--hero-white);
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .hero h1 span {
+      color: var(--hero-white);
+      display: block;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(112px, 1fr));
+      gap: clamp(14px, 1.6vw, 24px);
+      margin-top: clamp(42px, 7vh, 64px);
+      padding-top: clamp(28px, 5vh, 42px);
+      max-width: 1180px;
+      border-top: 1px solid rgba(255,255,255,0.24);
+    }
+    .hero-stat {
+      min-width: 0;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: bhHeroStatIn 0.7s ease forwards;
+    }
+    .hero-stat .num {
+      font-family: "Manrope", 'Inter', sans-serif;
+      font-size: clamp(24px, 2.7vw, 38px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
+    }
+    .hero-stat .label {
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.35;
+    }
+    .hero-stats-fixed .hero-stat:nth-child(1) { animation-delay: 0.36s; }
+    .hero-stats-fixed .hero-stat:nth-child(2) { animation-delay: 0.46s; }
+    .hero-stats-fixed .hero-stat:nth-child(3) { animation-delay: 0.56s; }
+    .hero-stats-fixed .hero-stat:nth-child(4) { animation-delay: 0.66s; }
+    .hero-stats-fixed .hero-stat:nth-child(5) { animation-delay: 0.76s; }
+    .hero-stats-fixed .hero-stat:nth-child(6) { animation-delay: 0.86s; }
+    .fade-up,
+    .slide-left {
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+    .fade-up { animation: bhHeroFadeUp 0.72s ease forwards; }
+    .slide-left { animation-name: bhHeroSlideLeft; animation-duration: 0.82s; animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94); }
+    .fade-up-1 { animation-delay: 0.12s; }
+    .fade-up-2 { animation-delay: 0.22s; }
+    .fade-up-3 { animation-delay: 0.32s; }
+    @keyframes bhHeroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bhHeroSlideLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes bhHeroStatIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 1180px) {
+      .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      .hero { min-height: auto; padding: 86px 0 70px; }
+      .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-stat .label { font-size: 0.68rem; }
+    }
+    @media (max-width: 430px) {
+      .hero-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ── Floating Get Quote ── */
+    .bh__floating-quote-btn {
+      position: fixed;
+      right: 16px;
+      bottom: 28px;
+      z-index: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      background: var(--bh__primary);
+      color: #fff;
+      font: 700 0.9rem 'Inter', sans-serif;
+      border: none;
+      box-shadow: 0 12px 24px rgba(47,123,255,0.3);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .bh__floating-quote-btn:hover { background: var(--bh__primary-hover); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════
+       GET QUOTE MODAL
+    ══════════════════════════════════ */
+    .bh__modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+      z-index: 1000;
+    }
+    .bh__modal-overlay.bh__open { opacity: 1; visibility: visible; }
+
+    .bh__modal-container {
+      background: var(--bh__surface);
+      border-radius: var(--bh__radius);
+      box-shadow: var(--bh__shadow), 0 0 0 1px var(--bh__border);
+      max-width: min(500px, 90vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(-20px) scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+      width: 100%;
+    }
+    .bh__modal-overlay.bh__open .bh__modal-container { transform: translateY(0) scale(1); }
+
+    .bh__modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--bh__border);
+    }
+    .bh__modal-header h2 { margin: 0; font-size: 1.4rem; font-weight: 700; font-family: 'Inter', sans-serif; }
+
+    .bh__modal-close {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: var(--bh__muted);
+      padding: 0.25rem;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .bh__modal-close:hover { background: var(--bh__border); color: var(--bh__text); }
+
+    #bh__quote-form { padding: 1.5rem; font-family: 'Inter', sans-serif; }
+    .bh__form-group { margin-bottom: 1.2rem; }
+    .bh__form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--bh__text);
+    }
+    .bh__form-group input,
+    .bh__form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--bh__border);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bh__bg);
+      color: var(--bh__text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .bh__form-group input:focus,
+    .bh__form-group textarea:focus {
+      outline: none;
+      border-color: var(--bh__primary);
+      box-shadow: 0 0 0 3px rgba(47,123,255,0.1);
+    }
+    #bh__requirement { resize: vertical; min-height: 100px; }
+    .bh__btn-primary {
+      display: inline-flex;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      font: 600 1rem 'Inter', sans-serif;
+      cursor: pointer;
+      color: #fff;
+      background: var(--bh__primary);
+      transition: background 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .bh__btn-primary:hover { background: var(--bh__primary-hover); }
+    .bh__btn-primary:disabled {
+      cursor: wait;
+      opacity: 0.72;
+    }
+    .bh__form-status {
+      min-height: 1.25rem;
+      margin: 0 1.5rem 1.2rem;
+      font: 600 0.88rem 'Inter', sans-serif;
+      color: #b91c1c;
+    }
+    .bh__form-status.bh__ok { color: #166534; }
+    .bh__quote-success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .bh__quote-success-message.bh__visible { display: block; }
+    .bh__success-check {
+      font-size: 3rem;
+      color: #166534;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .bh__footer-shell,
+    .bh__footer-shell * { box-sizing: border-box; }
+
+    .bh__footer-shell {
+      max-width: var(--bh__footer-container);
+      margin: 32px auto 0;
+      font-family: "Manrope", 'Inter', sans-serif;
+      color: var(--bh__footer-text);
+      border: 1px solid rgba(64,117,159,0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #021224;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    }
+
+    .bh__footer-wrap {
+      padding: 24px clamp(16px,2.6vw,38px) 16px;
+    }
+
+    /* ── Footer top row: logo | socials | spacer ── */
+    .bh__footer-top {
+      display: grid;
+      grid-template-columns: 190px 1fr 190px;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--bh__footer-line);
+    }
+
+    /* Company logo in footer */
+    .bh__footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .bh__footer-brand-logo {
+      height: 48px;
+      width: auto;
+      display: block;
+      filter: brightness(1.05);
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .bh__footer-brand-logo.bh__fb-in { opacity: 1; transform: translateX(0); }
+    .bh__footer-brand-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #c8e4ff;
+      line-height: 1.2;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.55s ease 0.15s, transform 0.55s ease 0.15s;
+    }
+    .bh__footer-brand-name.bh__fb-in { opacity: 1; transform: translateX(0); }
+
+    /* Socials */
+    .bh__footer-shell .bh__socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .bh__footer-shell.bh__animate-footer .bh__socials {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bh__footer-shell .bh__social-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(232,184,75,0.45);
+      color: var(--bh__footer-social);
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22,0.68,0,1.25),
+                  background 0.35s, border-color 0.35s, box-shadow 0.35s;
+    }
+    .bh__footer-shell .bh__social-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg,rgba(232,184,75,0.3),transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .bh__footer-shell .bh__social-btn svg {
+      width: 22px; height: 22px;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
+    .bh__footer-shell .bh__social-btn:hover {
+      transform: translateY(-4px) scale(1.08);
+      background: rgba(2,18,36,0.95);
+      border-color: var(--bh__footer-social);
+      box-shadow: 0 16px 40px rgba(200,146,42,0.3), 0 0 20px rgba(232,184,75,0.4);
+    }
+    .bh__footer-shell .bh__social-btn:hover::before { opacity: 1; }
+
+    .bh__footer-top-spacer { width: 190px; }
+
+    /* ── Footer nav columns ── */
+    .bh__footer-nav {
+      display: grid;
+      grid-template-columns: 1.25fr 1.35fr 1fr 1fr 1.15fr;
+      gap: clamp(16px,2vw,34px);
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--bh__footer-line);
+      align-items: start;
+    }
+
+    .bh__footer-col { }
+    .bh__footer-col .bh__heading-link {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      color: #f6fbff;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Heading animation – each word fades up on scroll into view */
+    .bh__footer-heading-animate span {
+      opacity: 0;
+      transform: translateY(10px);
+      display: inline-block;
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .bh__footer-heading-animate.bh__fh-in span { opacity: 1; transform: translateY(0); }
+
+    .bh__footer-col ul {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .bh__footer-col a:hover,
+    .bh__footer-col .bh__heading-link:hover { color: #ecf7ff; }
+
+    .bh__stack-links { display: grid; gap: 12px; align-content: start; }
+    .bh__stack-links .bh__heading-link { margin: 0; }
+
+    .bh__placeholder-lines { display: grid; gap: 6px; margin: 0 0 8px; }
+    .bh__placeholder-lines span {
+      display: block;
+      width: 100%; max-width: 150px; height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,rgba(78,138,183,0.45),rgba(78,138,183,0.14));
+    }
+
+    /* ── Contact column ── */
+    .bh__contact-list { display: grid; gap: 10px; }
+    .bh__contact-row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .bh__contact-row svg { color: var(--bh__footer-accent); margin-top: 2px; }
+
+    /* Map link in contact */
+    .bh__map-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .bh__map-link:hover { color: #ecf7ff; }
+    .bh__map-icon-red { color: #e53e3e !important; flex-shrink: 0; }
+
+    /* ── Footer bottom bar ── */
+    .bh__footer-bottom { padding-top: 14px; color: #9ebedd; font-size: 0.92rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .bh__footer-bottom strong { color: #3bb4f3; }
+
+    /* ── Footer link underline: grows left-to-right on hover (same as dropdown) ── */
+    .bh__footer-col a,
+    .bh__footer-col p {
+      margin: 0;
+      color: var(--bh__footer-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+    .bh__footer-col ul a,
+    .bh__footer-col .bh__heading-link { display: inline-block; }
+    .bh__footer-col ul a::after,
+    .bh__footer-col.bh__stack-links > a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0; height: 2px;
+      background: #e11d48;
+      border-radius: 999px;
+      transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .bh__footer-col ul a:hover::after,
+    .bh__footer-col.bh__stack-links > a:hover::after { width: 100%; }
+    .bh__footer-col a:hover,
+    .bh__footer-col .bh__heading-link:hover { color: #ecf7ff; }
+    .bh__footer-copyright {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .bh__footer-copyright.bh__cb-in { opacity: 1; transform: translateY(0); }
+    /* Built by badge */
+    .bh__built-by {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      color: #4a6278;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+    }
+    .bh__built-by.bh__cb-in { opacity: 1; transform: translateY(0); }
+    .bh__built-by-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      background: rgba(74,98,120,0.35);
+      color: #7baac8;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .bh__built-by-link:hover { background: #0a66c2; color: #fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1180px) {
+      .bh__footer-nav { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 1024px) {
+      .bh__header-container { padding: 0.75rem 1.5rem; }
+      .bh__site-nav { gap: 1.25rem; }
+      .bh__site-nav > a, .bh__dropdown-btn { font-size: 0.88rem; }
+    }
+    @media (max-width: 992px) {
+      .bh__site-nav { display: none; }
+      .bh__mobile-menu-btn { display: flex; }
+      .bh__header-cta { display: inline-flex; }
+      .bh__mobile-nav { display: flex; }
+      /* show mobile get quote inside nav */
+      .bh__mobile-nav-cta {
+        padding: 1rem 1.5rem;
+        display: block;
+      }
+      .bh__mobile-nav-cta .bh__header-cta {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 860px) {
+      .bh__footer-nav { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .bh__header-cta { display: none; }
+    }
+    @media (max-width: 640px) {
+      .bh__footer-top {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+      .bh__footer-top-spacer { display: none; }
+      .bh__footer-nav { grid-template-columns: 1fr; }
+      .bh__footer-shell .bh__socials { gap: 12px; }
+      .bh__footer-shell .bh__social-btn { width: 42px; height: 42px; }
+      .bh__footer-shell .bh__social-btn svg { width: 20px; height: 20px; }
+    }
+    @media (max-width: 480px) {
+      .bh__header-container { padding: 0.65rem 1rem; }
+      .bh__brand-name { font-size: 0.82rem; }
+      .bh__brand-logo { height: 32px; }
+    }
+  </style>
+
+    <!--end header footer CSS from main index.html -->
+    <!-- Footer CSS from main index.html -->
+    <style>
+    :root {
+      --footer-bg-1: #021224;
+      --footer-bg-2: #031a31;
+      --footer-line: rgba(126, 176, 216, 0.22);
+      --footer-text: #e8f3ff;
+      --footer-muted: #a2bed8;
+      --footer-accent: #2ea8ea;
+      --footer-container: 1520px;
+    }
+
+    .footer-shell,
+    .footer-shell * { box-sizing: border-box; }
+
+    .footer-shell {
+      max-width: var(--footer-container);
+      margin: 0 auto;
+      font-family: "Manrope", sans-serif;
+      color: var(--footer-text);
+      border: 1px solid rgba(64, 117, 159, 0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% -20%, rgba(35, 120, 187, 0.22), transparent 45%),
+        radial-gradient(circle at 90% 8%, rgba(32, 106, 165, 0.18), transparent 42%),
+        linear-gradient(180deg, var(--footer-bg-2) 0%, var(--footer-bg-1) 100%);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .footer-wrap {
+      padding: 24px clamp(16px, 2.6vw, 38px) 16px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 170px 1fr 170px;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--footer-line);
+    }
+
+    .logo-placeholder {
+      width: 170px;
+      height: 68px;
+      border-radius: 10px;
+      border: 1.5px dashed rgba(132, 187, 230, 0.65);
+      background: rgba(8, 35, 61, 0.56);
+      color: #8ec0e6;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+    }
+
+    .footer-nav {
+      display: grid;
+      grid-template-columns: 1.25fr 1.35fr 1fr 1fr 1.15fr;
+      gap: clamp(16px, 2vw, 34px);
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--footer-line);
+      align-items: start;
+    }
+
+    .footer-col h4,
+    .footer-col .heading-link {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      color: #f6fbff;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      margin: 0;
+      color: var(--footer-muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .footer-col a:hover,
+    .footer-col .heading-link:hover {
+      color: #ecf7ff;
+    }
+
+    .stack-links {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .stack-links .heading-link {
+      margin: 0;
+    }
+
+    .placeholder-lines {
+      display: grid;
+      gap: 6px;
+      margin: 0 0 8px;
+    }
+
+    .placeholder-lines span {
+      display: block;
+      width: 100%;
+      max-width: 150px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(78, 138, 183, 0.45) 0%, rgba(78, 138, 183, 0.14) 100%);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .contact-row svg { color: var(--footer-accent); margin-top: 2px; }
+
+    .footer-bottom { padding-top: 14px; }
+
+    .copyright {
+      margin: 0;
+      color: #9ebedd;
+      font-size: 0.95rem;
+    }
+
+    .copyright strong { color: #3bb4f3; }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-top .socials {
+      justify-content: center;
+    }
+
+    .footer-top-spacer {
+      width: 170px;
+      height: 1px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      color: #05233c;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 0.25s ease, background 0.35s ease, color 0.35s ease;
+    }
+
+    .social-btn::before {
+      content: "";
+      position: absolute;
+      left: -35%;
+      top: 120%;
+      width: 170%;
+      height: 170%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.75) 38%, rgba(255, 255, 255, 0) 70%);
+      transition: top 0.55s cubic-bezier(0.22, 0.68, 0, 1.2), transform 0.55s cubic-bezier(0.22, 0.68, 0, 1.2);
+      z-index: 0;
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+
+    .social-btn svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background: #0f4f82;
+      color: #ffffff;
+    }
+
+    .social-btn:hover::before {
+      top: -32%;
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 1180px) {
+      .footer-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 860px) {
+      .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+      .footer-top .socials { justify-content: flex-start; }
+      .footer-top-spacer { display: none; }
+      .footer-nav { grid-template-columns: 1fr; }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .fade-up-1 { animation-delay: 0.1s; }
+    .fade-up-2 { animation-delay: 0.25s; }
+    .fade-up-3 { animation-delay: 0.4s; }
+    .fade-up-4 { animation-delay: 0.55s; }
+    .fade-up-5 { animation-delay: 0.7s; }
+    .fade-up-6 { animation-delay: 0.85s; }
+
+    main {
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 24%),
+        linear-gradient(180deg, #d9dee3 0%, #d4d9de 100%) !important;
+    }
+
+    .contact-section {
+      background: linear-gradient(180deg, #d4d9de 0%, #d9dee3 100%) !important;
+    }
+    </style>
+</head>
+<body>
+    <!-- EXACT HEADER COPY FROM index.html -->
+  <header class="bh__site-header">
+    <div class="bh__header-container">
+
+      <!-- Brand: logo + company name -->
+      <a class="bh__brand-wrap" href="./index.html" aria-label="Balaji Hitech Pvt. Ltd. – Home">
+        <img
+          class="bh__brand-logo"
+          id="bh__brand-logo"
+          src="images/b-logo.png"
+          alt="Balaji Hitech logo"
+          width="42"
+          height="42"
+        />
+        <span class="bh__brand-name" id="bh__brand-name">Balaji Hitech Pvt. Ltd.</span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav id="bh__site-nav" class="bh__site-nav" aria-label="Main navigation">
+
+        <div class="bh__nav-dropdown">
+          <a class="bh__dropdown-btn" href="about.html" aria-haspopup="true">About Us</a>
+          <ul class="bh__dropdown-menu" aria-label="About Us submenu">
+            <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+            <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+            <li><a href="about.html#core-principals">Core Values</a></li>
+            <li><a href="about.html#about-management">Management Team</a></li>
+            <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+            <li><a href="about.html#about-certificates">Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Business Verticals</button>
+          <ul class="bh__dropdown-menu" aria-label="Business Verticals submenu">
+            <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+            <li><a href="process-e.html">Process Equipments</a></li>
+            <li><a href="structures.html">Technological &amp; General Structure</a></li>
+            <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+            <li><a href="agri-equipments.html">Agri Equipments</a></li>
+            <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Projects</button>
+          <ul class="bh__dropdown-menu" aria-label="Projects submenu"></ul>
+        </div>
+
+        <a href="contact.html">Contact Us</a>
+        <a href="career.html">Careers</a>
+
+        <div class="bh__nav-dropdown">
+          <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Download</button>
+          <ul class="bh__dropdown-menu" aria-label="Download submenu">
+            <li><a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a></li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <button class="bh__header-cta" data-open-modal>Get Quote</button>
+
+      <button id="bh__mobile-menu-button" class="bh__mobile-menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile navigation panel -->
+    <nav id="bh__mobile-nav" class="bh__mobile-nav bh__hidden" aria-label="Mobile navigation">
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          About Us <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="about.html">About Us (Overview)</a>
+          <a href="about.html#about-why-balaji">Why Balaji</a>
+          <a href="about.html#about-philosophy">Corporate Philosophy</a>
+          <a href="about.html#core-principals">Core Values</a>
+          <a href="about.html#about-management">Management Team</a>
+          <a href="about.html#about-infrastructure">Infrastructure</a>
+          <a href="about.html#about-certificates">Certificates</a>
+        </div>
+      </div>
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          Business Verticals <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="peb.html">Pre-Engineered Buildings (PEB)</a>
+          <a href="process-e.html">Process Equipments</a>
+          <a href="structures.html">Technological &amp; General Structure</a>
+          <a href="ducting.html">Piping &amp; Ducting Systems</a>
+          <a href="agri-equipments.html">Agri Equipments</a>
+          <a href="erection.html">Erection &amp; Commissioning</a>
+        </div>
+      </div>
+
+      <a href="#">Projects</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="career.html">Careers</a>
+
+      <div class="bh__mobile-nav-item">
+        <button class="bh__mobile-nav-parent" data-mobile-toggle>
+          Download <span class="bh__mobile-nav-chevron">▾</span>
+        </button>
+        <div class="bh__mobile-submenu">
+          <a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a>
+        </div>
+      </div>
+
+      <div class="bh__mobile-nav-cta">
+        <button class="bh__header-cta" data-open-modal>Get Quote</button>
+      </div>
+
+    </nav>
+  </header>
+
+<main style="background: #f5f5f5;">
+
+      <section class="contact-hero" style="background-image: url('images/Contact-us/contact.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; height: 70vh; position: relative;">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+        <div class="hero-grid" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2;">
+          <div class="hero-content hero-content-narrow slide-left">
+            <h1 class="fade-up fade-up-1 slide-left" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.7); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; margin-bottom: 1rem;">Contact Us</h1>
+            <p class="fade-up fade-up-2 slide-left" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.7); font-size: 1.3rem; font-weight: 400; letter-spacing: 0.05em; margin: 0 auto 20px; max-width: 600px;">Let’s Build Something Strong Together</p>
+
+            <div style="width: 200px; height: 4px; background: linear-gradient(90deg, #ffffff22, #ffffff88, #ffffffee, #ffffff88, #ffffff22); border-radius: 3px; box-shadow: 0 2px 12px rgba(255,255,255,0.6); margin: 0 auto;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact content -->
+      <section class="contact-section" style="padding: 5rem 0; background: linear-gradient(135deg, #f8fbff 0%, #f4f9fe 100%);">
+        <div class="container">
+          <!-- <h2 style="text-align: center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem; color: #0f3f6b;">Contact</h2> -->
+          <section class="contact-content">
+    
+   
+
+<div style="font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto 3rem; text-align: center;">
+        <strong class="fade-up fade-up-2" style="font-size: 1.4rem; display: block; margin-bottom: 1rem;">Let’s Build Something Strong Together</strong>
+Have a project in mind or need expert support in Pre-engineered Buildings, Technological Steel Structures, Process Equipment, or mechanical site services? Our team is ready to assist you with reliable and timely solutions
+    </div>
+    <section class="presence-section" style="max-width: 800px; margin: 0 auto;">
+
+<p class="presence-label fade-up fade-up-1 slide-left" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center;"><span class="animated-globe">🌍</span> Our Presence</p>
+
+<style>
+.animated-globe {
+  display: inline-block;
+  font-size: 38.4px; /* 24px * 1.6 */
+  animation: spin 4s linear infinite;
+}
+
+/* Smooth rotation animation */
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+    <p class="section-subtitle fade-up fade-up-2" style="font-size: 1.2rem; margin-bottom: 3rem; text-align: center;">
+        Operating across India and international locations, delivering excellence in:
+    </p>
+
+<div class="presence-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
+
+        <div class="presence-item fade-up fade-up-1" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">🏗️ Pre-Engineered Buildings (PEB)</div>
+        <div class="presence-item fade-up fade-up-2" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">⚙️ Process Equipment Manufacturing</div>
+        <div class="presence-item fade-up fade-up-3" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">🏢 Technological Steel Structures</div>
+        <div class="presence-item fade-up fade-up-4" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">🛠️ Stainless Steel & Mild Steel Ducting</div>
+        <div class="presence-item fade-up fade-up-5" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">🚧 Site Services (Erection, Installation & Commissioning)</div>
+        <div class="presence-item fade-up fade-up-6" style="padding: 1.5rem; background: rgba(255,255,255,0.8); border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: 600;">🌾 Agro Machinery</div>
+
+    </div>
+
+</section>
+
+<h2 class="fade-up fade-up-1 slide-left" style="text-align: center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 3rem; color: #0f3f6b;">Get In Touch</h2>
+          
+          <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto 3rem;">
+            <div class="contact-info" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; padding: 2.5rem; background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(24,95,165,0.15); text-align: center;">
+                <div style="text-align: left; margin-bottom: 2rem;">
+                  
+
+<h3 class="fade-up fade-up-2 slide-left" style="color: #185FA5; margin-bottom: 1rem;">Corporate Office</h3>
+                <p style="line-height: 1.7; margin-bottom: 1.5rem;">B-47, Sector 63, Noida 201301, U.P., India</p>
+                <h3 class="fade-up fade-up-3" style="color: #185FA5; margin-bottom: 1rem;">Works</h3>
+                <p style="line-height: 1.1; margin-bottom: 1rem;">Village Dariyapur Bujurg, NH-9, Gajraula</p>
+                <p style="line-height: .9; margin-bottom: 1rem;">District Amroha - 244 235, U.P., India</p>
+                <h2 class="fade-up fade-up-4" style="color: #185FA5; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">📞 Contact Us</h2>
+                <h3 class="fade-up fade-up-5" style="color: #185FA5; margin-bottom: 1rem;">Phone</h3>
+                <p style="line-height: 1.7; margin-bottom: 1rem;">+91-97808 03254 / 96504 74041</p>
+<h3 class="fade-up fade-up-6" style="color: #185FA5; margin-bottom: 1rem;">Email</h3>
+<p style="line-height: 1.7;">
+<a href="mailto:info@balajihitech.in" style="color: #0f3f6b; text-decoration: underline;">info@balajihitech.in</a> /
+  <a href="mailto:marketing@balajihitech.in" style="color: #0f3f6b; text-decoration: underline;">marketing@balajihitech.in</a>
+</p>
+                <!-- <p style="line-height: 1.7;">info@balajihitech.in / marketing@balajihitech.in</p> -->
+                <!-- <h3 style="color: #185FA5; margin-bottom: 1rem;">🛠️ Careers & Site Hiring</h3>
+                <p style="line-height: 1.7;">For job opportunities, site roles, and recruitment:<br><a href="mailto:hr@balajihitech.in">hr@balajihitech.in</a></p> -->
+                </div>
+                <!-- <p style="line-height: 1.7; margin-bottom: 1.5rem;">B-47, Sector 63, Noida 201301, U.P., India</p>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Works</h3>
+                <p style="line-height: 1.7; margin-bottom: 1.5rem;">Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha - 244 235, U.P., India</p>
+                <h2 style="color: #185FA5; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">📞 Get in Touch</h2>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Phone</h3>
+                <p style="line-height: 1.7; margin-bottom: 1rem;">+91-9780803254 / 9650474041</p>
+                <h3 style="color: #185FA5; margin-bottom: 1rem;">Email</h3>
+                <p style="line-height: 1.7;">info@balajihitech.in / marketing@balajihitech.in</p> -->
+              </div>
+              <div class="contact-form" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(24,95,165,0.15);">
+              <form id="quote-form">
+                <div class="form-group fade-up">
+                  <label for="full-name">Full Name *</label>
+                  <input type="text" id="full-name" name="fullName" required>
+                </div>
+                <div class="form-group fade-up">
+                  <label for="company-name">Company Name</label>
+                  <input type="text" id="company-name" name="companyName">
+                </div>
+                <div class="form-group fade-up">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group fade-up">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group fade-up">
+                  <label for="requirement">Requirement / Message *</label>
+                  <textarea id="requirement" name="requirement" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Inquiry</button>
+              </form>
+              <div id="quote-success" class="quote-success-message fade-up" style="display:none;">
+                <div class="success-check">✓</div>
+                <p>Query Submitted Successfully! We'll contact you within 24 hours.</p>
+              </div>
+            </div>
+            </div>
+            
+          </div>
+
+       <div class="location-container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h4 class="fade-up fade-up-2" style="color: #185FA5; margin-bottom: 1rem;">📍 View on Google Maps</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.566684228!2d77.37564831521702!3d28.61297208234668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a47%3A0x47b3b3b3b3b3b3b3!2s47%2C+B+Block+Road%2C+B+Block%2C+Sector+63%2C+Noida%2C+Uttar+Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── 1. HEADER: logo slides in, then company name words fade up ── */
+    function initHeaderAnimation() {
+      var logo   = document.getElementById('bh__brand-logo');
+      var nameEl = document.getElementById('bh__brand-name');
+      if (!logo || !nameEl) return;
+
+      /* Wrap each word of company name in a <span> */
+      var words = nameEl.textContent.trim().split(/\s+/);
+      nameEl.innerHTML = words.map(function (w) {
+        return '<span>' + w + '</span>';
+      }).join(' ');
+
+      /* Stagger delays for name spans */
+      nameEl.querySelectorAll('span').forEach(function (s, i) {
+        s.style.transitionDelay = (0.38 + i * 0.14) + 's'; /* starts after logo */
+      });
+
+      /* Trigger on next frame so CSS transitions fire */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          logo.classList.add('bh__logo-in');        /* logo: slide-in from left  */
+          nameEl.classList.add('bh__name-in');      /* name: words fade up       */
+        });
+      });
+    }
+
+    /* ── 2. FOOTER headings: re-animate every time they enter the viewport ── */
+    function initFooterHeadings() {
+      var headings = document.querySelectorAll('.bh__footer-heading-animate');
+
+      /* Prepare word spans */
+      headings.forEach(function (h) {
+        if (h.dataset.bhFhPrepared) return;
+        var words = h.textContent.trim().split(/\s+/);
+        h.innerHTML = words.map(function (w) {
+          return '<span>' + w + '</span>';
+        }).join(' ');
+        h.querySelectorAll('span').forEach(function (s) {
+          s.style.opacity   = '0';
+          s.style.transform = 'translateY(10px)';
+          s.style.display   = 'inline-block';
+          s.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        });
+        h.dataset.bhFhPrepared = 'true';
+      });
+
+      /* Observer – fires every time heading enters viewport */
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var spans = entry.target.querySelectorAll('span');
+          if (entry.isIntersecting) {
+            spans.forEach(function (s, i) {
+              setTimeout(function () {
+                s.style.opacity   = '1';
+                s.style.transform = 'translateY(0)';
+              }, i * 130);
+            });
+            entry.target.classList.add('bh__fh-in');
+          } else {
+            spans.forEach(function (s) {
+              s.style.opacity   = '0';
+              s.style.transform = 'translateY(10px)';
+            });
+            entry.target.classList.remove('bh__fh-in');
+          }
+        });
+      }, { threshold: 0.35 });
+
+      headings.forEach(function (h) { obs.observe(h); });
+
+      /* ── Footer brand logo + name: slide-in from left on each scroll-in ── */
+      var brandEls = document.querySelectorAll('#bh__footer-brand-logo, #bh__footer-brand-name');
+      var brandObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('bh__fb-in');
+          } else {
+            entry.target.classList.remove('bh__fb-in');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px' });
+      brandEls.forEach(function (el) { brandObs.observe(el); });
+
+      /* ── Footer bottom copyright + built-by: re-animate on each scroll-in ── */
+      var cbEls = document.querySelectorAll('#bh__footer-copyright, #bh__built-by');
+      var cbObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('bh__cb-in');
+          } else {
+            entry.target.classList.remove('bh__cb-in');
+          }
+        });
+      }, { threshold: 0 });
+      cbEls.forEach(function (el) { cbObs.observe(el); });
+    }
+
+    /* ── 3. FOOTER socials: fade-up animation via IntersectionObserver ── */
+    function initFooterSocials() {
+      var shell = document.getElementById('bh__footer-shell');
+      if (!shell) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            shell.classList.add('bh__animate-footer');
+            obs.unobserve(shell);
+          }
+        });
+      }, { threshold: 0.1 });
+      obs.observe(shell);
+    }
+
+    /* ── 3b. MAIN HERO: count-up stats ── */
+    function initHeroCounters() {
+      var heroStats = document.querySelector('.hero-stats');
+      if (!heroStats) return;
+
+      function getSuffix(text) {
+        var raw = String(text || '');
+        var match = raw.match(/^[\d,.\s]+(.*)$/);
+        return match ? match[1] : raw;
+      }
+
+      function animateCounters() {
+        var counters = document.querySelectorAll('.hero-stat .num[data-target]');
+        counters.forEach(function (counter) {
+          if (counter.dataset.bhAnimated === 'true') return;
+          var target = parseInt(counter.dataset.target, 10);
+          if (!Number.isFinite(target)) return;
+
+          var suffix = getSuffix(counter.textContent);
+          var current = 0;
+          var duration = 1800;
+          var increment = Math.max(1, target / (duration / 16));
+          counter.dataset.bhAnimated = 'true';
+
+          var timer = setInterval(function () {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = target.toLocaleString('en-US') + suffix;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current).toLocaleString('en-IN') + suffix;
+            }
+          }, 16);
+        });
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        animateCounters();
+        return;
+      }
+
+      var obs = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          setTimeout(animateCounters, 700);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.25 });
+
+      obs.observe(heroStats);
+    }
+
+    /* ── 4. MOBILE MENU toggle ── */
+    function initMobileMenu() {
+      var btn = document.getElementById('bh__mobile-menu-button');
+      var nav = document.getElementById('bh__mobile-nav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function () {
+        nav.classList.toggle('bh__hidden');
+      });
+    }
+
+    /* ── 5. DESKTOP DROPDOWN hover/click ── */
+    function initDropdowns() {
+      var wrappers = document.querySelectorAll('.bh__nav-dropdown');
+      var hoverTimer;
+
+      wrappers.forEach(function (wrapper) {
+        var menu = wrapper.querySelector('.bh__dropdown-menu');
+        var btn  = wrapper.querySelector('.bh__dropdown-btn');
+        if (!menu || !btn) return;
+
+        function closeOthers() {
+          wrappers.forEach(function (w) {
+            if (w === wrapper) return;
+            var b = w.querySelector('.bh__dropdown-btn');
+            w.classList.remove('bh__open');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+        }
+        function show() {
+          clearTimeout(hoverTimer);
+          closeOthers();
+          wrapper.classList.add('bh__open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        function hide() {
+          hoverTimer = setTimeout(function () {
+            wrapper.classList.remove('bh__open');
+            btn.setAttribute('aria-expanded', 'false');
+          }, 200);
+        }
+
+        wrapper.addEventListener('mouseenter', show);
+        wrapper.addEventListener('mouseleave', hide);
+        menu.addEventListener('mouseenter', function () { clearTimeout(hoverTimer); });
+        menu.addEventListener('mouseleave', hide);
+
+        btn.addEventListener('click', function (e) {
+          if (btn.tagName === 'A') return;
+          e.preventDefault();
+          wrapper.classList.contains('bh__open') ? hide() : show();
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.bh__nav-dropdown')) {
+          wrappers.forEach(function(w) {
+            w.classList.remove('bh__open');
+            var b = w.querySelector('.bh__dropdown-btn');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    }
+
+    /* ── 5b. MOBILE ACCORDION ── */
+    function initMobileAccordion() {
+      var toggleBtns = document.querySelectorAll('[data-mobile-toggle]');
+      toggleBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.bh__mobile-nav-item');
+          if (!item) return;
+          var isOpen = item.classList.contains('bh__open');
+          // close all
+          document.querySelectorAll('.bh__mobile-nav-item.bh__open').forEach(function(el) {
+            el.classList.remove('bh__open');
+          });
+          if (!isOpen) item.classList.add('bh__open');
+        });
+      });
+    }
+
+    /* ── 6. GET QUOTE MODAL ── */
+    function initModal() {
+      var modal       = document.getElementById('bh__quote-modal');
+      var form        = document.getElementById('bh__quote-form');
+      var successBox  = document.getElementById('bh__quote-success');
+      var statusBox   = document.getElementById('bh__quote-status');
+      var openBtns    = document.querySelectorAll('[data-open-modal]');
+      var closeBtn    = modal && modal.querySelector('.bh__modal-close');
+      var submitBtn   = form && form.querySelector('button[type="submit"]');
+      var overlay     = modal;
+
+      if (!modal) return;
+
+      function setStatus(message, ok) {
+        if (!statusBox) return;
+        statusBox.textContent = message || '';
+        statusBox.classList.toggle('bh__ok', !!ok);
+      }
+
+      function openModal() {
+        modal.classList.add('bh__open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setStatus('');
+        var first = modal.querySelector('input, textarea');
+        if (first) first.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('bh__open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (form) form.reset();
+        if (successBox) successBox.classList.remove('bh__visible');
+        if (form) form.style.display = '';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Inquiry';
+        }
+        setStatus('');
+      }
+
+      openBtns.forEach(function (b) {
+        if (b.dataset.bhModalReady === 'true') return;
+        b.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+        b.dataset.bhModalReady = 'true';
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('bh__open')) closeModal();
+      });
+
+      if (form) {
+        if (form.dataset.bhQuoteReady === 'true') return;
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var fd = new FormData(form);
+          var email = (fd.get('email') || '').trim();
+          var phone = (fd.get('phone') || '').trim();
+          var fullName = (fd.get('fullName') || '').trim();
+          var requirement = (fd.get('requirement') || '').trim();
+
+          if (!fullName || !phone || !email || !requirement) {
+            setStatus('Please fill in all required fields.');
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            setStatus('Please enter a valid email address.');
+            return;
+          }
+          if (phone.replace(/\D/g, '').length < 8) {
+            setStatus('Please enter a valid phone number.');
+            return;
+          }
+
+          var payload = {
+            fullName:    fullName,
+            companyName: (fd.get('companyName') || '').trim(),
+            phone:       phone,
+            email:       email,
+            requirement: requirement
+          };
+
+          try {
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Sending...';
+            }
+            setStatus('');
+            var endpoint = form.getAttribute('data-endpoint') ||
+              window.BALAJI_QUOTE_ENDPOINT ||
+              'http://localhost:5000/api/quotes';
+            var res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            var result = {};
+            try { result = await res.json(); } catch (jsonErr) {}
+            if (!res.ok || !result.success) throw new Error(result.message || 'Failed');
+            form.style.display = 'none';
+            setStatus('Quote submitted successfully.', true);
+            if (successBox) successBox.classList.add('bh__visible');
+            setTimeout(closeModal, 2200);
+          } catch (err) {
+            console.error(err);
+            setStatus('Quote submit failed. Please try again or email sales@balajiprojects.co.in.');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send Inquiry';
+            }
+          }
+        });
+        form.dataset.bhQuoteReady = 'true';
+      }
+    }
+
+    /* ── Init all ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      initHeaderAnimation();
+      initFooterHeadings();
+      initFooterSocials();
+      initHeroCounters();
+      initMobileMenu();
+      initDropdowns();
+      initMobileAccordion();
+      initModal();
+    });
+
+  })();
+  </script>
+    <!-- COMPLETE FOOTER FROM MAIN index.html -->
+    <footer class="bh__footer-shell" id="bh__footer-shell">
+    <div class="bh__footer-wrap">
+
+      <!-- Top bar: brand | socials | spacer -->
+      <div class="bh__footer-top">
+
+        <a class="bh__footer-brand" href="./index.html" aria-label="Balaji Hitech home">
+          <img class="bh__footer-brand-logo" id="bh__footer-brand-logo" src="images/b-logo.png" alt="Balaji Hitech logo" width="48" height="48" />
+          <span class="bh__footer-brand-name" id="bh__footer-brand-name">Balaji Hitech Pvt. Ltd.</span>
+        </a>
+
+        <div class="bh__socials" id="bh__footer-socials">
+          <a href="https://facebook.com/balajiassociates" class="bh__social-btn fb" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+          </a>
+          <a href="https://in.linkedin.com/in/balaji-hitech-private-limited-74a299376" class="bh__social-btn li" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1zM5.5 9.75h2.86V19H5.5V9.75zM10.25 9.75h2.74v1.26h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V19h-2.86v-4.52c0-1.08-.02-2.46-1.5-2.46-1.5 0-1.73 1.18-1.73 2.39V19h-2.81V9.75z"/></svg>
+          </a>
+        </div>
+
+        <div class="bh__footer-top-spacer" aria-hidden="true"></div>
+      </div>
+
+      <!-- Navigation columns -->
+      <div class="bh__footer-nav">
+
+        <div class="bh__footer-col">
+          <a href="about.html" class="bh__heading-link bh__footer-heading-animate">About Us</a>
+          <ul>
+            <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+            <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+            <li><a href="about.html#core-principals">Core Values</a></li>
+            <li><a href="about.html#about-management">Management Team</a></li>
+            <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+            <li><a href="about.html#about-certificates">Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__footer-col">
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Business Verticals</a>
+          <ul>
+            <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+            <li><a href="process-e.html">Process Equipments</a></li>
+            <li><a href="structures.html">Technological &amp; General Structure</a></li>
+            <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+            <li><a href="agri-equipments.html">Agri Equipments</a></li>
+            <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+          </ul>
+        </div>
+
+        <div class="bh__footer-col bh__stack-links">
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Projects</a>
+          <div class="bh__placeholder-lines" aria-hidden="true">
+            <span></span><span></span>
+          </div>
+          <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Safety &amp; Quality</a>
+          <a href="career.html" class="bh__heading-link bh__footer-heading-animate">Careers</a>
+        </div>
+
+        <div class="bh__footer-col bh__stack-links">
+          <a href="#" class="bh__heading-link bh__footer-heading-animate">Download</a>
+          <ul>
+            <li>
+              <a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a>
+            </li>
+          </ul>
+          <a href="index.html#clients-section" class="bh__heading-link bh__footer-heading-animate">Our Partners</a>
+        </div>
+
+        <div class="bh__footer-col">
+          <a href="contact.html" class="bh__heading-link bh__footer-heading-animate">Contact Us</a>
+          <div class="bh__contact-list">
+
+            <!-- Corporate Office -->
+            <div class="bh__contact-row">
+              <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+              </svg>
+              <p>
+                <a class="bh__map-link" href="https://maps.app.goo.gl/VXeDtB8HF6Yr9fx58" target="_blank" rel="noopener noreferrer">
+                  Corporate Office: B-47, Sector 63, Noida 201301, U.P., India
+                </a>
+              </p>
+            </div>
+
+            <!-- Works Address -->
+            <div class="bh__contact-row">
+              <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+              </svg>
+              <p>Works: Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha – 244 235, U.P., India</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+              <a href="tel:+919780803254">+91-9780803254 / 9650474041</a>
+            </div>
+
+            <!-- Email 1 -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+              <span>
+                <a href="mailto:info@balajihitech.in">info@balajihitech.in</a><br/>
+                <a href="mailto:marketing@balajihitech.in">marketing@balajihitech.in</a>
+              </span>
+            </div>
+
+            <!-- Sales email -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:sales@balajiprojects.co.in">sales@balajiprojects.co.in</a>
+            </div>
+
+            <!-- Sales phone -->
+            <div class="bh__contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--bh__footer-accent)"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+              <a href="tel:+919780803254">+91 9780803254</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /footer-nav -->
+
+      <div class="bh__footer-bottom">
+        <span class="bh__footer-copyright" id="bh__footer-copyright">
+          &copy; 2026 <strong>Balaji Hitech Pvt. Ltd.</strong> All rights reserved.
+        </span>
+        <span class="bh__built-by" id="bh__built-by">
+          Built by
+          <a class="bh__built-by-link" href="https://www.linkedin.com/in/piyush-sharma-836447124/" target="_blank" rel="noopener noreferrer" aria-label="Piyush Sharma on LinkedIn">P</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
+<script src="product-navigation-fixed.js"></script>
+    <script src="header-scroll-hide.js"></script>
+    <script>
+      // Form Styles (main page modal match)
+      const style = document.createElement('style');
+      style.textContent = `
+        #quote-form .form-group { margin-bottom: 1.25rem; }
+        #quote-form .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #0f172a; font-size: 0.9rem; }
+        #quote-form .form-group input, #quote-form .form-group textarea {
+          width: 100%; padding: 0.875rem 1rem; border: 1px solid #e1e9f5; border-radius: 10px; font-size: 1rem;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease; background: #f8fafd; color: #0f172a;
+        }
+        #quote-form .form-group input:focus, #quote-form .form-group textarea:focus {
+          outline: none; border-color: #2f7bff; box-shadow: 0 0 0 3px rgba(47,123,255,0.1);
+        }
+        #quote-form .btn { padding: 0.7rem 1.05rem; border-radius: 999px; border: none; font-weight: 600; cursor: pointer; }
+        #quote-form .btn-primary { background: #2f7bff; color: #fff; }
+        #quote-form .btn-primary:hover { background: #1f67f0; }
+        .quote-success-message { text-align: center; padding: 1rem; background: #10b981; color: white; border-radius: 10px; margin-top: 1rem; }
+        .success-check { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+      `;
+      document.head.appendChild(style);
+
+      // Fade-up Observer
+      const fadeElements = document.querySelectorAll('.fade-up');
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeElements.forEach(el => fadeObserver.observe(el));
+
+      // Form Handler (main page style)
+      document.getElementById('quote-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Basic validation
+        if (!data.fullName?.trim() || !data.email?.trim() || !data.phone?.trim()) {
+          alert('Please fill required fields');
+          return;
+        }
+        
+        // Simulate submission
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const successMsg = document.getElementById('quote-success');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          successMsg.style.display = 'block';
+          form.reset();
+          submitBtn.textContent = 'Sent!';
+          setTimeout(() => {
+            submitBtn.textContent = 'Send Inquiry';
+            submitBtn.disabled = false;
+            successMsg.style.display = 'none';
+          }, 3000);
+        }, 1500);
+      });
+
+      // Footer animations from main index.html
+      (function () {
+        var headings = document.querySelectorAll('.footer-heading-animate');
+        headings.forEach(function (heading) {
+          if (heading.dataset.wordsPrepared === 'true') return;
+          var words = heading.textContent.trim().split(/\s+/);
+          heading.innerHTML = words.map(function (word) { return '<span>' + word + '</span>'; }).join(' ');
+          heading.querySelectorAll('span').forEach(function (span) {
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(10px)';
+            span.style.display = 'inline-block';
+            span.style.transition = 'opacity 0.58s ease, transform 0.58s ease';
+          });
+          heading.dataset.wordsPrepared = 'true';
+        });
+        var headingObserver = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var spans = entry.target.querySelectorAll('span');
+            spans.forEach(function (span, idx) {
+              setTimeout(function () {
+                span.style.opacity = '1';
+                span.style.transform = 'translateY(0)';
+              }, idx * 165);
+            });
+            obs.unobserve(entry.target);
+          });
+        }, { threshold: 0.35 });
+        headings.forEach(function (heading) { headingObserver.observe(heading); });
+      })();
+    </script>
+  </body>
+</html>

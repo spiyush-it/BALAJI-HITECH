@@ -1,0 +1,58 @@
+<!-- ============================================================
+  SCRIPT 1 — FACTORY IMAGE: pulse light zoom-out loop
+  Paste just before </body>
+  Works on: <img src="images/about/infra-1.png" ...>
+============================================================ -->
+<style>
+.factory-img img {
+  animation: factoryPulse 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+@keyframes factoryPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+/* pause on hover so user can inspect */
+.factory-img:hover img { animation-play-state: paused; }
+</style>
+
+
+<!-- ============================================================
+  SCRIPT 2 — WB-CARDS: one-by-one zoom-out reveal on page load
+  Each card fires 1 sec apart, same effect as hover (scale up → settle)
+  Paste just before </body>
+============================================================ -->
+<style>
+/* base state — invisible, slightly small */
+.wb-card.js-reveal-card {
+  opacity: 0;
+  transform: scale(0.88);
+  transition:
+    opacity   0.55s cubic-bezier(.22,.68,0,1.2),
+    transform 0.55s cubic-bezier(.22,.68,0,1.2),
+    /* keep your existing hover transitions below */
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* fired state — card pops into view */
+.wb-card.js-reveal-card.wb-popped {
+  opacity: 1;
+  transform: scale(1);
+}
+</style>
+
+<script>
+(function () {
+  var cards = document.querySelectorAll('.wb-card.js-reveal-card');
+  if (!cards.length) return;
+
+  cards.forEach(function (card, i) {
+    setTimeout(function () {
+      card.classList.add('wb-popped');
+    }, i * 1000); /* 1 000 ms = 1 sec gap between each card */
+  });
+})();
+</script>

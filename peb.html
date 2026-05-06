@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pre-Engineered Buildings (PEB) | Balaji Hitech Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+/* ── ROOT VARIABLES (matching about.html) ── */
+:root{
+  --navy:#0D1B2A;--steel:#1B3A5C;--accent:#C8922A;--gold:#E8B84B;
+  --blue-mid:#185FA5;--blue-deep:#0d3f72;--blue-bright:#2980d4;
+  --blue-light:#e6f1fb;--text-primary:#1a2636;--text-muted:#5a6a7e;
+  --page-bg:#e8edf3;--card-bg:#ffffff;--border:rgba(24,95,165,0.12);
+  --radius:14px;--shadow-hover:0 16px 40px -10px rgba(13,63,114,0.18);
+  --white:#ffffff;
+  --footer-bg-1:#021224;--footer-bg-2:#031a31;--footer-line:rgba(126,176,216,0.22);
+  --footer-text:#e8f3ff;--footer-muted:#a2bed8;--footer-accent:#2ea8ea;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--page-bg);color:var(--text-primary);}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* ── HEADER (from about.html) ── */
+.site-header{height:64px;min-height:64px;background:#fff;box-shadow:0 2px 12px rgba(13,35,64,.1);position:sticky;top:0;z-index:999;display:flex;align-items:center;}
+.header-container{height:64px;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+.brand{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue-deep);text-decoration:none;letter-spacing:-.01em;}
+.site-nav{display:flex;align-items:center;gap:4px;}
+.site-nav a,.dropdown-btn{font-size:13.5px;font-weight:600;color:var(--text-primary);text-decoration:none;padding:6px 12px;border-radius:8px;border:none;background:none;cursor:pointer;transition:color .2s,background .2s;font-family:'Inter',sans-serif;}
+.site-nav a:hover,.dropdown-btn:hover{color:var(--blue-mid);background:var(--blue-light);}
+.nav-dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 0;min-width:240px;box-shadow:0 12px 36px rgba(13,35,64,.15);z-index:9999;list-style:none;}
+.nav-dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu li a{display:block;padding:9px 18px;font-size:13.5px;color:var(--text-primary);text-decoration:none;transition:background .15s,color .15s;}
+.dropdown-menu li a:hover{background:var(--blue-light);color:var(--blue-mid);}
+.btn.header-cta,.header-cta{background:var(--blue-mid);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-weight:700;font-size:13.5px;cursor:pointer;transition:background .2s;text-decoration:none;}
+.btn.header-cta:hover,.header-cta:hover{background:var(--blue-deep);}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;}
+@media(max-width:900px){.site-nav{display:none;}.mobile-menu-btn{display:flex;}}
+
+/* ── HERO BANNER (same structure as about.html) ── */
+.hero{
+  background-image:url('images/peb/banner-peb2.png');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  position:relative;padding:140px 0 160px;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(7,16,28,0.42),rgba(7,16,28,0.28)),
+    radial-gradient(ellipse 60% 60% at 80% 40%,rgba(200,146,42,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 80% at 10% 80%,rgba(27,58,92,0.28) 0%,transparent 70%);
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,146,42,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,42,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;width:100%;max-width:none;margin:0;padding:0 48px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,78px);font-weight:900;color:var(--white);line-height:1.08;letter-spacing:-1px;margin-bottom:16px;}
+.hero-sub{margin-top:16px;font-size:15px;color:rgba(255,255,255,0.88);max-width:640px;line-height:1.7;font-weight:400;letter-spacing:.04em;}
+
+/* ── SECTION COMMONS ── */
+.sec-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-bright);background:var(--blue-light);padding:4px 14px;border-radius:100px;margin-bottom:14px;}
+.sec-title{font-family:'Inter',sans-serif;font-size:clamp(26px,3.6vw,40px);font-weight:800;color:#0f3f6b;letter-spacing:-.01em;line-height:1.12;margin-bottom:12px;}
+.sec-sub{font-size:15px;color:var(--text-muted);line-height:1.75;max-width:600px;}
+.sec-header.centered{text-align:center;margin-bottom:48px;}
+.sec-header.centered .sec-sub{margin:0 auto;}
+.peb-section{padding:80px 0;background:var(--page-bg);}
+.peb-section.white{background:#fff;}
+
+/* factory pulse (banner/ph-row big images) */
+.factory-img img{animation:factoryPulse 4s ease-in-out infinite;transform-origin:center center;}
+@keyframes factoryPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+.factory-img:hover img{animation-play-state:paused;}
+
+/* fade-up animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.7s ease both;}
+.fade-up-1{animation-delay:.1s;}.fade-up-2{animation-delay:.2s;}.fade-up-3{animation-delay:.3s;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;}.reveal-delay-2{transition-delay:.16s;}.reveal-delay-3{transition-delay:.24s;}.reveal-delay-4{transition-delay:.32s;}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PEB SOLUTION (infra-section style full-width images)
+══════════════════════════════════════════ */
+.peb-solution-section{background:var(--page-bg);padding:80px 0 0;}
+.peb-solution-text{max-width:1200px;margin:0 auto;padding:0 24px 56px;}
+.peb-solution-text h3{font-family:'Inter',sans-serif;font-size:clamp(26px,3.6vw,40px);font-weight:800;color:#0f3f6b;margin-bottom:20px;letter-spacing:-.01em;}
+.peb-solution-text p{font-size:16px;color:var(--text-muted);line-height:1.85;max-width:900px;}
+/* Full-width image rows (like infra in about.html) */
+.peb-img-row{width:100%;height:600px;overflow:hidden;position:relative;}
+.peb-img-row img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 6s ease;object-fit:cover;}
+.peb-img-row:hover img{transform:scale(1.04);}
+.peb-img-row+.peb-img-row{margin-top:6px;}
+.peb-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,16,28,0.4) 100%);}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — ENGINEERING LED DESIGN OPTIMIZATION (ph-row style)
+══════════════════════════════════════════ */
+.philosophy-section{background:var(--page-bg);padding:80px 24px;}
+.philosophy-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 100% 0%,rgba(24,95,165,0.04) 0%,transparent 70%);pointer-events:none;}
+.philosophy-section .container{position:relative;}
+.philosophy-grid{border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(13,35,64,0.10);}
+
+/* ph-row full CSS (from about.html) */
+.ph-row{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:380px;}
+.ph-row+.ph-row{border-top:1.5px solid rgba(24,95,165,0.10);}
+.ph-img-col{position:relative;overflow:hidden;min-height:380px;height:100%;}
+.ph-img-col img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-img-col img{transform:scale(1.04);}
+.ph-row:hover .ph-img-col.factory-img img{animation-play-state:paused;}
+/* factory-img in materials: start at 0.88 scale (zoomed out ~85%), pulse gently */
+.materials-section .factory-img img{animation:factoryPulseM 4s ease-in-out infinite;transform-origin:center center;}
+@keyframes factoryPulseM{0%{transform:scale(1.0);}50%{transform:scale(1.06);}100%{transform:scale(1.0);}}
+.ph-img-ph{width:100%;height:100%;min-height:380px;background:linear-gradient(135deg,#daedf8 0%,#c5e0f5 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#5b9bc7;}
+.ph-img-col::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,63,114,0.12) 0%,transparent 60%);pointer-events:none;transition:opacity 0.4s ease;}
+.ph-row:hover .ph-img-col::after{opacity:0;}
+.ph-text-col{padding:56px 52px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;position:relative;}
+.ph-row.row-bottom .ph-text-col{background:#f7fafd;}
+.ph-text-col::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:3px;background:linear-gradient(180deg,#185FA5 0%,#2980d4 100%);border-radius:0 3px 3px 0;opacity:0;transform:scaleY(0);transform-origin:top;transition:opacity 0.4s ease,transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-text-col::before{opacity:1;transform:scaleY(1);}
+.ph-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#185FA5;background:#e6f1fb;border-radius:100px;padding:5px 16px;margin-bottom:14px;width:fit-content;border:1px solid rgba(24,95,165,0.15);}
+.ph-title-row{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.ph-title-icon{width:42px;height:42px;border-radius:14px;flex:0 0 auto;display:grid;place-items:center;background:linear-gradient(135deg,rgba(24,95,165,0.12),rgba(73,160,233,0.08));border:1px solid rgba(24,95,165,0.12);color:#185FA5;}
+.ph-title-icon svg{width:22px;height:22px;}
+.ph-text-col h3{font-size:clamp(22px,2.5vw,32px);font-weight:800;color:#0d1f2d;margin:0;line-height:1.15;letter-spacing:-.3px;}
+.ph-text-col h3::after{content:'';display:block;width:40px;height:3px;background:linear-gradient(90deg,#185FA5,#2980d4);border-radius:2px;margin-top:12px;transition:width 0.4s cubic-bezier(0.25,0.46,0.45,0.94);}
+.ph-row:hover .ph-text-col h3::after{width:80px;}
+.ph-text-col p{font-size:15.5px;color:#4a5e72;line-height:1.82;margin-bottom:14px;}
+.ph-text-col p:last-of-type{margin-bottom:0;}
+.ph-text-col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+.ph-text-col ul li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#4a5e72;line-height:1.65;}
+.ph-text-col ul li::before{content:'';width:7px;height:7px;border-radius:50%;background:#185FA5;flex-shrink:0;margin-top:8px;transition:transform .25s ease,background .25s ease;}
+.ph-text-col ul li:hover::before{transform:scale(1.5);background:#2980d4;}
+/* scroll animations */
+.ph-row{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.ph-row.ph-visible{opacity:1;transform:translateY(0);}
+.ph-row.row-bottom{transition-delay:.12s;}
+.ph-img-col{opacity:0;transition:opacity .8s ease .15s,transform .8s cubic-bezier(.25,.46,.45,.94) .15s;}
+.row-top .ph-img-col{transform:translateX(-30px);}
+.row-bottom .ph-img-col{transform:translateX(30px);}
+.ph-row.ph-visible .ph-img-col{opacity:1;transform:translateX(0);}
+.ph-text-col{opacity:0;transition:opacity .8s ease .25s,transform .8s cubic-bezier(.25,.46,.45,.94) .25s;}
+.row-top .ph-text-col{transform:translateX(30px);}
+.row-bottom .ph-text-col{transform:translateX(-30px);}
+.ph-row.ph-visible .ph-text-col{opacity:1;transform:translateX(0);}
+@media(max-width:780px){
+  .ph-row{grid-template-columns:1fr;min-height:auto;}
+  .ph-img-col{min-height:260px;order:0!important;}
+  .ph-text-col{padding:36px 28px;order:1!important;}
+  .row-top .ph-img-col,.row-bottom .ph-img-col{transform:translateY(-20px);}
+  .row-top .ph-text-col,.row-bottom .ph-text-col{transform:translateY(20px);}
+}
+
+/* ══════════════════════════════════════════
+   ENGINEERING SECTION TEXT (before ph-rows)
+══════════════════════════════════════════ */
+.eng-lead{padding:80px 0 0;background:var(--page-bg);}
+.eng-lead-inner{max-width:1200px;margin:0 auto;padding:0 24px;}
+.eng-software-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.eng-sw-tag{padding:7px 18px;background:#fff;border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:var(--blue-mid);box-shadow:0 2px 8px rgba(13,63,114,0.06);}
+
+/* ══════════════════════════════════════════
+   STANDARDS (from peb_3_.html, verbatim style)
+══════════════════════════════════════════ */
+.logo-cards-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:48px;}
+@media(max-width:768px){.logo-cards-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.logo-cards-row{grid-template-columns:1fr;}}
+.logo-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px 20px 22px;text-align:center;box-shadow:0 4px 18px rgba(13,35,64,.07);transition:transform .3s ease,box-shadow .3s ease;cursor:default;}
+.logo-card:hover{transform:translateY(-7px);box-shadow:0 20px 44px rgba(13,35,64,.15);}
+.logo-card-img{width:90px;height:90px;object-fit:contain;display:block;margin:0 auto 16px;}
+.logo-card-name{font-size:15px;font-weight:800;color:#0f3f6b;letter-spacing:.02em;margin-bottom:4px;}
+.logo-card-full{font-size:12.5px;color:var(--text-muted);line-height:1.5;}
+.std-bullets-wrap{background:#fff;border:1px solid var(--border);border-radius:18px;padding:36px 40px;box-shadow:0 4px 18px rgba(13,35,64,.07);}
+@media(max-width:600px){.std-bullets-wrap{padding:24px 20px;}}
+.std-bullets-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:700px){.std-bullets-grid{grid-template-columns:1fr;}}
+.std-bullet-item{display:flex;gap:16px;padding:18px 20px;border-bottom:1px solid rgba(24,95,165,.08);align-items:flex-start;}
+.std-bullet-item:nth-child(odd){border-right:1px solid rgba(24,95,165,.08);}
+.std-bullet-item:last-child,.std-bullet-item:nth-last-child(2):nth-child(odd){border-bottom:none;}
+.std-bullet-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--blue-mid);margin-top:2px;}
+.std-bullet-text h4{font-size:14px;font-weight:700;color:#0f3f6b;margin-bottom:5px;}
+.std-bullet-text p{font-size:13px;color:var(--blue-bright);font-weight:600;line-height:1.6;}
+[data-fm]{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.25,.46,.45,.94);}
+[data-fm].fm-in{opacity:1;transform:translateY(0);}
+[data-fm="1"]{transition-delay:.08s;}[data-fm="2"]{transition-delay:.16s;}
+[data-fm="3"]{transition-delay:.24s;}[data-fm="4"]{transition-delay:.32s;}
+[data-fm="5"]{transition-delay:.4s;}
+
+/* ══════════════════════════════════════════
+   SECTION 5 — INDUSTRIES (PNG icon + name)
+══════════════════════════════════════════ */
+.ind-section{background:#fff;padding:80px 0;}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0;}
+@media(max-width:768px){.ind-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.ind-grid{grid-template-columns:1fr;}}
+.ind-card{background:#fff;border:1px solid rgba(24,95,165,0.1);border-radius:18px;padding:28px 20px 22px;text-align:center;box-shadow:0 4px 18px rgba(13,35,64,.06);transition:transform .35s cubic-bezier(.22,.68,0,1.2),box-shadow .35s ease,border-color .3s ease;cursor:default;display:flex;flex-direction:column;align-items:center;gap:0;position:relative;overflow:hidden;}
+.ind-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue-mid),var(--blue-bright));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;border-radius:18px 18px 0 0;}
+.ind-card:hover{transform:translateY(-8px);box-shadow:0 20px 44px rgba(13,35,64,.14);border-color:rgba(24,95,165,.25);}
+.ind-card:hover::before{transform:scaleX(1);}
+.ind-logo-wrap{width:90px;height:90px;border-radius:18px;background:linear-gradient(135deg,#e6f1fb 0%,#d4e8f8 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;border:1px solid rgba(24,95,165,0.1);margin:0 auto 16px;}
+.ind-logo-wrap img{width:60px;height:60px;object-fit:contain;display:block;}
+.ind-card h3{font-size:14px;font-weight:700;color:#0d2340;text-align:center;line-height:1.4;letter-spacing:.01em;}
+
+/* ══════════════════════════════════════════
+   SECTION 6 — TECH SPEC BANNER (ph-row full-width)
+══════════════════════════════════════════ */
+.spec-banner{position:relative;overflow:hidden;min-height:440px;display:flex;align-items:center;background:#0d2340;}
+.spec-banner-bg{position:absolute;inset:0;background-image:url('images/peb/tech-spec-banner.png');background-size:cover;background-position:center;}
+.spec-banner-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,0.82) 0%,rgba(13,35,64,0.68) 100%);}
+.spec-banner-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,146,42,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,42,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.spec-banner-glow{position:absolute;right:-60px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(41,128,212,.18) 0%,transparent 70%);}
+.spec-banner-inner{position:relative;z-index:2;padding:80px 48px;max-width:1200px;margin:0 auto;width:100%;}
+.spec-banner-inner h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin:14px 0 20px;}
+.spec-banner-inner h2 span{color:var(--gold);}
+.spec-banner-inner p{font-size:16px;color:rgba(255,255,255,.76);line-height:1.78;max-width:640px;margin-bottom:32px;}
+.spec-banner-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.spec-banner-tag{padding:7px 18px;border:1px solid rgba(255,255,255,.22);border-radius:100px;font-size:13px;color:rgba(255,255,255,.88);font-weight:500;backdrop-filter:blur(4px);}
+/* Animation: scan line shimmer */
+@keyframes scanLine{0%{top:-10%;}100%{top:110%;}}
+.spec-banner::before{content:'';position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,146,42,.5),transparent);animation:scanLine 4s linear infinite;z-index:3;}
+
+/* SPECS GRID CARDS */
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:0;}
+@media(max-width:900px){.specs-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.specs-grid{grid-template-columns:1fr;}}
+.spec-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(13,35,64,.07);transition:transform .3s ease,box-shadow .3s ease;}
+.spec-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,35,64,.14);}
+.spec-card-head{background:linear-gradient(135deg,#0d2340 0%,#185fa5 100%);padding:22px 20px;display:flex;align-items:center;gap:14px;}
+.spec-card-icon{font-size:24px;}
+.spec-card-head h3{font-size:13.5px;font-weight:700;color:#fff;line-height:1.35;}
+.spec-items{list-style:none;padding:20px;display:flex;flex-direction:column;gap:9px;}
+.spec-items li{font-size:13.5px;color:var(--text-primary);line-height:1.5;padding-left:18px;position:relative;}
+.spec-items li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--blue-mid);}
+
+/* ══════════════════════════════════════════
+   SECTION 7 — PRIMARY FRAMING (pm-grid style, 5 rows 3 cols)
+══════════════════════════════════════════ */
+.framing-section{background:var(--page-bg);padding:80px 0;}
+.framing-lead{margin-bottom:48px;}
+.framing-lead p{font-size:15.5px;color:var(--text-muted);line-height:1.82;margin-bottom:14px;max-width:860px;}
+.pm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto;}
+@media(max-width:900px){.pm-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.pm-grid{grid-template-columns:1fr;}}
+.pm-card{background:#dde3ec;border:1px solid rgba(13,35,64,.1);border-radius:16px;padding:0;display:flex;flex-direction:column;overflow:hidden;cursor:default;transition:transform .35s cubic-bezier(.22,.68,0,1.2),box-shadow .35s ease,border-color .3s ease;opacity:0;transform:translateY(28px);position:relative;}
+.pm-card.pm-in{opacity:1;transform:translateY(0);}
+.pm-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(13,35,64,.15);border-color:rgba(24,95,165,.28);}
+.pm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#185fa5,#2980d4);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;border-radius:16px 16px 0 0;}
+.pm-card:hover::before{transform:scaleX(1);}
+.pm-img-wrap{width:100%;height:220px;overflow:hidden;background:#c8d0db;flex-shrink:0;}
+.pm-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.pm-card:hover .pm-img-wrap img{transform:scale(1.05);}
+.pm-category-label{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:8px 0 4px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(200,146,42,.85);opacity:0;transition:opacity .5s ease;}
+.pm-category-label.pm-in{opacity:1;}
+.pm-category-label::after{content:'';flex:1;height:1px;background:rgba(200,146,42,.2);}
+
+/* ══════════════════════════════════════════
+   SECTION 8 — MATERIALS (H-Beam, Purlins etc — ph-row alternating pattern)
+══════════════════════════════════════════ */
+.materials-section{background:#fff;padding:80px 0 0;}
+.materials-section .philosophy-grid{border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(13,35,64,.10);}
+
+/* ══════════════════════════════════════════
+   SECTION 9 — CRANE SUPPORT (full banner image top, text below)
+══════════════════════════════════════════ */
+.crane-section{background:#0d2340;overflow:hidden;}
+.crane-banner-img{position:relative;width:100%;height:520px;overflow:hidden;}
+.crane-banner-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.crane-banner-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,16,28,0.18) 0%,rgba(7,16,28,0.32) 55%,rgba(13,27,50,0.78) 100%);}
+.crane-banner-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:52px 56px;}
+.crane-banner-overlay h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.08;margin-bottom:28px;}
+.crane-banner-overlay h2 span{color:var(--gold);}
+.crane-stat-row{display:flex;gap:40px;flex-wrap:wrap;}
+.crane-stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);}
+.crane-stat-label{font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.05em;text-transform:uppercase;margin-top:4px;}
+.crane-content-below{max-width:1200px;margin:0 auto;padding:56px 56px 72px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media(max-width:768px){.crane-content-below{grid-template-columns:1fr;gap:32px;padding:40px 24px 56px;}}
+.crane-text h3{font-size:clamp(18px,2.2vw,24px);font-weight:700;color:#fff;margin-bottom:14px;}
+.crane-text p{font-size:15px;color:rgba(255,255,255,.76);line-height:1.78;margin-bottom:14px;}
+.crane-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.crane-chip{padding:7px 16px;border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:12.5px;color:rgba(255,255,255,.88);font-weight:500;}
+.crane-img-block{display:flex;flex-direction:column;gap:16px;}
+.crane-img-ph{background:linear-gradient(135deg,rgba(24,95,165,.15),rgba(24,95,165,.05));border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:24px;text-align:center;}
+.crane-img-ph img{width:100%;border-radius:12px;object-fit:cover;height:200px;}
+.crane-badges{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+.crane-badge{padding:6px 14px;background:rgba(200,146,42,.18);border:1px solid rgba(200,146,42,.28);border-radius:8px;font-size:13px;font-weight:600;color:var(--gold);}
+@keyframes scanHoriz{0%{left:-10%;}100%{left:110%;}}
+.crane-section::before{content:'';position:absolute;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,rgba(200,146,42,.4),transparent);animation:scanHoriz 6s linear infinite;z-index:3;}
+@media(max-width:768px){.crane-banner-img{height:360px;}.crane-banner-overlay{padding:32px 24px;}.crane-banner-overlay h2{font-size:clamp(26px,6vw,36px);}.crane-stat-row{gap:24px;}}
+
+/* ══════════════════════════════════════════
+   FOOTER (copy-paste block from index.html, fitted full width)
+══════════════════════════════════════════ */
+:root{--footer-social:#e8b84b;--footer-container:1520px;}
+.footer-shell,.footer-shell *{box-sizing:border-box;}
+.footer-shell{
+  width:100%;
+  max-width:none;
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--footer-text);
+  border:0;
+  border-radius:0;
+  overflow:hidden;
+  background:#021224;
+  box-shadow:0 -14px 42px rgba(0,0,0,.22);
+}
+.footer-wrap{
+  width:100%;
+  max-width:var(--footer-container);
+  margin:0 auto;
+  padding:24px clamp(16px,2.6vw,38px) 16px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:170px 1fr 170px;
+  align-items:center;
+  gap:14px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--footer-line);
+}
+.logo-placeholder{
+  width:170px;
+  height:68px;
+  border-radius:10px;
+  border:1.5px dashed rgba(132,187,230,.65);
+  background:rgba(8,35,61,.56);
+  color:#8ec0e6;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:6px;
+}
+.footer-nav{
+  display:grid;
+  grid-template-columns:1.25fr 1.35fr 1fr 1fr 1.15fr;
+  gap:clamp(16px,2vw,34px);
+  padding:24px 0 20px;
+  border-bottom:1px solid var(--footer-line);
+  align-items:start;
+}
+.footer-col h4,.footer-col .heading-link{
+  margin:0 0 12px;
+  font-size:1.18rem;
+  line-height:1.2;
+  color:#f6fbff;
+  font-weight:800;
+  text-decoration:none;
+  display:inline-block;
+}
+.footer-col ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:8px;
+}
+.footer-col a,.footer-col p{
+  margin:0;
+  color:var(--footer-muted);
+  text-decoration:none;
+  font-size:.94rem;
+  line-height:1.45;
+  font-weight:500;
+}
+.footer-col a:hover,.footer-col .heading-link:hover{color:#ecf7ff;}
+.stack-links{display:grid;gap:12px;align-content:start;}
+.stack-links .heading-link{margin:0;}
+.placeholder-lines{display:grid;gap:6px;margin:0 0 8px;}
+.placeholder-lines span{
+  display:block;
+  width:100%;
+  max-width:150px;
+  height:8px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(78,138,183,.45) 0%,rgba(78,138,183,.14) 100%);
+}
+.contact-list{display:grid;gap:10px;}
+.contact-row{
+  display:grid;
+  grid-template-columns:18px 1fr;
+  gap:10px;
+  align-items:start;
+}
+.contact-row svg{color:var(--footer-accent);margin-top:2px;flex-shrink:0;}
+.footer-bottom{padding-top:14px;color:#9ebedd;font-size:.95rem;}
+.footer-bottom strong{color:#3bb4f3;}
+.footer-shell .socials{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  opacity:0;
+  transform:translateY(30px);
+}
+.footer-shell .socials.animate-in,.footer-shell.animate-footer .socials{
+  opacity:1;
+  transform:translateY(0);
+  animation:footerSocialFadeIn .8s cubic-bezier(.25,.46,.45,.94) both;
+}
+@keyframes footerSocialFadeIn{
+  from{opacity:0;transform:translateY(30px) scale(.95);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+.footer-top-spacer{width:170px;height:1px;}
+.footer-shell .social-btn{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(10px);
+  border:1.5px solid rgba(232,184,75,.45);
+  color:var(--footer-social);
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.18);
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,.68,0,1.25),background .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.footer-shell .social-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(232,184,75,.3),transparent);
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+.footer-shell .social-btn svg{
+  width:22px;
+  height:22px;
+  position:relative;
+  z-index:1;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));
+}
+.footer-shell .social-btn:hover{
+  transform:translateY(-4px) scale(1.08);
+  background:rgba(2,18,36,.95);
+  border-color:var(--footer-social);
+  box-shadow:0 16px 40px rgba(200,146,42,.3),0 0 20px rgba(232,184,75,.4);
+}
+.footer-shell .social-btn:hover::before{opacity:1;}
+.footer-shell .social-btn:active{transform:translateY(-2px) scale(1.02);}
+@media(max-width:1180px){.footer-nav{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:860px){.footer-nav{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr;justify-items:start;}
+  .footer-shell .socials{justify-content:flex-start;gap:12px;}
+  .footer-top-spacer{display:none;}
+  .footer-nav{grid-template-columns:1fr;}
+  .footer-shell .social-btn{width:42px;height:42px;}
+  .footer-shell .social-btn svg{width:20px;height:20px;}
+}
+
+/* ── HF HEADER + FOOTER NAVIGATION ── */
+.bh__site-header{position:sticky;top:0;z-index:120;background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(248,250,255,.97));border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:visible;}
+.bh__header-container{width:100%;max-width:1520px;margin:0 auto;padding:.75rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.bh__brand-wrap{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.bh__brand-logo{height:42px;width:auto;display:block;opacity:0;transform:translateX(-28px) scale(.88);transition:opacity .55s cubic-bezier(.22,.68,0,1.2),transform .55s cubic-bezier(.22,.68,0,1.2);}
+.bh__brand-logo.bh__logo-in{opacity:1;transform:translateX(0) scale(1);}
+.bh__brand-name{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(.95rem,2vw,1.2rem);letter-spacing:.02em;color:#1a3c8f;line-height:1.1;display:inline-block;}
+.bh__brand-name span{opacity:0;transform:translateY(12px);display:inline-block;transition:opacity .5s ease,transform .5s ease;}
+.bh__brand-name.bh__name-in span{opacity:1;transform:translateY(0);}
+.bh__site-nav{display:flex;align-items:center;gap:2.2rem;font-family:'Inter',sans-serif;flex:1;justify-content:center;}
+.bh__site-nav>a{position:relative;font-weight:500;font-size:1.02rem;color:var(--text-muted);padding-bottom:3px;transition:color .23s;text-decoration:none;}
+.bh__site-nav>a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#e11d48;transition:width .28s ease;}
+.bh__site-nav>a:hover{color:#db2777;background:transparent;}
+.bh__site-nav>a:hover::after{width:100%;}
+.bh__nav-dropdown{position:relative;display:flex;align-items:center;}
+.bh__dropdown-btn{font:500 1.02rem 'Inter',sans-serif;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:0 0 3px;position:relative;transition:color .23s;display:flex;align-items:center;gap:4px;border-radius:0;text-decoration:none;}
+.bh__dropdown-btn::before{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#e11d48;transition:width .28s ease;}
+.bh__dropdown-btn::after{content:'▾';font-size:.7em;margin-left:2px;transition:transform .2s ease;}
+.bh__nav-dropdown:hover .bh__dropdown-btn,.bh__nav-dropdown.bh__open .bh__dropdown-btn{color:#db2777;background:transparent;}
+.bh__nav-dropdown:hover .bh__dropdown-btn::before,.bh__nav-dropdown.bh__open .bh__dropdown-btn::before{width:100%;}
+.bh__nav-dropdown.bh__open .bh__dropdown-btn::after{transform:rotate(180deg);}
+.bh__dropdown-menu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);min-width:245px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:10px 0;box-shadow:0 16px 40px rgba(13,35,64,.16);list-style:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:1000;}
+.bh__dropdown-menu::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px;}
+.bh__nav-dropdown:hover .bh__dropdown-menu,.bh__nav-dropdown.bh__open .bh__dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.bh__dropdown-menu li a{display:block;position:relative;padding:10px 18px;color:var(--text-primary);font-size:.92rem;font-weight:500;text-decoration:none;transition:color .2s,background .2s;}
+.bh__dropdown-menu li a::after{content:'';position:absolute;bottom:6px;left:18px;width:0;height:2px;background:#e11d48;border-radius:999px;transition:width .28s cubic-bezier(.4,0,.2,1);}
+.bh__dropdown-menu li a:hover{color:#e11d48;background:#fff5f7;}
+.bh__dropdown-menu li a:hover::after{width:calc(100% - 36px);}
+.bh__header-cta{background:var(--blue-mid);color:#fff;border:none;padding:.72rem 1.45rem;border-radius:10px;font-weight:700;font-size:.94rem;cursor:pointer;text-decoration:none;box-shadow:0 8px 22px rgba(24,95,165,.22);transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;}
+.bh__header-cta:hover{background:var(--blue-deep);transform:translateY(-1px);box-shadow:0 12px 28px rgba(24,95,165,.28);}
+.bh__mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.bh__mobile-menu-btn span{display:block;width:24px;height:2px;background:var(--text-primary);border-radius:2px;}
+.bh__mobile-nav{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--border);box-shadow:0 12px 28px rgba(13,35,64,.08);}
+.bh__mobile-nav>a,.bh__mobile-nav-parent{display:block;padding:14px 24px;color:var(--text-primary);font-weight:600;text-decoration:none;background:none;border:none;text-align:left;font:600 .95rem 'Inter',sans-serif;width:100%;cursor:pointer;}
+.bh__mobile-nav>a:hover,.bh__mobile-nav-parent:hover{color:var(--blue-mid);background:#f5f8ff;}
+.bh__mobile-nav-item{border-bottom:1px solid var(--border);}
+.bh__mobile-nav-chevron{float:right;transition:transform .2s ease;}
+.bh__mobile-nav-item.bh__open .bh__mobile-nav-chevron{transform:rotate(180deg);}
+.bh__mobile-submenu{max-height:0;overflow:hidden;background:#f8fafc;transition:max-height .28s ease;}
+.bh__mobile-submenu a{display:block;padding:10px 34px;color:var(--text-muted);font-size:.9rem;text-decoration:none;}
+.bh__mobile-submenu a:hover{color:var(--blue-mid);}
+.bh__mobile-nav-item.bh__open .bh__mobile-submenu{max-height:600px;}
+.bh__mobile-nav.bh__hidden{display:none!important;}
+.bh__mobile-nav-cta{padding:14px 24px;}
+.bh__mobile-nav-cta .bh__header-cta{width:100%;}
+.bh__footer-shell,.bh__footer-shell *{box-sizing:border-box;}
+.bh__footer-shell{width:100%;max-width:none;margin:0;font-family:'Inter',sans-serif;color:var(--footer-text);border:0;border-radius:0;overflow:hidden;background:#021224;box-shadow:0 -14px 42px rgba(0,0,0,.22);}
+.bh__footer-wrap{width:100%;max-width:1520px;margin:0 auto;padding:24px clamp(16px,2.6vw,38px) 16px;}
+.bh__footer-top{display:grid;grid-template-columns:190px 1fr 190px;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--footer-line);}
+.bh__footer-brand{width:190px;display:flex;align-items:center;gap:10px;text-decoration:none;}
+.bh__footer-brand-logo{width:48px;height:48px;object-fit:contain;opacity:0;transform:translateX(-24px);transition:opacity .58s ease,transform .58s cubic-bezier(.22,.68,0,1.2);}
+.bh__footer-brand-name{font-size:13px;font-weight:800;color:#8ec0e6;line-height:1.3;opacity:0;transform:translateX(-20px);transition:opacity .58s ease .08s,transform .58s cubic-bezier(.22,.68,0,1.2) .08s;}
+.bh__footer-brand-logo.bh__fb-in,.bh__footer-brand-name.bh__fb-in{opacity:1;transform:translateX(0);}
+.bh__footer-shell .bh__socials{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;opacity:0;transform:translateY(30px);}
+.bh__footer-shell.bh__animate-footer .bh__socials{animation:footerSocialFadeIn .8s cubic-bezier(.25,.46,.45,.94) both;}
+.bh__footer-shell .bh__social-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1.5px solid rgba(232,184,75,.45);color:var(--footer-social);text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.4);position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.22,.68,0,1.25),background .35s ease,border-color .35s ease;}
+.bh__footer-shell .bh__social-btn svg{width:22px;height:22px;position:relative;z-index:1;}
+.bh__footer-shell .bh__social-btn:hover{transform:translateY(-4px) scale(1.08);background:rgba(2,18,36,.95);border-color:var(--footer-social);box-shadow:0 16px 40px rgba(200,146,42,.3);}
+.bh__footer-top-spacer{width:190px;height:1px;}
+.bh__footer-nav{display:grid;grid-template-columns:1.25fr 1.35fr 1fr 1fr 1.15fr;gap:clamp(16px,2vw,34px);padding:24px 0 20px;border-bottom:1px solid var(--footer-line);align-items:start;}
+.bh__footer-col .bh__heading-link{margin:0 0 12px;font-size:1.18rem;line-height:1.2;color:#f6fbff;font-weight:800;text-decoration:none;display:inline-block;}
+.bh__footer-heading-animate span{opacity:0;transform:translateY(10px);display:inline-block;transition:opacity .55s ease,transform .55s ease;}
+.bh__footer-heading-animate.bh__fh-in span{opacity:1;transform:translateY(0);}
+.bh__footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.bh__footer-col a,.bh__footer-col p{margin:0;color:var(--footer-muted);text-decoration:none;font-size:.94rem;line-height:1.45;font-weight:500;}
+.bh__footer-col ul a,.bh__footer-col .bh__heading-link{position:relative;display:inline-block;}
+.bh__footer-col ul a::after,.bh__footer-col.bh__stack-links>a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#2ea8ea;transition:width .28s ease;}
+.bh__footer-col ul a:hover::after,.bh__footer-col.bh__stack-links>a:hover::after{width:100%;}
+.bh__footer-col a:hover,.bh__footer-col .bh__heading-link:hover{color:#ecf7ff;}
+.bh__placeholder-lines{display:grid;gap:6px;margin:0 0 8px;}
+.bh__placeholder-lines span{display:block;width:100%;max-width:150px;height:8px;border-radius:999px;background:linear-gradient(90deg,rgba(78,138,183,.45),rgba(78,138,183,.14));}
+.bh__stack-links{display:grid;gap:12px;align-content:start;}
+.bh__contact-list{display:grid;gap:10px;}
+.bh__contact-row{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;}
+.bh__contact-row svg{color:var(--footer-accent);margin-top:2px;}
+.bh__map-icon-red{color:#ef4444!important;}
+.bh__footer-bottom{padding-top:14px;color:#9ebedd;font-size:.92rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.bh__footer-bottom strong{color:#3bb4f3;}
+.bh__footer-copyright,.bh__built-by{opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;}
+.bh__footer-copyright.bh__cb-in,.bh__built-by.bh__cb-in{opacity:1;transform:translateY(0);}
+.bh__built-by-link{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;margin-left:4px;background:#2ea8ea;color:#021224!important;font-weight:900;text-decoration:none;}
+@media(max-width:1180px){.bh__footer-nav{grid-template-columns:repeat(3,minmax(0,1fr));}.bh__header-container{padding:.75rem 1.5rem;}.bh__site-nav{gap:1.25rem;}.bh__site-nav>a,.bh__dropdown-btn{font-size:.88rem;}}
+@media(max-width:900px){.bh__site-nav{display:none;}.bh__mobile-menu-btn{display:flex;}.bh__mobile-nav{display:flex;}.bh__header-cta{display:none;}.bh__mobile-nav-cta .bh__header-cta{display:block;}.bh__footer-nav{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:640px){.bh__footer-top{grid-template-columns:1fr;justify-items:start;}.bh__footer-shell .bh__socials{justify-content:flex-start;}.bh__footer-top-spacer{display:none;}.bh__footer-nav{grid-template-columns:1fr;}.bh__header-container{padding:.65rem 1rem;}.bh__brand-name{font-size:.82rem;}.bh__brand-logo{height:32px;}}
+
+/* FLOATING QUOTE & MODAL */
+.floating-quote-btn{position:fixed;bottom:28px;right:28px;z-index:9000;background:var(--blue-mid);color:#fff;font-size:13.5px;font-weight:700;padding:12px 22px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(24,95,165,.4);transition:transform .2s,box-shadow .2s;}
+.floating-quote-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(24,95,165,.5);}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-container{background:#fff;border-radius:20px;padding:36px;width:min(520px,calc(100vw - 32px));max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 28px 70px rgba(0,0,0,.3);}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.modal-header h2{font-size:1.4rem;font-weight:800;color:#0f3f6b;}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);padding:4px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:6px;}
+.form-group input,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text-primary);background:#fafafa;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--blue-mid);}
+.btn.btn-primary{background:var(--blue-mid);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;width:100%;transition:background .2s;}
+.btn.btn-primary:hover{background:var(--blue-deep);}
+.quote-success-message{display:none;text-align:center;padding:32px;}
+.success-check{font-size:48px;color:#22c55e;margin-bottom:12px;}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="bh__site-header">
+  <div class="bh__header-container">
+    <a class="bh__brand-wrap" href="./index.html" aria-label="Balaji Hitech Pvt. Ltd. home">
+      <img class="bh__brand-logo" id="bh__brand-logo" src="images/b-logo.png" alt="Balaji Hitech logo" width="42" height="42"/>
+      <span class="bh__brand-name" id="bh__brand-name">Balaji Hitech Pvt. Ltd.</span>
+    </a>
+
+    <nav id="bh__site-nav" class="bh__site-nav" aria-label="Main navigation">
+      <div class="bh__nav-dropdown">
+        <a class="bh__dropdown-btn" href="about.html" aria-haspopup="true">About Us</a>
+        <ul class="bh__dropdown-menu" aria-label="About Us submenu">
+          <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+          <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+          <li><a href="about.html#core-principals">Core Values</a></li>
+          <li><a href="about.html#about-management">Management Team</a></li>
+          <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+          <li><a href="about.html#about-certificates">Certificates</a></li>
+        </ul>
+      </div>
+
+      <div class="bh__nav-dropdown">
+        <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Business Verticals</button>
+        <ul class="bh__dropdown-menu" aria-label="Business Verticals submenu">
+          <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+          <li><a href="process-e.html">Process Equipments</a></li>
+          <li><a href="structures.html">Technological &amp; General Structure</a></li>
+          <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+          <li><a href="agri-equipments.html">Agri Equipments</a></li>
+          <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+        </ul>
+      </div>
+
+      <div class="bh__nav-dropdown">
+        <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Projects</button>
+        <ul class="bh__dropdown-menu" aria-label="Projects submenu"></ul>
+      </div>
+
+      <a href="contact.html">Contact Us</a>
+      <a href="career.html">Careers</a>
+
+      <div class="bh__nav-dropdown">
+        <button class="bh__dropdown-btn" aria-haspopup="true" aria-expanded="false">Download</button>
+        <ul class="bh__dropdown-menu" aria-label="Download submenu">
+          <li><a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <button class="bh__header-cta" data-open-modal>Get Quote</button>
+    <button id="bh__mobile-menu-button" class="bh__mobile-menu-btn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav id="bh__mobile-nav" class="bh__mobile-nav bh__hidden" aria-label="Mobile navigation">
+    <div class="bh__mobile-nav-item">
+      <button class="bh__mobile-nav-parent" data-mobile-toggle>About Us <span class="bh__mobile-nav-chevron">▾</span></button>
+      <div class="bh__mobile-submenu">
+        <a href="about.html">About Us (Overview)</a>
+        <a href="about.html#about-why-balaji">Why Balaji</a>
+        <a href="about.html#about-philosophy">Corporate Philosophy</a>
+        <a href="about.html#core-principals">Core Values</a>
+        <a href="about.html#about-management">Management Team</a>
+        <a href="about.html#about-infrastructure">Infrastructure</a>
+        <a href="about.html#about-certificates">Certificates</a>
+      </div>
+    </div>
+    <div class="bh__mobile-nav-item">
+      <button class="bh__mobile-nav-parent" data-mobile-toggle>Business Verticals <span class="bh__mobile-nav-chevron">▾</span></button>
+      <div class="bh__mobile-submenu">
+        <a href="peb.html">Pre-Engineered Buildings (PEB)</a>
+        <a href="process-e.html">Process Equipments</a>
+        <a href="structures.html">Technological &amp; General Structure</a>
+        <a href="ducting.html">Piping &amp; Ducting Systems</a>
+        <a href="agri-equipments.html">Agri Equipments</a>
+        <a href="erection.html">Erection &amp; Commissioning</a>
+      </div>
+    </div>
+    <a href="#">Projects</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="career.html">Careers</a>
+    <div class="bh__mobile-nav-item">
+      <button class="bh__mobile-nav-parent" data-mobile-toggle>Download <span class="bh__mobile-nav-chevron">▾</span></button>
+      <div class="bh__mobile-submenu">
+        <a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a>
+      </div>
+    </div>
+    <div class="bh__mobile-nav-cta">
+      <button class="bh__header-cta" data-open-modal>Get Quote</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ══ SECTION 1: HERO BANNER ══ -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="fade-up fade-up-1">Building Smarter.<br><span>Building Faster.</span></h1>
+      <p class="hero-sub fade-up fade-up-2">AN ISO 9001:2015 &nbsp;·&nbsp; 14001:2015 &nbsp;·&nbsp; 45001:2018 CERTIFIED COMPANY</p>
+    </div>
+  </div>
+</header>
+
+<main style="background:#e8edf3;">
+
+<!-- ══ SECTION 2: PEB SOLUTION ══ -->
+<section class="peb-solution-section" id="peb-solution">
+  <div class="peb-solution-text reveal">
+    <h3>THE PEB SOLUTION</h3>
+    <p>Balaji's Pre-Engineered Steel Buildings are factory-fabricated structural systems comprising primary framing members, secondary members, and high-performance roof and wall cladding. Each building is custom-engineered to meet project-specific loads, spans, and functional requirements, ensuring optimal steel utilization and structural efficiency. The system allows seamless integration of mezzanine floors, crane beams, canopies, facias, and service platforms, with provisions for future expansion. Designed for rapid erection and durability, Balaji PEBs deliver consistent quality, reduced construction time, and low lifecycle maintenance across industrial and commercial applications.</p>
+  </div>
+  <!-- Full-width image 1 -->
+  <div class="peb-img-row">
+    <img src="images/peb/Advantage PEB.png" alt="PEB Solution — Factory fabricated steel building" onerror="this.style.background='linear-gradient(135deg,#1b3a5c,#185fa5)';this.style.minHeight='500px';this.removeAttribute('src');"/>
+    <div class="peb-img-overlay"></div>
+  </div>
+  <!-- Full-width image 2 -->
+  <div class="peb-img-row">
+    <img src="images/peb/banner-3.png" alt="PEB Solution — Steel structure under construction" onerror="this.style.background='linear-gradient(135deg,#0d2340,#1b3a5c)';this.style.minHeight='500px';this.removeAttribute('src');"/>
+    <div class="peb-img-overlay"></div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3: ENGINEERING-LED DESIGN OPTIMIZATION ══ -->
+<section class="eng-lead" id="engineering">
+  <div class="eng-lead-inner">
+    <span class="sec-eyebrow reveal">Engineering Excellence</span>
+    <h2 class="sec-title reveal">Engineering-Led Design Optimization</h2>
+    <p class="sec-sub reveal" style="max-width:860px;">Balaji transforms conventional steel building concepts into efficient pre-engineered systems through advanced structural optimization, without compromising functionality or performance. Our fully digitized engineering process uses specialized analysis software and in-house design tools to achieve accuracy and consistency. Each project is supported by detailed calculations and clear design documentation, enabling easy review and validation by consultants. The result is an optimized PEB solution delivering material efficiency, faster execution, and dependable structural performance.</p>
+    <div class="eng-software-tags reveal">
+      <span class="eng-sw-tag">STAAD Pro</span>
+      <span class="eng-sw-tag">Tekla</span>
+      <span class="eng-sw-tag">FastCam</span>
+      <span class="eng-sw-tag">FastNest</span>
+      <span class="eng-sw-tag">AutoCAD</span>
+      <span class="eng-sw-tag">In-House Design Tools</span>
+    </div>
+  </div>
+</section>
+
+<!-- Engineering ph-row section -->
+<section class="philosophy-section" id="design-optimization" style="padding-top:40px;">
+  <div class="container">
+    <div class="philosophy-grid">
+      <!-- Row 1: Image LEFT | Text RIGHT -->
+      <div class="ph-row row-top js-ph-row">
+        <div class="ph-img-col">
+          <img src="images/peb/eng-design.jpeg" alt="Engineering Design Optimization"
+               onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#daedf8,#c5e0f5);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5b9bc7;>Engineering Image</span></div>'"/>
+        </div>
+        <div class="ph-text-col">
+          <span class="ph-tag">Process</span>
+          <div class="ph-title-row">
+            <span class="ph-title-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3.2 6.5L22 9.6l-5 4.9 1.2 7.5L12 18.7 5.8 22 7 14.5 2 9.6l6.8-1.1L12 2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Digitized Engineering Process</h3>
+          </div>
+          <p>Our fully digitized engineering process leverages industry-leading analysis software including <strong>STAAD Pro, Tekla, FastCam, FastNest, and AutoCAD</strong> alongside in-house design tools to achieve unmatched accuracy and consistency.</p>
+          <p>Each project is supported by detailed calculations and clear design documentation, enabling easy review and validation by consultants — resulting in an optimized PEB solution with material efficiency, faster execution, and dependable structural performance.</p>
+        </div>
+      </div>
+      <!-- Row 2: Text LEFT | Image RIGHT -->
+      <div class="ph-row row-bottom js-ph-row">
+        <div class="ph-text-col">
+          <span class="ph-tag">Standards</span>
+          <div class="ph-title-row">
+            <span class="ph-title-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <h3>Code-Compliant Structural Design</h3>
+          </div>
+          <p>Balaji's Pre-Engineered Steel Buildings are engineered in compliance with Indian and internationally recognized codes, as specified by project requirements — ensuring structural integrity across seismic, wind, and load conditions.</p>
+          <ul>
+            <li>Steel Design &amp; PEB: IS 800:2007, IS 806, IS 816, AISC, MBMA, AWS</li>
+            <li>Loading: IS 875 (Part 1–5), ASCE 7, IBC</li>
+            <li>Seismic: IS 1893, IS 13920, ASCE 7, UBC</li>
+            <li>Wind: IS 875 (Part 3), ASCE 7</li>
+            <li>Cold-Formed Steel: IS 801, AISI</li>
+          </ul>
+        </div>
+        <div class="ph-img-col">
+          <img src="images/peb/CCSD.png" alt="International Design Standards"
+               onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#e6f1fb,#d0e8f8);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5b9bc7;>Standards Image</span></div>'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- International Standards Cards -->
+<section class="peb-section" id="standards" style="padding-top:56px;">
+  <div class="container">
+    <div class="sec-header centered reveal">
+      <span class="sec-eyebrow">Compliance</span>
+      <h2 class="sec-title">International Standards &amp; Design Codes</h2>
+      <p class="sec-sub">Engineered in compliance with Indian and internationally recognized codes as specified by project requirements.</p>
+    </div>
+    <div class="logo-cards-row">
+      <div class="logo-card" data-fm="1">
+        <img class="logo-card-img" src="images/peb/logo-BIS.png" alt="Bureau of Indian Standards" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div style="display:none;width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#f97316,#fb923c);align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;font-weight:900;color:#fff;">BIS</div>
+        <div class="logo-card-name">BIS</div>
+        <div class="logo-card-full">Bureau of Indian Standards</div>
+      </div>
+      <div class="logo-card" data-fm="2">
+        <img class="logo-card-img" src="images/peb/logo- AWS.png" alt="American Welding Society" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div style="display:none;width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#1e40af,#3b82f6);align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;font-weight:900;color:#fff;">AWS</div>
+        <div class="logo-card-name">AWS</div>
+        <div class="logo-card-full">American Welding Society</div>
+      </div>
+      <div class="logo-card" data-fm="3">
+        <img class="logo-card-img" src="images/peb/logo- AISC.png" alt="AISC" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div style="display:none;width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#0f6e56,#10b981);align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:900;color:#fff;">AISC</div>
+        <div class="logo-card-name">AISC</div>
+        <div class="logo-card-full">American Institute of Steel Construction</div>
+      </div>
+      <div class="logo-card" data-fm="4">
+        <img class="logo-card-img" src="images/peb/logo-MBMA.png" alt="MBMA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div style="display:none;width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:900;color:#fff;">MBMA</div>
+        <div class="logo-card-name">MBMA</div>
+        <div class="logo-card-full">Metal Building Manufacturers Association</div>
+      </div>
+    </div>
+    <div class="std-bullets-wrap" data-fm="5">
+      <div class="std-bullets-grid">
+        <div class="std-bullet-item"><div class="std-bullet-num">01</div><div class="std-bullet-text"><h4>Steel Design &amp; PEB Standards</h4><p>IS 800:2007 · IS 806 · IS 816 · AISC · MBMA · AWS</p></div></div>
+        <div class="std-bullet-item"><div class="std-bullet-num">02</div><div class="std-bullet-text"><h4>Loading &amp; Structural Actions</h4><p>IS 875 (Part 1–5) · ASCE 7 · IBC</p></div></div>
+        <div class="std-bullet-item"><div class="std-bullet-num">03</div><div class="std-bullet-text"><h4>Seismic Design</h4><p>IS 1893 (Part 1) · IS 13920 · ASCE 7 · UBC</p></div></div>
+        <div class="std-bullet-item"><div class="std-bullet-num">04</div><div class="std-bullet-text"><h4>Wind Design</h4><p>IS 875 (Part 3) · ASCE 7</p></div></div>
+        <div class="std-bullet-item" style="border-bottom:none;"><div class="std-bullet-num">05</div><div class="std-bullet-text"><h4>Cold-Formed Steel (Secondary Members)</h4><p>IS 801 · AISI</p></div></div>
+        <div class="std-bullet-item" style="border-bottom:none;border-right:none;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 5: INDUSTRIES WE SERVE ══ -->
+<section class="ind-section" id="industries">
+  <div class="container">
+    <div class="sec-header centered reveal">
+      <span class="sec-eyebrow">Sectors</span>
+      <h2 class="sec-title">Industries We Serve</h2>
+      <p class="sec-sub">Our Pre-Engineered Buildings serve diverse sectors with purpose-built solutions tailored to each industry's unique requirements.</p>
+    </div>
+    <div class="pm-grid">
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-industrial.png" alt="Industrial &amp; Manufacturing" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Industrial &amp; Manufacturing</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-commercial.png" alt="Commercial Buildings" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Commercial Buildings</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-warehouse.png" alt="Warehousing &amp; Logistics" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Warehousing &amp; Logistics</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-infra.png" alt="Infrastructure Projects" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Infrastructure Projects</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-community.png" alt="Community Buildings" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Community Buildings</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-housing.png" alt="Accommodation &amp; Housing" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Accommodation &amp; Housing</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-agri.png" alt="Agriculture &amp; Farm Structures" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Agriculture &amp; Farm Structures</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-storage.png" alt="Storage Solutions" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Storage Solutions</div></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/ind-fuel.png" alt="Fuel Pumps &amp; Stations" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+        <div class="pm-info"><div class="pm-name">Fuel Pumps &amp; Stations</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 6: TECH SPECS — BANNER + COMPONENT CARDS ══ -->
+<!-- Banner (ph-row / full-width animated style) -->
+<section class="spec-banner" id="tech-specs">
+  <div class="spec-banner-bg"></div>
+  <div class="spec-banner-grid"></div>
+  <div class="spec-banner-glow"></div>
+  <div class="spec-banner-inner reveal">
+    <span class="sec-eyebrow" style="background:rgba(255,255,255,.1);color:var(--gold);">Technical Overview</span>
+    <h2>Technical Specifications<br>and <span>Design Parameters</span></h2>
+    <p>A complete building system — from rigid frame columns and roof panels to ventilators, glazing, and access doors — every component engineered and factory-finished for seamless on-site erection.</p>
+    <div class="spec-banner-tags">
+      <span class="spec-banner-tag">Rigid Frame System</span>
+      <span class="spec-banner-tag">Roofing &amp; Ventilation</span>
+      <span class="spec-banner-tag">Wall Cladding</span>
+      <span class="spec-banner-tag">Access &amp; Openings</span>
+      <span class="spec-banner-tag">Mezzanine Systems</span>
+      <span class="spec-banner-tag">Crane Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- Component Cards -->
+<section class="peb-section" style="padding-top:56px;">
+  <div class="container">
+    <div class="sec-header centered reveal">
+      <span class="sec-eyebrow">Components</span>
+      <h2 class="sec-title">Technical Specifications &amp; Design Parameters</h2>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-card reveal reveal-delay-1">
+        <div class="spec-card-head"><div class="spec-card-icon"></div><h3>Structural Components &amp; Framing</h3></div>
+        <ul class="spec-items js-list-animation">
+          <li>Rigid Frame Rafter</li><li>Rigid Frame Column</li><li>Mezzanine</li>
+          <li>Roof Purlins</li><li>Sidewall Girts</li><li>Eave Strut</li>
+          <li>Rod Bracing</li><li>Top Running Crane</li>
+        </ul>
+      </div>
+      <div class="spec-card reveal reveal-delay-2">
+        <div class="spec-card-head"><div class="spec-card-icon"></div><h3>Roofing &amp; Ventilation</h3></div>
+        <ul class="spec-items js-list-animation">
+          <li>Roof Panel</li><li>Ridge Ventilator</li><li>Rotary Ventilator</li>
+          <li>GRVENT</li><li>Roof Monitor</li><li>Skylight</li>
+          <li>Curved Eave</li><li>Eave Gutter &amp; Downspout</li>
+        </ul>
+      </div>
+      <div class="spec-card reveal reveal-delay-3">
+        <div class="spec-card-head"><div class="spec-card-icon"></div><h3>Wall &amp; Exterior Elements</h3></div>
+        <ul class="spec-items js-list-animation">
+          <li>Wall Panel &amp; Wall Light</li><li>Parapet Fascia</li><li>Corner Trim</li>
+          <li>Partial Block Wall</li><li>Canopy &amp; Glazing</li>
+          <li>Fixed Louvers</li><li>Industrial Louvers</li>
+        </ul>
+      </div>
+      <div class="spec-card reveal reveal-delay-4">
+        <div class="spec-card-head"><div class="spec-card-icon"></div><h3>Access &amp; Openings</h3></div>
+        <ul class="spec-items js-list-animation">
+          <li>Double Sliding Door</li><li>Roll Up Door</li><li>Personal Door</li>
+          <li>Aluminum Window</li><li>Double Flight Staircase</li>
+          <li>Cage Ladder</li><li>Roof Platform</li><li>Handrail</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 7: PRIMARY FRAMING — heading + para + pm-grid 5 rows × 3 cols ══ -->
+<section class="framing-section peb-section white" id="primary-framing">
+  <div class="container">
+    <div class="framing-lead reveal">
+      <span class="sec-eyebrow">Structural System</span>
+      <h2 class="sec-title">The Structural System (Primary Framing)</h2>
+      <p>Pre-Engineered Steel Buildings (PEB) utilize an integrated portal frame system comprising primary members, secondary members, bracing, and roof/wall sheeting to create a stable, unified structure. Unlike conventional buildings, where columns and trusses are independently designed, resulting in heavier sections, PEB systems are optimized as a complete structural solution, making them lighter and more efficient.</p>
+      <p>Various framing configurations are available to suit functional requirements, economic considerations, and architectural preferences. Standard framing configurations include the following:</p>
+    </div>
+    <div class="pm-grid" id="pm-grid">
+      <!-- Row 1 -->
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/1.png" alt="Tapered Column Clear Span" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/2.png" alt="Tapered Column Multi Span 1" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/3.png" alt="Tapered Column Multi Span 2" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <!-- Row 2 -->
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/4.png" alt="Tapered Column Multi Span 3" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/5.png" alt="Mono Slope" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/6.png" alt="Multi Gable" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <!-- Row 3 -->
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/7.png" alt="Crane Beam and Mezzanine" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/8.png" alt="Crane Bracket and Crane Beam" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/9.png" alt="Curved Rafter" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <!-- Row 4 -->
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/10.png" alt="Arched Multi Span" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/11.png" alt="Roof System" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/12.png" alt="Lean To" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <!-- Row 5 -->
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/13.png" alt="Butterfly Canopy" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/14.png" alt="L Canopy" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+      <div class="pm-card">
+        <div class="pm-img-wrap"><img src="images/peb/beam/15.png" alt="Multi Span 2" onerror="this.parentNode.style.background='linear-gradient(135deg,#dde3ec,#c8d0db)';this.style.display='none'"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 8: MATERIALS — H-Beam, Purlins, Roofing etc (ph-row alternating) ══ -->
+<section class="materials-section" id="materials">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+    <span class="sec-eyebrow reveal">System Components</span>
+    <h2 class="sec-title reveal">Structural &amp; Cladding Materials</h2>
+  </div>
+  <div class="philosophy-grid" style="max-width:100%;margin:0;">
+
+    <!-- H-BEAM — Image left, text right -->
+    <div class="ph-row row-top js-ph-row">
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/h-beam.png" alt="H Beam fabrication"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#1b3a5c,#185fa5);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>H-Beam Image</span></div>'"/>
+      </div>
+      <div class="ph-text-col">
+        <span class="ph-tag">Primary Structure</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M4 12h16" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <h3>H Beam</h3>
+        </div>
+        <p>H-Beams are fabricated from high-grade structural steel plates conforming to <strong>IS 2062, ASTM A572 Grade 50, ASTM A570 Grade 50, or ASTM A572M Grade 345 Type 1</strong>. The material provides a minimum yield strength of <strong>345 MPa (34.5 kN/cm²)</strong>. All members are factory-finished with a minimum 25-micron DFT red oxide primer for corrosion protection.</p>
+        <ul>
+          <li>Web Height: 200 mm – 1,500 mm</li>
+          <li>Web Thickness: 6 mm – 32 mm</li>
+          <li>Flange Width: 200 mm – 800 mm</li>
+          <li>Plate Thickness: 6 mm – 32 mm</li>
+          <li>Length: Up to 12,000 mm</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PURLINS — Text left, image right -->
+    <div class="ph-row row-bottom js-ph-row">
+      <div class="ph-text-col">
+        <span class="ph-tag">Secondary Members</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Purlins, C-Sections &amp; Grits</h3>
+        </div>
+        <p>Balaji offers a complete range of structural C and Z purlins for industrial buildings, garages, verandahs, carports, and other steel-framed structures. Made from <strong>galvanized steel, CR, or HR steel</strong>, the fully integrated system supports flexible design options.</p>
+        <p>These lightweight, flexible beams enable efficient construction solutions. Balaji supplies purlins in various thicknesses with consistent depths for cost-effective pricing. Surface treatments are compliant with <strong>IS: 4777 and IS: 2074</strong> standards.</p>
+      </div>
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/purlins.png" alt="Purlins C Sections and Grits"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#1a3a2e,#2d6a4f);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Purlins Image</span></div>'"/>
+      </div>
+    </div>
+
+    <!-- ROOFING & WALL — Image left, text right -->
+    <div class="ph-row row-top js-ph-row">
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/roofing-wall.png" alt="Roofing and Wall System"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#0d3f72,#185fa5);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Roofing Image</span></div>'"/>
+      </div>
+      <div class="ph-text-col">
+        <span class="ph-tag">Cladding</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Roofing &amp; Wall System</h3>
+        </div>
+        <p>The roof profile is engineered for modern roofing applications. Its optimized bearing leg configuration ensures simplified installation and maintenance, accommodates enhanced insulation thickness, and enables smooth curvature for a refined architectural appearance.</p>
+        <p>The wall panel is an economical cladding solution with a partially concealed fastener system. Available in multiple colour finishes:</p>
+        <ul>
+          <li>Strong, Safe and Durable</li>
+          <li>Low Maintenance &amp; High Strength-to-Weight Ratio</li>
+          <li>Exceptional Corrosion Resistance</li>
+          <li>Thermally Efficient</li>
+          <li>Available in Arctic White, Tile Red, Sky Blue, Caribbean Blue, Autumn Green, Desert Beige &amp; more</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CLIP-ON SYSTEM — Text left, image right -->
+    <div class="ph-row row-bottom js-ph-row">
+      <div class="ph-text-col">
+        <span class="ph-tag">Fastening</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 5v2M12 17v2M5 12H3M21 12h-2M7.05 7.05l-1.41-1.41M18.36 18.36l-1.41-1.41M7.05 16.95l-1.41 1.41M18.36 5.64l-1.41 1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Clip-On System</h3>
+        </div>
+        <p>Clip-on profiles are fixed to roof purlins or wall girts using concealed clips, eliminating the need for fastening holes through the shed. As no screws penetrate the sheets, there are <strong>no visible screw heads</strong>.</p>
+        <p>Each clip is secured to the support with only two fasteners, ensuring firm and positive engagement with the ribs. This system delivers a clean, modern architectural appearance.</p>
+      </div>
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/clip-on.png" alt="Clip-On System"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#1e3a5f,#2d5f8f);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Clip-On Image</span></div>'"/>
+      </div>
+    </div>
+
+    <!-- ROD BRACING — Image left, text right -->
+    <div class="ph-row row-top js-ph-row">
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/rod-bracing.png" alt="Rod Bracing X Bracing"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#2d1a5c,#5c3aad);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Rod Bracing Image</span></div>'"/>
+      </div>
+      <div class="ph-text-col">
+        <span class="ph-tag">Bracing</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Rod Bracing</h3>
+        </div>
+        <p>Rod bracing (also known as X-bracing) is a <strong>tension-only structural bracing system</strong>. It is installed in the roof and wall planes between structural frame members, where it transfers longitudinal forces safely down to the foundation.</p>
+        <p>This system provides essential lateral stability to the building structure while maintaining the clean open-span aesthetics of the pre-engineered building concept.</p>
+      </div>
+    </div>
+
+    <!-- DECKING SHEET — Text left, image right -->
+    <div class="ph-row row-bottom js-ph-row">
+      <div class="ph-text-col">
+        <span class="ph-tag">Floor Systems</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M3 14h18" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <h3>Decking Sheet</h3>
+        </div>
+        <p>Decking Sheet is a high-strength solution for composite floor systems, providing an instant working platform for improved safety and faster construction. Its quick installation reduces project time and overall costs. It can also be used as permanent formwork, making it a versatile and economical choice.</p>
+        <ul>
+          <li>Profile depth: 44 mm; Pitch: 130 mm</li>
+          <li>Cover width: 910 mm; Overall width: 960 mm</li>
+          <li>Thickness range: 0.80 mm to 2.50 mm</li>
+          <li>Manufactured from galvanized and HR coils</li>
+        </ul>
+      </div>
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/decking-sheet.png" alt="Decking Sheet composite floor"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#1a3d2e,#2d6a4f);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Decking Sheet Image</span></div>'"/>
+      </div>
+    </div>
+
+    <!-- MEZZANINE — Image left, text right -->
+    <div class="ph-row row-top js-ph-row">
+      <div class="ph-img-col factory-img">
+        <img src="images/peb/Mezzanine systems.png"  alt="Mezzanine Systems"
+             onerror="this.parentNode.innerHTML='<div class=ph-img-ph style=min-height:380px;background:linear-gradient(135deg,#1b3a5c,#0f3f6b);display:flex;align-items:center;justify-content:center;><span style=font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);>Mezzanine Image</span></div>'"/>
+      </div>
+      <div class="ph-text-col">
+        <span class="ph-tag">Floor Systems</span>
+        <div class="ph-title-row">
+          <span class="ph-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 6v12M16 6v12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2 2"/></svg>
+          </span>
+          <h3>Mezzanine Systems</h3>
+        </div>
+        <p>Mezzanine systems are widely used in industrial and commercial buildings such as factories, warehouses, offices, and showrooms to <strong>maximize available floor space and improve operational efficiency</strong>.</p>
+        <p>Typically constructed using joist beams with purlins or secondary framing, a profiled steel deck slab is laid and concreted to form a durable floor platform — ideal for offices, storage, production, and showroom applications within the same building envelope.</p>
+      </div>
+    </div>
+
+  </div><!-- /philosophy-grid -->
+</section>
+
+<!-- ══ SECTION 9: CRANE SUPPORT SYSTEMS ══ -->
+<section class="crane-section" id="crane-support" style="position:relative;">
+  <!-- Full banner image with heading + stats overlay -->
+  <div class="crane-banner-img">
+<img src="images/peb/crane-banner.png" alt="Crane Support Systems" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#0d2340,#1b3a5c)';this.style.objectFit='cover';this.removeAttribute('src')"/>
+    <div class="crane-banner-overlay reveal">
+      <span class="sec-eyebrow" style="background:rgba(200,146,42,.15);color:var(--gold);margin-bottom:16px;">Heavy Lifting</span>
+      <h2>Crane <span>Support</span> Systems</h2>
+      <div class="crane-stat-row">
+        <div class="crane-stat"><div class="crane-stat-num">15 MT</div><div class="crane-stat-label">Bracket Supported</div></div>
+        <div class="crane-stat"><div class="crane-stat-num">15 MT+</div><div class="crane-stat-label">Independent Structure</div></div>
+        <div class="crane-stat"><div class="crane-stat-num">5</div><div class="crane-stat-label">Crane Types</div></div>
+      </div>
+    </div>
+  </div>
+  <!-- Text + secondary image below -->
+  <div class="crane-content-below">
+    <div class="crane-text reveal">
+      <h3>Integrated Crane Support Engineering</h3>
+      <p>Buildings can be engineered to accommodate a wide range of crane systems. Overhead travelling cranes up to 15 MT are typically supported on brackets, while higher capacities require independent support structures. The support system includes brackets, beams, and bracings.</p>
+      <p>Structures can also be designed to handle JIB cranes, monorail cranes, wall-travelling cranes, and semi-gantry cranes — fully integrated into the primary building structure.</p>
+      <div class="crane-chips">
+        <span class="crane-chip">Overhead Travelling Crane</span>
+        <span class="crane-chip">JIB Cranes</span>
+        <span class="crane-chip">Monorail Cranes</span>
+        <span class="crane-chip">Wall-Travelling Cranes</span>
+        <span class="crane-chip">Semi-Gantry Cranes</span>
+      </div>
+    </div>
+    <div class="crane-img-block reveal reveal-delay-2">
+      <div class="crane-img-ph">
+        <img src="images/peb/crane-system.png" alt="Crane Support System" onerror="this.style.display='none'"/>
+        <div class="crane-badges">
+          <span class="crane-badge">Brackets</span>
+          <span class="crane-badge">Beams</span>
+          <span class="crane-badge">Bracings</span>
+        </div>
+      </div>
+      <div class="crane-img-ph">
+        <img src="images/peb/crane-system-2.png" alt="Crane operations" onerror="this.style.display='none'"/>
+        <p style="font-size:13px;color:rgba(255,255,255,.65);margin-top:12px;line-height:1.6;text-align:center;">Engineered crane support systems integrated into the primary structure for seamless heavy-load handling</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main><!-- /main -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="bh__footer-shell" id="bh__footer-shell">
+  <div class="bh__footer-wrap">
+    <div class="bh__footer-top">
+      <a class="bh__footer-brand" href="./index.html" aria-label="Balaji Hitech home">
+        <img class="bh__footer-brand-logo" id="bh__footer-brand-logo" src="images/b-logo.png" alt="Balaji Hitech logo" width="48" height="48"/>
+        <span class="bh__footer-brand-name" id="bh__footer-brand-name">Balaji Hitech Pvt. Ltd.</span>
+      </a>
+      <div class="bh__socials" id="bh__footer-socials">
+        <a href="https://facebook.com/balajiassociates" class="bh__social-btn fb" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+        </a>
+        <a href="https://in.linkedin.com/in/balaji-hitech-private-limited-74a299376" class="bh__social-btn li" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1zM5.5 9.75h2.86V19H5.5V9.75zM10.25 9.75h2.74v1.26h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V19h-2.86v-4.52c0-1.08-.02-2.46-1.5-2.46-1.5 0-1.73 1.18-1.73 2.39V19h-2.81V9.75z"/></svg>
+        </a>
+      </div>
+      <div class="bh__footer-top-spacer" aria-hidden="true"></div>
+    </div>
+
+    <div class="bh__footer-nav">
+      <div class="bh__footer-col">
+        <a href="about.html" class="bh__heading-link bh__footer-heading-animate">About Us</a>
+        <ul>
+          <li><a href="about.html#about-why-balaji">Why Balaji</a></li>
+          <li><a href="about.html#about-philosophy">Corporate Philosophy</a></li>
+          <li><a href="about.html#core-principals">Core Values</a></li>
+          <li><a href="about.html#about-management">Management Team</a></li>
+          <li><a href="about.html#about-infrastructure">Infrastructure</a></li>
+          <li><a href="about.html#about-certificates">Certificates</a></li>
+        </ul>
+      </div>
+      <div class="bh__footer-col">
+        <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Business Verticals</a>
+        <ul>
+          <li><a href="peb.html">Pre-Engineered Buildings (PEB)</a></li>
+          <li><a href="process-e.html">Process Equipments</a></li>
+          <li><a href="structures.html">Technological &amp; General Structure</a></li>
+          <li><a href="ducting.html">Piping &amp; Ducting Systems</a></li>
+          <li><a href="agri-equipments.html">Agri Equipments</a></li>
+          <li><a href="erection.html">Erection &amp; Commissioning</a></li>
+        </ul>
+      </div>
+      <div class="bh__footer-col bh__stack-links">
+        <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Projects</a>
+        <div class="bh__placeholder-lines" aria-hidden="true"><span></span><span></span></div>
+        <a href="index.html#business-areas" class="bh__heading-link bh__footer-heading-animate">Safety &amp; Quality</a>
+        <a href="career.html" class="bh__heading-link bh__footer-heading-animate">Careers</a>
+      </div>
+      <div class="bh__footer-col bh__stack-links">
+        <a href="#" class="bh__heading-link bh__footer-heading-animate">Download</a>
+        <ul>
+          <li><a href="https://www.canva.com/design/DAF1p7p0u_k/T7u4WCrOQzas8J_swdnF1w/view?utm_content=DAF1p7p0u_k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6fdd1c008e" target="_blank" rel="noopener noreferrer">Brochure</a></li>
+        </ul>
+        <a href="index.html#clients-section" class="bh__heading-link bh__footer-heading-animate">Our Partners</a>
+      </div>
+      <div class="bh__footer-col">
+        <a href="contact.html" class="bh__heading-link bh__footer-heading-animate">Contact Us</a>
+        <div class="bh__contact-list">
+          <div class="bh__contact-row">
+            <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            <p><a class="bh__map-link" href="https://maps.app.goo.gl/VXeDtB8HF6Yr9fx58" target="_blank" rel="noopener noreferrer">Corporate Office: B-47, Sector 63, Noida 201301, U.P., India</a></p>
+          </div>
+          <div class="bh__contact-row">
+            <svg class="bh__map-icon-red" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            <p>Works: Village Dariyapur Bujurg, NH-9, Gajraula, District Amroha - 244 235, U.P., India</p>
+          </div>
+          <div class="bh__contact-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+            <a href="tel:+919780803254">+91-9780803254 / 9650474041</a>
+          </div>
+          <div class="bh__contact-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+            <span><a href="mailto:info@balajihitech.in">info@balajihitech.in</a><br/><a href="mailto:marketing@balajihitech.in">marketing@balajihitech.in</a></span>
+          </div>
+          <div class="bh__contact-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:sales@balajiprojects.co.in">sales@balajiprojects.co.in</a>
+          </div>
+          <div class="bh__contact-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.9 5.4 6.9 6.9l2.3-2.3c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.4 22 2 13.6 2 3c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg>
+            <a href="tel:+919780803254">+91 9780803254</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bh__footer-bottom">
+      <span class="bh__footer-copyright" id="bh__footer-copyright">&copy; 2026 <strong>Balaji Hitech Pvt. Ltd.</strong> All rights reserved.</span>
+      <span class="bh__built-by" id="bh__built-by">Built by <a class="bh__built-by-link" href="https://www.linkedin.com/in/piyush-sharma-836447124/" target="_blank" rel="noopener noreferrer" aria-label="Piyush Sharma on LinkedIn">P</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Quote Button -->
+<a href="#" class="floating-quote-btn" data-open-modal>Get Quote</a>
+
+<!-- Get Quote Modal -->
+<div id="quote-modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 id="modal-title">Get Quote</h2>
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+    </div>
+    <form id="quote-form">
+      <div class="form-group"><label for="full-name">Full Name *</label><input type="text" id="full-name" name="fullName" required></div>
+      <div class="form-group"><label for="company-name">Company Name</label><input type="text" id="company-name" name="companyName"></div>
+      <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required></div>
+      <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required></div>
+      <div class="form-group"><label for="requirement">Requirement / Message *</label><textarea id="requirement" name="requirement" rows="4" required placeholder="Describe your PEB requirements..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Send Inquiry</button>
+    </form>
+    <div id="quote-success" class="quote-success-message" aria-live="polite">
+      <div class="success-check">✓</div>
+      <p>Query Submitted, Thank you!!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+// Philosophy rows scroll-in (from about.html)
+(function(){
+  var phRows = document.querySelectorAll('.js-ph-row');
+  if(!phRows.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('ph-visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  phRows.forEach(function(r){ obs.observe(r); });
+})();
+
+// General reveal
+(function(){
+  var revealEls = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(function(el){ obs.observe(el); });
+})();
+
+// pm-grid cards
+(function(){
+  var cards = document.querySelectorAll('.pm-card,.pm-category-label');
+  if(!cards.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        setTimeout(function(){ e.target.classList.add('pm-in'); }, Array.from(cards).indexOf(e.target) * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  cards.forEach(function(c){ obs.observe(c); });
+})();
+
+// data-fm framer-style
+(function(){
+  var fmEls = document.querySelectorAll('[data-fm]');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('fm-in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  fmEls.forEach(function(el){ obs.observe(el); });
+})();
+
+// HF header, dropdown, mobile menu, and footer animations
+(function(){
+  function initBhHeaderAnimation(){
+    var logo = document.getElementById('bh__brand-logo');
+    var nameEl = document.getElementById('bh__brand-name');
+    if(!logo || !nameEl) return;
+    if(!nameEl.dataset.bhPrepared){
+      var words = nameEl.textContent.trim().split(/\s+/);
+      nameEl.innerHTML = words.map(function(w){ return '<span>' + w + '</span>'; }).join(' ');
+      nameEl.querySelectorAll('span').forEach(function(s, i){ s.style.transitionDelay = (.38 + i * .14) + 's'; });
+      nameEl.dataset.bhPrepared = 'true';
+    }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        logo.classList.add('bh__logo-in');
+        nameEl.classList.add('bh__name-in');
+      });
+    });
+  }
+
+  function initBhNavigation(){
+    var menuBtn = document.getElementById('bh__mobile-menu-button');
+    var mobileNav = document.getElementById('bh__mobile-nav');
+    if(menuBtn && mobileNav){
+      menuBtn.addEventListener('click', function(){ mobileNav.classList.toggle('bh__hidden'); });
+    }
+
+    var wrappers = document.querySelectorAll('.bh__nav-dropdown');
+    var hoverTimer;
+    wrappers.forEach(function(wrapper){
+      var menu = wrapper.querySelector('.bh__dropdown-menu');
+      var btn = wrapper.querySelector('.bh__dropdown-btn');
+      if(!menu || !btn) return;
+
+      function closeOthers(){
+        wrappers.forEach(function(w){
+          if(w === wrapper) return;
+          w.classList.remove('bh__open');
+          var b = w.querySelector('.bh__dropdown-btn');
+          if(b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+      function show(){
+        clearTimeout(hoverTimer);
+        closeOthers();
+        wrapper.classList.add('bh__open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      function hide(){
+        hoverTimer = setTimeout(function(){
+          wrapper.classList.remove('bh__open');
+          btn.setAttribute('aria-expanded', 'false');
+        }, 200);
+      }
+
+      wrapper.addEventListener('mouseenter', show);
+      wrapper.addEventListener('mouseleave', hide);
+      menu.addEventListener('mouseenter', function(){ clearTimeout(hoverTimer); });
+      menu.addEventListener('mouseleave', hide);
+      btn.addEventListener('click', function(e){
+        if(btn.tagName === 'A') return;
+        e.preventDefault();
+        wrapper.classList.contains('bh__open') ? hide() : show();
+      });
+    });
+
+    document.addEventListener('click', function(e){
+      if(e.target.closest('.bh__nav-dropdown')) return;
+      wrappers.forEach(function(w){
+        w.classList.remove('bh__open');
+        var b = w.querySelector('.bh__dropdown-btn');
+        if(b) b.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('[data-mobile-toggle]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var item = btn.closest('.bh__mobile-nav-item');
+        if(!item) return;
+        var isOpen = item.classList.contains('bh__open');
+        document.querySelectorAll('.bh__mobile-nav-item.bh__open').forEach(function(el){ el.classList.remove('bh__open'); });
+        if(!isOpen) item.classList.add('bh__open');
+      });
+    });
+  }
+
+  function initBhFooterAnimations(){
+    var headings = document.querySelectorAll('.bh__footer-heading-animate');
+    headings.forEach(function(h){
+      if(h.dataset.bhFhPrepared) return;
+      h.innerHTML = h.textContent.trim().split(/\s+/).map(function(w){ return '<span>' + w + '</span>'; }).join(' ');
+      h.querySelectorAll('span').forEach(function(s){
+        s.style.opacity = '0';
+        s.style.transform = 'translateY(10px)';
+        s.style.display = 'inline-block';
+        s.style.transition = 'opacity .55s ease, transform .55s ease';
+      });
+      h.dataset.bhFhPrepared = 'true';
+    });
+
+    var headingObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var spans = entry.target.querySelectorAll('span');
+        if(entry.isIntersecting){
+          spans.forEach(function(s, i){ setTimeout(function(){ s.style.opacity = '1'; s.style.transform = 'translateY(0)'; }, i * 130); });
+          entry.target.classList.add('bh__fh-in');
+        }else{
+          spans.forEach(function(s){ s.style.opacity = '0'; s.style.transform = 'translateY(10px)'; });
+          entry.target.classList.remove('bh__fh-in');
+        }
+      });
+    }, { threshold: .35 });
+    headings.forEach(function(h){ headingObs.observe(h); });
+
+    var brandObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ entry.target.classList.toggle('bh__fb-in', entry.isIntersecting); });
+    }, { threshold: 0 });
+    document.querySelectorAll('#bh__footer-brand-logo,#bh__footer-brand-name').forEach(function(el){ brandObs.observe(el); });
+
+    var cbObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ entry.target.classList.toggle('bh__cb-in', entry.isIntersecting); });
+    }, { threshold: 0 });
+    document.querySelectorAll('#bh__footer-copyright,#bh__built-by').forEach(function(el){ cbObs.observe(el); });
+
+    var shell = document.getElementById('bh__footer-shell');
+    if(shell){
+      var socialObs = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(entry){
+          if(!entry.isIntersecting) return;
+          shell.classList.add('bh__animate-footer');
+          obs.unobserve(shell);
+        });
+      }, { threshold: .1 });
+      socialObs.observe(shell);
+    }
+  }
+
+  initBhHeaderAnimation();
+  initBhNavigation();
+  initBhFooterAnimations();
+})();
+
+// Modal
+(function(){
+  var modals = document.querySelectorAll('[data-open-modal]');
+  var modal = document.getElementById('quote-modal');
+  var closeBtn = modal.querySelector('.modal-close');
+  modals.forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }); });
+  closeBtn.addEventListener('click', function(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+  modal.addEventListener('click', function(e){ if(e.target === modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+  document.getElementById('quote-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('quote-form').style.display = 'none';
+    document.getElementById('quote-success').style.display = 'block';
+  });
+})();
+</script>
+<script src="scripts.js"></script>
+<script src="industry-list-animation.js"></script>
+<script src="product-navigation-fixed.js"></script>
+</body>
+</html>
